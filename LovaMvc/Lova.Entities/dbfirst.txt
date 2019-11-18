@@ -1,0 +1,1 @@
+﻿Scaffold-DbContext -Connection "Server=182.48.115.232;User Id=dzyj;Password=DY@dzyj2019;Database=lovamvc" -Provider "Pomelo.EntityFrameworkCore.MySql" -Context LovaDbContext -DataAnnotations -Force -Project Lova.Entities  -UseDatabaseNames

@@ -1,0 +1,2817 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>cts.web.core</name>
+    </assembly>
+    <members>
+        <member name="T:cts.web.core.AppSetting">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:cts.web.core.AppSetting.PageSize">
+            <summary>
+            app数据返回的每页条数
+            </summary>
+        </member>
+        <member name="T:cts.web.core.BaseService">
+            <summary>
+            服务层基础类
+            </summary>
+        </member>
+        <member name="M:cts.web.core.BaseService.Fail(System.String)">
+            <summary>
+            失败
+            </summary>
+            <param name="msg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.BaseService.Success(System.String)">
+            <summary>
+            成功
+            </summary>
+            <param name="msg"></param>
+            <returns></returns>
+        </member>
+        <member name="T:cts.web.core.Config.RabbitMQConfig">
+            <summary>
+            rabbitmq 配置
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Config.RabbitMQConfig.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Config.RabbitMQConfig.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Config.RabbitMQConfig.Port">
+            <summary>
+            端口
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Config.RabbitMQConfig.HostName">
+            <summary>
+            主机
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Config.RabbitMQConfig.VirtualHost">
+            <summary>
+            虚拟
+            </summary>
+        </member>
+        <member name="T:cts.web.core.Datatable.DataSourceResult`1">
+            <summary>
+            无参数
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:cts.web.core.Datatable.DataSourceResult`1.#ctor(cts.web.core.IPagedList{`0},System.String)">
+            <summary>
+            
+            </summary>
+            <param name="pagedList"></param>
+            <param name="routeName"></param>
+        </member>
+        <member name="T:cts.web.core.Datatable.DataSourceResult`2">
+            <summary>
+            带参数
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="A"></typeparam>
+        </member>
+        <member name="M:cts.web.core.Datatable.DataSourceResult`2.#ctor(cts.web.core.IPagedList{`0},`1,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="pageList"></param>
+            <param name="param"></param>
+            <param name="routeName"></param>
+        </member>
+        <member name="T:cts.web.core.Datatable.DataSourceResult`3">
+            <summary>
+            带参数和一个另外一个数据
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="A"></typeparam>
+            <typeparam name="M1"></typeparam>
+        </member>
+        <member name="M:cts.web.core.Datatable.DataSourceResult`3.#ctor(cts.web.core.IPagedList{`0},`1,`2,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="pageList"></param>
+            <param name="param"></param>
+            <param name="m1"></param>
+            <param name="routeName"></param>
+        </member>
+        <member name="P:cts.web.core.Datatable.DataSourceResult`3.Data">
+            <summary>
+            数据
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Datatable.DataSourceResult`3.Paging">
+            <summary>
+            分页参数
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Datatable.DataSourceResult`3.Item1">
+            <summary>
+            其它数据M1
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Datatable.DataSourceResult`3.Arg">
+            <summary>
+            参数
+            </summary>
+        </member>
+        <member name="T:cts.web.core.Datatable.IPageListExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Datatable.IPageListExtensions.ToDataResult``1(cts.web.core.IPagedList{``0},System.String)">
+            <summary>
+            不带参数
+            </summary>
+            <param name="pageList"></param>
+            <param name="routeName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Datatable.IPageListExtensions.ToDataResult``2(cts.web.core.IPagedList{``0},``1,System.String)">
+            <summary>
+            带参数
+            </summary>
+            <param name="pageList"></param>
+            <param name="routeName"></param>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Datatable.IPageListExtensions.ToDataResult``3(cts.web.core.IPagedList{``0},``1,``2,System.String)">
+            <summary>
+            带参数和一个其他数据
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="A"></typeparam>
+            <typeparam name="M1"></typeparam>
+            <param name="pageList"></param>
+            <param name="param"></param>
+            <param name="m1"></param>
+            <param name="routeName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Datatable.IPageListExtensions.ToJsonResult``1(cts.web.core.IPagedList{``0})">
+            <summary>
+            app json格式数据列表
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="pageList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:cts.web.core.Datatable.JsonSourceResult`1">
+            <summary>
+            json分页结果
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:cts.web.core.Datatable.JsonSourceResult`1.#ctor(cts.web.core.IPagedList{`0})">
+            <summary>
+            
+            </summary>
+            <param name="pageList"></param>
+        </member>
+        <member name="P:cts.web.core.Datatable.JsonSourceResult`1.data">
+            <summary>
+            数据
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Datatable.JsonSourceResult`1.counts">
+            <summary>
+            总条数
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Datatable.JsonSourceResult`1.page">
+            <summary>
+            当前页
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Datatable.JsonSourceResult`1.totalpage">
+            <summary>
+            总页数
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Datatable.JsonSourceResult`1.size">
+            <summary>
+            页条数
+            </summary>
+        </member>
+        <member name="T:cts.web.core.Datatable.Pagination`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="TArg"></typeparam>
+        </member>
+        <member name="M:cts.web.core.Datatable.Pagination`1.#ctor(System.Int32,System.Int32,System.Int32,System.String,`0)">
+            <summary>
+            
+            </summary>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <param name="totalCount"></param>
+            <param name="routeName"></param>
+            <param name="param"></param>
+        </member>
+        <member name="M:cts.web.core.Datatable.Pagination`1.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean,System.Boolean,System.String,`0)">
+            <summary>
+            
+            </summary>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <param name="totalCount"></param>
+            <param name="totalPages"></param>
+            <param name="hasPreviousPage"></param>
+            <param name="hasNextPage"></param>
+            <param name="routeName"></param>
+            <param name="param"></param>
+        </member>
+        <member name="P:cts.web.core.Datatable.Pagination`1.PageIndex">
+            <summary>
+            当前页
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Datatable.Pagination`1.PageSize">
+            <summary>
+            每页数
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Datatable.Pagination`1.TotalCount">
+            <summary>
+            总记录
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Datatable.Pagination`1.TotalPages">
+            <summary>
+            分页数
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Datatable.Pagination`1.HasPreviousPage">
+            <summary>
+            是否有上一页
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Datatable.Pagination`1.HasNextPage">
+            <summary>
+            是否有下一页
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Datatable.Pagination`1.RouteName">
+            <summary>
+            路由名称
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Datatable.Pagination`1.RouteArg">
+            <summary>
+            查询参数
+            </summary>
+        </member>
+        <member name="T:cts.web.core.Datatable.Pagination">
+            <summary>
+            页码参数
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Datatable.Pagination.#ctor(System.Int32,System.Int32,System.Int32,System.String,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <param name="totalCount"></param>
+            <param name="routeName"></param>
+            <param name="param"></param>
+        </member>
+        <member name="M:cts.web.core.Datatable.Pagination.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean,System.Boolean,System.String,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <param name="totalCount"></param>
+            <param name="totalPages"></param>
+            <param name="hasPreviousPage"></param>
+            <param name="hasNextPage"></param>
+            <param name="routeName"></param>
+            <param name="param"></param>
+        </member>
+        <member name="T:cts.web.core.PagerTagHelper">
+            <summary>
+            后台管理分页控件
+            </summary>
+        </member>
+        <member name="P:cts.web.core.PagerTagHelper.Paging">
+            <summary>
+            分页参数
+            </summary>
+        </member>
+        <member name="P:cts.web.core.PagerTagHelper.Ajax">
+            <summary>
+            ajax方式？
+            </summary>
+        </member>
+        <member name="P:cts.web.core.PagerTagHelper.DataBox">
+            <summary>
+            数据容器
+            </summary>
+        </member>
+        <member name="P:cts.web.core.PagerTagHelper.ViewContext">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:cts.web.core.PagerTagHelper.Process(Microsoft.AspNetCore.Razor.TagHelpers.TagHelperContext,Microsoft.AspNetCore.Razor.TagHelpers.TagHelperOutput)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+            <param name="output"></param>
+        </member>
+        <member name="T:cts.web.core.Http.BaseClient">
+            <summary>
+            http请求基础类
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Http.BaseClient.CLIENT">
+            <summary>
+            HttpClient 对象
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Http.BaseClient.#ctor(System.Net.Http.HttpClient,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="httpClient"></param>
+            <param name="basUri">域名。例：https://xx.com</param>
+        </member>
+        <member name="T:cts.web.core.Engine">
+            <summary>
+            引擎
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Engine.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="P:cts.web.core.Engine.Configuration">
+            <summary>
+            配置对象
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Engine.ServiceProvider">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Engine.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Engine.Initialize(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            重写此方法
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:cts.web.core.Engine.Resolve``1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Engine.GetServiceProvider">
+            <summary>
+            获取ServiceProvider
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:cts.web.core.EngineContext">
+            <summary>
+            引擎上下文
+            </summary>
+        </member>
+        <member name="M:cts.web.core.EngineContext.Create(cts.web.core.IEngine)">
+            <summary>
+            创建引擎
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:cts.web.core.EngineContext.Current">
+            <summary>
+            当前引擎
+            </summary>
+        </member>
+        <member name="T:cts.web.core.IEngine">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:cts.web.core.IEngine.Configuration">
+            <summary>
+            配置对象
+            </summary>
+        </member>
+        <member name="M:cts.web.core.IEngine.Initialize(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:cts.web.core.IEngine.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.IEngine.Resolve``1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:cts.web.core.IWebHelper">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:cts.web.core.IWebHelper.GetIPAddress">
+            <summary>
+            获取客户端ip
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.IWebHelper.GetUrl">
+            <summary>
+            获取当前请求的Url
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.IWebHelper.GetUrlReferrer">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.IWebHelper.GetLocalIpAddress">
+            <summary>
+            获取本机ip地址
+            如果是hostlocal 会获取 127.0.0.1
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.IWebHelper.MapPath(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="virtualPath"></param>
+            <returns></returns>
+        </member>
+        <member name="T:cts.web.core.IPagedList`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:cts.web.core.IPagedList`1.PageIndex">
+            <summary>
+            当前页
+            </summary>
+        </member>
+        <member name="P:cts.web.core.IPagedList`1.PageSize">
+            <summary>
+            页条数。最高100条，最低10条
+            </summary>
+        </member>
+        <member name="P:cts.web.core.IPagedList`1.TotalCount">
+            <summary>
+            总条数
+            </summary>
+        </member>
+        <member name="P:cts.web.core.IPagedList`1.TotalPages">
+            <summary>
+            总页数
+            </summary>
+        </member>
+        <member name="P:cts.web.core.IPagedList`1.HasPreviousPage">
+            <summary>
+            是否有上一页
+            </summary>
+        </member>
+        <member name="P:cts.web.core.IPagedList`1.HasNextPage">
+            <summary>
+            是否有下一页
+            </summary>
+        </member>
+        <member name="T:cts.web.core.Jwt.IJWTFactory">
+            <summary>
+            jwt工厂接口
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Jwt.IJWTFactory.CreateToken(cts.web.core.Jwt.User,System.String,System.DateTime)">
+            <summary>
+            
+            </summary>
+            <param name="user"></param>
+            <param name="jti"></param>
+            <param name="expire"></param>
+            <returns></returns>
+        </member>
+        <member name="T:cts.web.core.Jwt.JWTFactory">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Jwt.JWTFactory.#ctor(cts.web.core.Jwt.JWTTokenOptions)">
+            <summary>
+            
+            </summary>
+            <param name="jWTTokenOptions"></param>
+        </member>
+        <member name="M:cts.web.core.Jwt.JWTFactory.CreateToken(cts.web.core.Jwt.User,System.String,System.DateTime)">
+            <summary>
+            生成一个新的 Token
+            ClaimTypes.Name 获得 UserName
+            ClaimTypes.UserData 获得 UserData
+            ClaimTypes.Sid 获得 UserID
+            JwtRegisteredClaimNames.Jti 获得 jti
+            </summary>
+            <param name="user">用户信息实体</param>
+            <param name="expire">token 过期时间</param>
+            <param name="jti"></param>
+            <returns></returns>
+        </member>
+        <member name="T:cts.web.core.Jwt.JWTTokenOptions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Jwt.JWTTokenOptions.Audience">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Jwt.JWTTokenOptions.Key">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Jwt.JWTTokenOptions.Credentials">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Jwt.JWTTokenOptions.Issuer">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Jwt.JWTTokenOptions.TokenName">
+            <summary>
+            header接口的头属性
+            </summary>
+        </member>
+        <member name="T:cts.web.core.Jwt.User">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Jwt.User.PrimarySid">
+            <summary>
+            登陆平台
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Jwt.User.UserID">
+            <summary>
+            用户id，加密后存储
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Jwt.User.UserName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Jwt.User.UserData">
+            <summary>
+            数据
+            </summary>
+        </member>
+        <member name="T:cts.web.core.Jwt.ValidJtiHandler">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Jwt.ValidJtiHandler.HandleRequirementAsync(Microsoft.AspNetCore.Authorization.AuthorizationHandlerContext,cts.web.core.Jwt.ValidJtiRequirement)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+            <param name="requirement"></param>
+            <returns></returns>
+        </member>
+        <member name="T:cts.web.core.Jwt.ValidJtiRequirement">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:cts.web.core.Librs.Chinese2PinYin">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:cts.web.core.Librs.Chinese2PinYin.pyValue">
+            <summary>
+            汉字的机内碼数组
+            </summary>
+        </member>
+        <member name="F:cts.web.core.Librs.Chinese2PinYin.pyName">
+            <summary>
+            机内碼对应的拼音数组
+            </summary>
+        </member>
+        <member name="F:cts.web.core.Librs.Chinese2PinYin.otherChinese">
+            <summary>
+            二级汉字数组
+            </summary>
+        </member>
+        <member name="F:cts.web.core.Librs.Chinese2PinYin.otherPinYin">
+            <summary>
+            二级汉字对应拼音数组
+            </summary>
+        </member>
+        <member name="F:cts.web.core.Librs.Chinese2PinYin.referenceChinese">
+            <summary>
+            用作比较的汉字列.
+            <remarks>
+            实现流程:
+            1.这些汉字是按a~z拼音排序.且每个汉字都是以a~z为声母发音的第一个汉字.即首界限汉字
+            </remarks>
+            </summary>
+        </member>
+        <member name="F:cts.web.core.Librs.Chinese2PinYin.pinYinArray">
+            <summary>
+            referenceChinese数组中汉字发音的声母
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Librs.Chinese2PinYin.GetPinyin(System.String)">
+            <summary>
+            获取单个汉字拼音，找不到返回"?"
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Librs.Chinese2PinYin.Convert(System.String)">
+            <summary>
+            把汉字转换成拼音(全拼)
+            </summary>
+            <param name="hzString">汉字字符串</param>
+            <returns>转换后的拼音(全拼)字符串</returns>
+        </member>
+        <member name="M:cts.web.core.Librs.Chinese2PinYin.ConvertWithBlank(System.String)">
+            <summary>
+            把汉字转换成拼音(全拼)
+            </summary>
+            <param name="hzString">汉字字符串</param>
+            <returns>转换后的拼音(全拼)字符串</returns>
+        </member>
+        <member name="M:cts.web.core.Librs.Chinese2PinYin.ConvertWithSplitChar(System.String,System.Char)">
+            <summary>
+            把汉字转换成拼音(全拼)
+            </summary>
+            <param name="splitChar"></param>
+            <param name="hzString">汉字字符串</param>
+            <returns>转换后的拼音(全拼)字符串</returns>
+        </member>
+        <member name="M:cts.web.core.Librs.Chinese2PinYin.GetFirstPinYin(System.String)">
+            <summary>
+            获取字符串中各汉字的声母
+            </summary>
+            <param name="hzString">要解析成声母的包含汉字的字符串</param>
+            <returns>汉字拼音声母</returns>
+        </member>
+        <member name="T:cts.web.core.Librs.ComomHelper">
+            <summary>
+            常用工具类
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Librs.ComomHelper.StartAeaID(System.String)">
+            <summary>
+            获取行政区域编码的有效起始位
+            例：海南 460000==>46
+            </summary>
+            <param name="areaID">行政区域编码</param>
+            <returns></returns>
+        </member>
+        <member name="T:cts.web.core.Librs.DataHelper">
+            <summary>
+            数据帮助类
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Librs.DataHelper.DefaultForType(System.Type)">
+            <summary>
+            获取数据的默认类型，否则返回null
+            </summary>
+            <param name="targetType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Librs.DataHelper.ConvertDictionaryToEntity``1(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            将字典中的数据转成对象，通过反射获取
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dic"></param>
+            <returns></returns>
+        </member>
+        <member name="T:cts.web.core.Librs.DistanceHelper">
+            <summary>
+            经纬度
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Librs.DistanceHelper.FindNeighPosition(System.Double,System.Double,System.Double)">
+            <summary>
+            根据一个给定经纬度的点和距离，进行附近地点查询
+            </summary>
+            <param name="longitude">经度</param>
+            <param name="latitude">纬度</param>
+            <param name="distance">距离（单位：公里或千米）</param>
+            <returns>返回一个范围的4个点，最小纬度和纬度，最大经度和纬度</returns>
+        </member>
+        <member name="M:cts.web.core.Librs.DistanceHelper.GetDistance(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            计算两点位置的距离，返回两点的距离，单位：公里或千米
+            该公式为GOOGLE提供，误差小于0.2米
+            </summary>
+            <param name="lat1">第一点纬度</param>
+            <param name="lng1">第一点经度</param>
+            <param name="lat2">第二点纬度</param>
+            <param name="lng2">第二点经度</param>
+            <returns>返回两点的距离，单位：公里或千米</returns>
+        </member>
+        <member name="M:cts.web.core.Librs.DistanceHelper.Rad(System.Double)">
+            <summary>
+            经纬度转化成弧度
+            </summary>
+            <param name="d"></param>
+            <returns></returns>
+        </member>
+        <member name="T:cts.web.core.Librs.PositionModel">
+            <summary>
+            计算一个位置及公里内的范围
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Librs.PositionModel.MinLat">
+            <summary>
+            最小纬度
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Librs.PositionModel.MaxLat">
+            <summary>
+            最大纬度
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Librs.PositionModel.MinLng">
+            <summary>
+            最小经度
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Librs.PositionModel.MaxLng">
+            <summary>
+            最大经度
+            </summary>
+        </member>
+        <member name="T:cts.web.core.Librs.EncryptorHelper">
+            <summary>
+            安全辅助类
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Librs.EncryptorHelper.GetMD5(System.String)">
+            <summary>
+            MD5加密
+            </summary>
+            <param name="sourceString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Librs.EncryptorHelper.CreateSaltKey(System.Int32)">
+            <summary>
+            生成Salt盐
+            </summary>
+            <param name="size">随机数长度，默认32字节</param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Librs.EncryptorHelper.HmacSha1(System.String,System.String)">
+            <summary>
+            UTF-8 编码方式的 HmacSha1 加密
+            </summary>
+            <param name="key">密钥</param>
+            <param name="input">加密字符串</param>
+            <returns>返回16进制大写的加字符串</returns>
+        </member>
+        <member name="M:cts.web.core.Librs.EncryptorHelper.EncodeBase64(System.String)">
+            <summary>
+            Base64加密，采用utf8编码方式加密
+            </summary>
+            <param name="sourceString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Librs.EncryptorHelper.DecodeBase64(System.String)">
+            <summary>
+            Base64解密，采用utf8编码方式解密
+            </summary>
+            <param name="sourceString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Librs.EncryptorHelper.DecodeBase64Byte(System.String)">
+            <summary>
+            Base64解密
+            </summary>
+            <param name="sourceString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Librs.EncryptorHelper.EncodeBase64(System.String,System.Text.Encoding)">
+            <summary>
+            base64编码
+            </summary>
+            <param name="str">待编码字符串</param>
+            <param name="encoding">编码方式</param>
+            <returns>string：base64编码字符串</returns>
+        </member>
+        <member name="M:cts.web.core.Librs.EncryptorHelper.DecodeBase64(System.String,System.Text.Encoding)">
+            <summary>
+            Base64解码
+            </summary>
+            <param name="str"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Librs.EncryptorHelper.CreateMachineKey(System.Int32)">
+            <summary>
+            使用加密服务提供程序实现加密生成随机数
+            validationKey 的有效值为 20 到 64。
+            decryptionKey 的有效值为 8 或 24。
+            </summary>
+            <param name="numBytes"></param>
+            <returns>16进制格式字符串</returns>
+        </member>
+        <member name="M:cts.web.core.Librs.EncryptorHelper.DESEncrypt(System.String,System.String,System.String)">
+            <summary>
+            Des加密方法
+            </summary>
+            <param name="val">待加密数据</param>
+            <param name="key">8位字符</param>
+            <param name="iv">8位字符</param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Librs.EncryptorHelper.DESDecrypt(System.String,System.String,System.String)">
+            <summary>
+            Des解密方法
+            </summary>
+            <param name="val">待解密数据</param>
+            <param name="key">8位字符</param>
+            <param name="iv">8位字符</param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Librs.EncryptorHelper.GenerateRSAKeys">
+            <summary>
+            生成一对秘钥。arr[0]私钥，arr[1]公钥
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Librs.EncryptorHelper.GenerateRSAKeysAndSave(System.String)">
+            <summary>
+            生成并保存 RSA 公钥与私钥
+            </summary>
+            <param name="filePath">存放密钥的文件夹路径</param>
+            <returns>存储文件格式：私钥 key.json,公钥 key.public.json</returns>
+        </member>
+        <member name="M:cts.web.core.Librs.EncryptorHelper.TryGetKeyParameters(System.String,System.Boolean,System.Security.Cryptography.RSAParameters@)">
+            <summary>
+            从本地文件中读取用来签发 Token 的 RSA Key
+            </summary>
+            <param name="filePath">存放密钥的文件夹路径</param>
+            <param name="withPrivate"></param>
+            <param name="keyParameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Librs.EncryptorHelper.RSAEncrypt(System.String,System.String)">
+            <summary>
+             RSA加密
+             </summary>
+             <param name="publickey">公钥</param>
+             <param name="content">加密内容</param>
+             <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Librs.EncryptorHelper.RSADecrypt(System.String,System.String)">
+            <summary>
+            RSA解密
+            </summary>
+            <param name="privatekey">私钥</param>
+            <param name="content">解密内容</param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Librs.EncryptorHelper.Encrypt3DES(System.String,System.Byte[],System.Security.Cryptography.CipherMode,System.String)">
+            <summary>
+            UTF8 编码 3DES 加密
+            </summary>
+            <param name="input">待加密字符串</param>
+            <param name="key">24字节的秘钥byte数组</param>
+            <param name="mode"></param>
+            <param name="iv">CBC 必须，8 位加密向量</param>
+            <returns>Base64字符串</returns>
+        </member>
+        <member name="M:cts.web.core.Librs.EncryptorHelper.Decrypt3DES(System.String,System.Byte[],System.Security.Cryptography.CipherMode,System.String)">
+            <summary>
+            3DES 解密
+            </summary>
+            <param name="input">3DES 加密得到的Base64字符串</param>
+            <param name="key">24字节的密钥字节数组</param>
+            <param name="mode"></param>
+            <param name="iv">CBC 必须填写iv。8位</param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Librs.EncryptorHelper.ECBEncrypt3DESHex(System.String,System.String)">
+            <summary>
+            utf-8 编码的 3des 加密,并转为16进制的字符串。
+            48位 16进制 的秘钥加密
+            </summary>
+            <param name="input">待加密的字符串</param>
+            <param name="hexKey">48位 16进制 的秘钥加密</param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Librs.EncryptorHelper.ECBDecrypt3DESByHex(System.String,System.String)">
+            <summary>
+            utf-8 编码的 解密3des加密成16进制的字符串
+            48位 16进制 的秘钥加密
+            </summary>
+            <param name="hexInput">16进制的加密字符串</param>
+            <param name="hexKey">48位 16进制 的秘钥加密</param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Librs.EncryptorHelper.ByteToHex(System.Byte[])">
+            <summary>
+            字节数组转16进制字符串
+            </summary>
+            <param name="bytes">字节数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Librs.EncryptorHelper.HexToBytes(System.String)">
+            <summary>
+            字符串转16进制字节数组
+            </summary>
+            <param name="hexString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Librs.EncryptorHelper.CreateRNGKey(System.Int32)">
+            <summary>
+            使用加密服务提供程序实现加密生成随机数
+            </summary>
+            <param name="numBytes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Librs.EncryptorHelper.AESEncrypt(System.String,System.String,System.String,System.Text.Encoding,System.Security.Cryptography.CipherMode,System.Security.Cryptography.PaddingMode)">
+            <summary>
+            AES 加密
+            </summary>
+            <param name="sourceString">原文</param>
+            <param name="key">key</param>
+            <param name="iv">向量</param>
+            <param name="encoding">编码</param>
+            <param name="cipherMode">指定模块</param>
+            <param name="paddingMode">指定填充</param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Librs.EncryptorHelper.AESDecrypt(System.String,System.String,System.String,System.Text.Encoding,System.Security.Cryptography.CipherMode,System.Security.Cryptography.PaddingMode)">
+            <summary>
+            AES 解密
+            </summary>
+            <param name="val"></param>
+            <param name="key">base64 编码的 key</param>
+            <param name="iv">base64 编码的 iv</param>
+            <param name="encoding"></param>
+            <param name="cipherMode"></param>
+            <param name="paddingMode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Librs.EncryptorHelper.AESDecrypt(System.String,System.Byte[],System.Byte[],System.Text.Encoding,System.Security.Cryptography.CipherMode,System.Security.Cryptography.PaddingMode)">
+            <summary>
+            AES 解密
+            </summary>
+            <param name="val"></param>
+            <param name="key"></param>
+            <param name="iv"></param>
+            <param name="cipherMode"></param>
+            <param name="paddingMode"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Librs.EncryptorHelper.AESEncrypt(System.String,System.String,System.Text.Encoding,System.Security.Cryptography.CipherMode,System.Security.Cryptography.PaddingMode)">
+            <summary>
+            AES 256位无向量加密
+            </summary>
+            <param name="sourceString"></param>
+            <param name="key"></param>
+            <param name="encoding"></param>
+            <param name="cipherMode"></param>
+            <param name="paddingMode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Librs.EncryptorHelper.AESDecrypt(System.String,System.String,System.Text.Encoding,System.Security.Cryptography.CipherMode,System.Security.Cryptography.PaddingMode)">
+            <summary>
+            AES 256位无向量解密
+            </summary>
+            <param name="sourceString"></param>
+            <param name="key"></param>
+            <param name="encoding"></param>
+            <param name="cipherMode"></param>
+            <param name="paddingMode"></param>
+            <returns></returns>
+        </member>
+        <member name="T:cts.web.core.Librs.EntityToJson">
+            <summary>
+            entity转json
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Librs.EntityToJson.EntityToJsonLog``1(``0)">
+            <summary>
+            entity 类型转换成json格式的log日志字符串
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:cts.web.core.Librs.FileUitls">
+            <summary>
+            文件工具类
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Librs.FileUitls.GetSHA1(System.IO.Stream)">
+            <summary>
+            获取文件的SHA1值
+            </summary>
+            <param name="inputStream"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Librs.FileUitls.GetSHA1(System.Byte[])">
+            <summary>
+            获取文件的SHA1值
+            </summary>
+            <param name="bt"></param>
+            <returns></returns>
+        </member>
+        <member name="T:cts.web.core.Librs.ImageHelper">
+            <summary>
+            图片处理类
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Librs.ImageHelper.CreateThumb(System.DrawingCore.Image,cts.web.core.Librs.ThumbnailProportion,System.Int32,System.Int32)">
+            <summary>
+            生成缩略图
+            </summary>
+            <param name="image"></param>
+            <param name="proportion"></param>
+            <param name="width"></param>
+            <param name="height"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Librs.ImageHelper.WaterMarkText(System.DrawingCore.Image,System.String,System.String,System.Int32,System.String,cts.web.core.Librs.WaterPosition,System.Int32)">
+            <summary>
+            图片添加文字水印
+            </summary>
+            <param name="image">图片</param>
+            <param name="text">文字内容</param>
+            <param name="fontFamily">字体</param>
+            <param name="emSize">字体大小px</param>
+            <param name="fontColor">字体颜色，：#ffffff</param>
+            <param name="position">位置</param>
+            <param name="opacity">透明度：1-100</param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Librs.ImageHelper.AddWaterText(System.DrawingCore.Image,System.String,System.String,System.Int32,System.String,cts.web.core.Librs.WaterPosition,System.Int32,System.Int32)">
+            <summary>
+            图片添加文字水印
+            </summary>
+            <param name="image">图片</param>
+            <param name="text">文字内容</param>
+            <param name="fontFamily">字体</param>
+            <param name="emSize">字体大小px</param>
+            <param name="fontColor">字体颜色，：#ffffff</param>
+            <param name="position">位置</param>
+            <param name="opacity">透明度：1-100</param>
+            <param name="rotate">倾斜度 正负180</param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Librs.ImageHelper.AddWaterPic(System.DrawingCore.Image,System.DrawingCore.Image,cts.web.core.Librs.WaterPosition,System.Int32)">
+            <summary>
+            图片添加水印
+            </summary>
+            <param name="image"></param>
+            <param name="watermark">水印图片</param>
+            <param name="position">位置</param>
+            <param name="opacity">透明度。1-100，越小透越透明</param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Librs.ImageHelper.ARGBStringToArray(System.String)">
+            <summary>
+            argb颜色字符串，返还a/r/g/b顺序的值数组
+            </summary>
+            <param name="rgbstring"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Librs.ImageHelper.FontMarkPicture(System.String,System.Int32,System.String,System.String,System.String)">
+            <summary>
+            生成文字图片 默认文字不透明
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Librs.ImageHelper.FontMarkPicture(System.String,System.Int32,System.String,System.String,System.String,System.Single)">
+            <summary>
+            生成文字图片（包含透明度）
+            </summary>
+            <param name="fonttext">文字</param>
+            <param name="fontsize">文字大小 px单位</param>
+            <param name="fontfamily">字体</param>
+            <param name="fontcolor">字体颜色</param>
+            <param name="backColor">背景色</param>
+            <param name="opacity">文字透明度,0 ~ 1</param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Librs.ImageHelper.Compress(System.IO.MemoryStream,System.Int32)">
+            <summary>
+            压缩图片，先定宽度最大1920px
+            </summary>
+            <param name="ms"></param>
+            <param name="compression">压缩质量 1-100(数字越小压缩率越高)</param>
+            <returns></returns>
+        </member>
+        <member name="T:cts.web.core.Librs.ThumbnailProportion">
+            <summary>
+            缩略图方式
+            </summary>
+        </member>
+        <member name="F:cts.web.core.Librs.ThumbnailProportion.WIDTH">
+            <summary>
+            指定宽，高按比例   
+            </summary>
+        </member>
+        <member name="F:cts.web.core.Librs.ThumbnailProportion.HEIHT">
+            <summary>
+            指定高，宽按比例
+            </summary>
+        </member>
+        <member name="F:cts.web.core.Librs.ThumbnailProportion.WIDTH_HEIHT">
+            <summary>
+            指定高宽缩放（可能变形）
+            </summary>
+        </member>
+        <member name="F:cts.web.core.Librs.ThumbnailProportion.CUT">
+            <summary>
+            指定高宽裁减（不变形）
+            </summary>
+        </member>
+        <member name="T:cts.web.core.Librs.WaterPosition">
+            <summary>
+            图片水印位置
+            </summary>
+        </member>
+        <member name="F:cts.web.core.Librs.WaterPosition.左上">
+            <summary>
+            左上
+            </summary>
+        </member>
+        <member name="F:cts.web.core.Librs.WaterPosition.中上">
+            <summary>
+            中上
+            </summary>
+        </member>
+        <member name="F:cts.web.core.Librs.WaterPosition.右上">
+            <summary>
+            右上
+            </summary>
+        </member>
+        <member name="F:cts.web.core.Librs.WaterPosition.左中">
+            <summary>
+            左中
+            </summary>
+        </member>
+        <member name="F:cts.web.core.Librs.WaterPosition.中中">
+            <summary>
+            中中
+            </summary>
+        </member>
+        <member name="F:cts.web.core.Librs.WaterPosition.右中">
+            <summary>
+            右中
+            </summary>
+        </member>
+        <member name="F:cts.web.core.Librs.WaterPosition.左下">
+            <summary>
+            左下
+            </summary>
+        </member>
+        <member name="F:cts.web.core.Librs.WaterPosition.中下">
+            <summary>
+            中下
+            </summary>
+        </member>
+        <member name="F:cts.web.core.Librs.WaterPosition.右下">
+            <summary>
+            右下
+            </summary>
+        </member>
+        <member name="T:cts.web.core.Librs.LoanCalculatorHelper">
+            <summary>
+            投资利息计算
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Librs.LoanCalculatorHelper.DengerBenxi(System.Double,System.Double,System.Int32)">
+            <summary>
+            等额本息法
+            </summary>
+            <param name="amount">投资金额</param>
+            <param name="yearRate">年利率</param>
+            <param name="months">投资期限，单位：月</param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Librs.LoanCalculatorHelper.XianxiHouben(System.Decimal,System.Decimal,System.Int32)">
+            <summary>
+            先息后本。按月付息到期还本
+            例子。如，小明在银行贷款10万，期限为一年，年利息为5.6%，按照先息后本的还款方式，每月还款金额为100000*5.6%/12=466.67元，一年到期后再还清10万元本金。
+            </summary>
+            <param name="amount">投资金额</param>
+            <param name="yearRate">年利率</param>
+            <param name="months">投资期限，单位：月</param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Librs.LoanCalculatorHelper.YiciXing(System.Decimal,System.Decimal,System.Int32)">
+            <summary>
+            一次性还本付息
+            </summary>
+            <param name="amount">投资金额</param>
+            <param name="yearRate">年利率</param>
+            <param name="months">投资期限，单位：月</param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Librs.LoanCalculatorHelper.DengerBenjin(System.Decimal,System.Decimal,System.Int32)">
+            <summary>
+            等额本金
+            每月还款金额= （贷款本金/ 还款月数）+（本金 — 已归还本金累计额）×每月利率
+            </summary>
+            <param name="amount">投资金额</param>
+            <param name="yearRate">年利率</param>
+            <param name="months">投资期限，单位：月</param>
+            <returns></returns>
+        </member>
+        <member name="T:cts.web.core.Librs.Interest">
+            <summary>
+            每期详情
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Librs.Interest.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Librs.Interest.TotalRate">
+            <summary>
+            总利息
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Librs.Interest.TotalMoney">
+            <summary>
+            总还款
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Librs.Interest.DataList">
+            <summary>
+            利息每期详细
+            </summary>
+        </member>
+        <member name="T:cts.web.core.Librs.BackUnit">
+            <summary>
+            每月利息单元
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Librs.BackUnit.Number">
+            <summary>
+            当前期数
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Librs.BackUnit.ShouldAmount">
+            <summary>
+            本期应还总额
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Librs.BackUnit.ShouldInterest">
+            <summary>
+            本期应还利息
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Librs.BackUnit.Corpus">
+            <summary>
+            本期应还本金
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Librs.BackUnit.SurplusCorpus">
+            <summary>
+            本期剩余本金
+            </summary>
+        </member>
+        <member name="T:cts.web.core.Librs.PingYinHelper">
+            <summary>
+            拼音
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Librs.PingYinHelper.ConvertToAllSpell(System.String)">
+            <summary>
+            汉字转全拼
+            </summary>
+            <param name="strChinese"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Librs.PingYinHelper.GetFirstSpell(System.String)">
+            <summary>
+            汉字转首字母
+            </summary>
+            <param name="strChinese"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Librs.PingYinHelper.GetSpell(System.Char)">
+            <summary>
+            
+            </summary>
+            <param name="chr"></param>
+            <returns></returns>
+        </member>
+        <member name="T:cts.web.core.Librs.RuntimeHelper">
+            <summary>
+            允许时
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Librs.RuntimeHelper.GetAssemblyByName(System.String)">
+            <summary>
+            通过程序集的名称加载程序集
+            </summary>
+            <param name="assemblyName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:cts.web.core.Librs.UrlUitls">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Librs.UrlUitls.AddParam(System.String,System.String[])">
+            <summary>
+            url添加参数
+            </summary>
+            <param name="url"></param>
+            <param name="param">多个参数，例：abc=11111</param>
+            <returns></returns>
+        </member>
+        <member name="T:cts.web.core.Librs.UTF8Json">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Librs.UTF8Json.ToBytes(System.Object)">
+            <summary>
+            将对象序列化成字节数组
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Librs.UTF8Json.ToObject``1(System.Byte[])">
+            <summary>
+            字节数组转换成对象
+            </summary>
+            <param name="array"></param>
+            <returns></returns>
+        </member>
+        <member name="T:cts.web.core.Librs.VerifyCodeType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:cts.web.core.Librs.VerifyCodeType.NumberVerifyCode">
+            <summary>
+            数字验证码
+            </summary>
+        </member>
+        <member name="F:cts.web.core.Librs.VerifyCodeType.AbcVerifyCode">
+            <summary>
+            字母验证码
+            </summary>
+        </member>
+        <member name="F:cts.web.core.Librs.VerifyCodeType.MixVerifyCode">
+            <summary>
+            混合验证码
+            </summary>
+        </member>
+        <member name="T:cts.web.core.Librs.VerifyCodeHelper">
+            <summary>
+            验证码生成
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Librs.VerifyCodeHelper.CreateNumberVerifyCode(System.Int32)">
+            <summary>  
+            1.数字验证码  
+            </summary>  
+            <param name="length"></param>  
+            <returns></returns>  
+        </member>
+        <member name="M:cts.web.core.Librs.VerifyCodeHelper.CreateAbcVerifyCode(System.Int32)">
+            <summary>  
+            2.字母验证码  
+            </summary>  
+            <param name="length">字符长度</param>  
+            <returns>验证码字符</returns>  
+        </member>
+        <member name="M:cts.web.core.Librs.VerifyCodeHelper.CreateMixVerifyCode(System.Int32)">
+            <summary>  
+            3.混合验证码  
+            </summary>  
+            <param name="length">字符长度</param>  
+            <returns>验证码字符</returns>  
+        </member>
+        <member name="M:cts.web.core.Librs.VerifyCodeHelper.CreateVerifyCode(System.Int32,System.Int32,cts.web.core.Librs.VerifyCodeType)">
+            <summary>  
+            产生验证码
+            </summary>
+            <param name="min">最小长度</param>
+            <param name="max">最大长度</param>
+            <param name="type">验证码类型：数字，字符，符合</param>  
+            <returns></returns>  
+        </member>
+        <member name="M:cts.web.core.Librs.VerifyCodeHelper.CreateVerifyCode(System.Int32,cts.web.core.Librs.VerifyCodeType)">
+            <summary>  
+            产生验证码,默认长度4位
+            </summary>  
+            <param name="length"></param>
+            <param name="type">验证码类型：数字，字符，符合。默认数字</param>  
+            <returns></returns>  
+        </member>
+        <member name="T:cts.web.core.Librs.XmlSerializeUtil">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Librs.XmlSerializeUtil.Deserialize``1(System.String)">
+            <summary>
+            反序列化
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="xml"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Librs.XmlSerializeUtil.Serializer``1(``0)">
+            <summary>
+            序列化
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="T:cts.web.core.Mail.IMailProvide">
+            <summary>
+            邮件发送提供者
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Mail.IMailProvide.Smtp(cts.web.core.Mail.MailConfig,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            发送邮件
+            </summary>
+            <param name="config"></param>
+            <param name="to"></param>
+            <param name="subject">主题</param>
+            <param name="isHtml">是否是html</param>
+            <param name="body">内容</param>
+        </member>
+        <member name="M:cts.web.core.Mail.IMailProvide.Smtp(cts.web.core.Mail.MailConfig,System.Collections.Generic.IEnumerable{System.String},System.String,System.String,System.Boolean)">
+            <summary>
+            发送邮件
+            </summary>
+            <param name="config"></param>
+            <param name="tos">接收者集合</param>
+            <param name="subject">主题</param>
+            <param name="body">内容</param>
+            <param name="isHtml">是否是html</param>
+        </member>
+        <member name="T:cts.web.core.Mail.IMailSender">
+            <summary>
+            邮件发送者，需要配置文件配置
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Mail.IMailSender.Smtp(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            发送邮件
+            </summary>
+            <param name="to"></param>
+            <param name="subject">主题</param>
+            <param name="isHtml">是否是html</param>
+            <param name="body">内容</param>
+        </member>
+        <member name="M:cts.web.core.Mail.IMailSender.Smtp(System.Collections.Generic.IEnumerable{System.String},System.String,System.String,System.Boolean)">
+            <summary>
+            发送邮件
+            </summary>
+            <param name="tos">接收者集合</param>
+            <param name="subject">主题</param>
+            <param name="body">内容</param>
+            <param name="isHtml">是否是html</param>
+        </member>
+        <member name="T:cts.web.core.Mail.MailConfig">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Mail.MailConfig.Host">
+            <summary>
+            smtp 地址
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Mail.MailConfig.Port">
+            <summary>
+            端口
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Mail.MailConfig.Account">
+            <summary>
+            账号,邮箱
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Mail.MailConfig.Password">
+            <summary>
+            密码，qq的是授权码
+            </summary>
+        </member>
+        <member name="T:cts.web.core.Mail.MailProvide">
+            <summary>
+            邮件发送提供者
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Mail.MailProvide.#ctor(Microsoft.Extensions.Logging.ILogger{cts.web.core.Mail.MailSender})">
+            <summary>
+            
+            </summary>
+            <param name="logger"></param>
+        </member>
+        <member name="M:cts.web.core.Mail.MailProvide.Smtp(cts.web.core.Mail.MailConfig,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            发送邮件
+            </summary>
+            <param name="config"></param>
+            <param name="to"></param>
+            <param name="subject"></param>
+            <param name="body"></param>
+            <param name="isHtml"></param>
+        </member>
+        <member name="M:cts.web.core.Mail.MailProvide.Smtp(cts.web.core.Mail.MailConfig,System.Collections.Generic.IEnumerable{System.String},System.String,System.String,System.Boolean)">
+            <summary>
+            发送邮件
+            </summary>
+            <param name="config"></param>
+            <param name="tos"></param>
+            <param name="subject"></param>
+            <param name="body"></param>
+            <param name="isHtml"></param>
+        </member>
+        <member name="T:cts.web.core.Mail.MailSender">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Mail.MailSender.#ctor(cts.web.core.Mail.MailConfig,Microsoft.Extensions.Logging.ILogger{cts.web.core.Mail.MailSender})">
+            <summary>
+            
+            </summary>
+            <param name="config"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:cts.web.core.Mail.MailSender.Smtp(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            发送邮件
+            </summary>
+            <param name="to"></param>
+            <param name="subject"></param>
+            <param name="body"></param>
+            <param name="isHtml"></param>
+        </member>
+        <member name="M:cts.web.core.Mail.MailSender.Smtp(System.Collections.Generic.IEnumerable{System.String},System.String,System.String,System.Boolean)">
+            <summary>
+            发送邮件
+            </summary>
+            <param name="tos"></param>
+            <param name="subject"></param>
+            <param name="body"></param>
+            <param name="isHtml"></param>
+        </member>
+        <member name="T:cts.web.core.MediaItem.IMediaItemStorage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:cts.web.core.MediaItem.IMediaItemStorage.Storage(System.IO.MemoryStream,System.String,System.String)">
+            <summary>
+            文件存储,返回路径的相对路径
+            </summary>
+            <param name="stream"></param>
+            <param name="virtualPath">虚拟相对目录 xxxx/xxx</param>
+            <param name="fileName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:cts.web.core.MediaItem.MediaItemStorage">
+            <summary>
+            媒体存储
+            </summary>
+        </member>
+        <member name="M:cts.web.core.MediaItem.MediaItemStorage.#ctor(cts.web.core.IWebHelper)">
+            <summary>
+            
+            </summary>
+            <param name="webHelper"></param>
+        </member>
+        <member name="M:cts.web.core.MediaItem.MediaItemStorage.Storage(System.IO.MemoryStream,System.String,System.String)">
+            <summary>
+            文件存储,返回路径的相对路径
+            存储到当前应用的目录下
+            </summary>
+            <param name="stream"></param>
+            <param name="virtualPath">虚拟相对目录 xxxx/xxx</param>
+            <param name="fileName"></param>
+            <returns>返回相对路径</returns>
+        </member>
+        <member name="T:cts.web.core.Menu.SiteMapNode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Menu.SiteMapNode.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Menu.SiteMapNode.UID">
+            <summary>
+            唯一标识，一旦确认，将无法在修改。否则会导致WPF无法识别
+            明明规则大写，AREA.CONTROLLER.ACTION
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Menu.SiteMapNode.Code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Menu.SiteMapNode.IsMenu">
+            <summary>
+            菜单 1：是,0:否
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Menu.SiteMapNode.FatherCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Menu.SiteMapNode.RouteTemplate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Menu.SiteMapNode.RouteName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Menu.SiteMapNode.Sort">
+            <summary>
+            自动读取循序设置
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Menu.SiteMapNode.IconClass">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Menu.SiteMapNode.Controller">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Menu.SiteMapNode.Action">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Menu.SiteMapNode.Target">
+            <summary>
+            分类标识
+            </summary>
+        </member>
+        <member name="T:cts.web.core.Menu.XmlSiteMap">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Menu.XmlSiteMap.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Menu.XmlSiteMap.SiteMapNodes">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Menu.XmlSiteMap.LoadFrom(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="filePath"></param>
+        </member>
+        <member name="M:cts.web.core.Menu.XmlSiteMap.Iterate(cts.web.core.Menu.SiteMapNode,System.Xml.XmlNode)">
+            <summary>
+            
+            </summary>
+            <param name="siteMapNode"></param>
+            <param name="xmlNode"></param>
+        </member>
+        <member name="M:cts.web.core.Menu.XmlSiteMap.PopulateNode(cts.web.core.Menu.SiteMapNode,System.Xml.XmlNode)">
+            <summary>
+            装载数据
+            </summary>
+            <param name="siteMapNode"></param>
+            <param name="xmlNode"></param>
+        </member>
+        <member name="M:cts.web.core.Menu.XmlSiteMap.GetStringValueFromAttribute(System.Xml.XmlNode,System.String)">
+            <summary>
+            获取属性的值
+            </summary>
+            <param name="node"></param>
+            <param name="attributeName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:cts.web.core.Model.AjaxResult">
+            <summary>
+            ajax请求结果
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Model.AjaxResult.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Model.AjaxResult.Code">
+            <summary>
+            状态码 0 代表请求正常
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Model.AjaxResult.Message">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Model.AjaxResult.Result">
+            <summary>
+            结果
+            </summary>
+        </member>
+        <member name="T:cts.web.core.Model.ApiHttpResult`1">
+            <summary>
+            接口请求结果
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Model.ApiHttpResult`1.data">
+            <summary>
+            结果
+            </summary>
+        </member>
+        <member name="T:cts.web.core.Model.ApiHttpResult">
+            <summary>
+            接口请求结果
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Model.ApiHttpResult.code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Model.ApiHttpResult.msg">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:cts.web.core.Model.ApiJsonResult">
+            <summary>
+            api 结果对象
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Model.ApiJsonResult.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Model.ApiJsonResult.code">
+            <summary>
+            0：成功
+            1002：禁止访问的ip
+            1003：未登录
+            1004：token已过期
+            1005：参数错误
+            1006：appid 为空或错误
+            1007：没有权限
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Model.ApiJsonResult.msg">
+            <summary>
+            提示信息
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Model.ApiJsonResult.data">
+            <summary>
+            返回结果
+            </summary>
+        </member>
+        <member name="T:cts.web.core.Model.ApiJsonResult`1">
+            <summary>
+            api 结果对象
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Model.ApiJsonResult`1.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Model.ApiJsonResult`1.code">
+            <summary>
+            0：成功
+            1002：禁止访问的ip
+            1003：未登录
+            1004：token已过期
+            1005：参数错误
+            1006：appid 为空或错误
+            1007：没有权限
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Model.ApiJsonResult`1.msg">
+            <summary>
+            提示信息
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Model.ApiJsonResult`1.data">
+            <summary>
+            返回结果
+            </summary>
+        </member>
+        <member name="T:cts.web.core.PagedList`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:cts.web.core.PagedList`1.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:cts.web.core.PagedList`1.#ctor(System.Linq.IQueryable{`0},System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="source"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+        </member>
+        <member name="M:cts.web.core.PagedList`1.#ctor(System.Collections.Generic.IList{`0},System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="source"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+        </member>
+        <member name="M:cts.web.core.PagedList`1.#ctor(System.Collections.Generic.IList{`0},System.Int32,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="data"></param>
+            <param name="totalCount"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+        </member>
+        <member name="M:cts.web.core.PagedList`1.Create(System.Linq.IQueryable{`0},System.Int32,System.Int32)">
+            <summary>
+            创建分页数据
+            </summary>
+            <param name="source"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.PagedList`1.Create``1(System.Linq.IQueryable{``0},System.Int32,System.Int32,AutoMapper.IMapper)">
+            <summary>
+            创建分页数据 自动转换
+            </summary>
+            <typeparam name="E"></typeparam>
+            <param name="source"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <param name="mapper"></param>
+            <returns></returns>
+        </member>
+        <member name="P:cts.web.core.PagedList`1.HasNextPage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:cts.web.core.PagedList`1.HasPreviousPage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:cts.web.core.PagedList`1.PageIndex">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:cts.web.core.PagedList`1.PageSize">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:cts.web.core.PagedList`1.TotalCount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:cts.web.core.PagedList`1.TotalPages">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:cts.web.core.Skia.CroppingMode">
+            <summary>
+            缩略图模式
+            </summary>
+        </member>
+        <member name="F:cts.web.core.Skia.CroppingMode.RATIO_WIDTH">
+            <summary>
+            宽指定，高等比缩放
+            </summary>
+        </member>
+        <member name="F:cts.web.core.Skia.CroppingMode.RATIO_HEIGHT">
+            <summary>
+            高指定，宽等比缩放
+            </summary>
+        </member>
+        <member name="F:cts.web.core.Skia.CroppingMode.CUT">
+            <summary>
+            剪裁
+            </summary>
+        </member>
+        <member name="F:cts.web.core.Skia.CroppingMode.NONE">
+            <summary>
+            不剪裁
+            </summary>
+        </member>
+        <member name="T:cts.web.core.Skia.CroppingRectangle">
+            <summary>
+            剪裁矩形
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Skia.CroppingRectangle.#ctor(SkiaSharp.SKBitmap,System.Int32,System.Int32,cts.web.core.Skia.CroppingMode)">
+            <summary>
+            
+            </summary>
+            <param name="shourceBitmap"></param>
+            <param name="width"></param>
+            <param name="height"></param>
+            <param name="croppingMode"></param>
+        </member>
+        <member name="P:cts.web.core.Skia.CroppingRectangle.Rect">
+            <summary>
+            源矩形
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Skia.CroppingRectangle.Dest">
+            <summary>
+            目标矩形
+            </summary>
+        </member>
+        <member name="T:cts.web.core.Skia.ResolveArg">
+            <summary>
+            拆解参数
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Skia.ResolveArg.#ctor(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="cut"></param>
+            <param name="resize"></param>
+        </member>
+        <member name="P:cts.web.core.Skia.ResolveArg.Mode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Skia.ResolveArg.Width">
+            <summary>
+            长
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Skia.ResolveArg.Height">
+            <summary>
+            宽
+            </summary>
+        </member>
+        <member name="T:cts.web.core.Skia.SkiaCaptcha">
+            <summary>
+            图片验证码
+            </summary>
+        </member>
+        <member name="F:cts.web.core.Skia.SkiaCaptcha.Colors">
+            <summary>
+            干扰线的颜色集合
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Skia.SkiaCaptcha.CreatePaint(SkiaSharp.SKColor,System.Single)">
+            <summary>
+            创建画笔
+            </summary>
+            <param name="color"></param>
+            <param name="fontSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Skia.SkiaCaptcha.GetCaptcha(System.String,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            获取验证码
+            </summary>
+            <param name="captchaText">验证码文字</param>
+            <param name="width">图片宽度</param>
+            <param name="height">图片高度</param>
+            <param name="lineStrookeWidth">干扰线宽度</param>
+            <returns></returns>
+        </member>
+        <member name="T:cts.web.core.Skia.SkiaHelper">
+            <summary>
+            SkiaSharp 工具类
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Skia.SkiaHelper.MakeThumb(System.String,System.Int32,System.Int32,cts.web.core.Skia.CroppingMode,SkiaSharp.SKEncodedImageFormat,System.String)">
+            <summary>
+            创建缩略图，并且格式化
+            </summary>
+            <param name="abPath"></param>
+            <param name="width"></param>
+            <param name="height"></param>
+            <param name="mode"></param>
+            <param name="format"></param>
+            <param name="logoPath">水印地址，不为空时添加水印</param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Skia.SkiaHelper.MakeThumb(System.String,System.Int32,System.Int32,cts.web.core.Skia.CroppingMode,SkiaSharp.SKEncodedImageFormat,System.IO.Stream)">
+            <summary>
+            创建缩略图，并且格式化
+            </summary>
+            <param name="abPath"></param>
+            <param name="width"></param>
+            <param name="height"></param>
+            <param name="mode"></param>
+            <param name="format"></param>
+            <param name="stream">水印流</param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Skia.SkiaHelper.MakeThumb(System.String,System.String,System.String,SkiaSharp.SKEncodedImageFormat,System.String)">
+            <summary>
+            创建缩略图，并且格式化
+            </summary>
+            <param name="abPath">图片绝对路径</param>
+            <param name="cut">指定的剪裁方式</param>
+            <param name="resize">指定的剪裁大小</param>
+            <param name="format">格式</param>
+            <param name="logoPath">水印地址，不为空时添加水印</param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Skia.SkiaHelper.MakeThumb(System.String,System.String,System.String,SkiaSharp.SKEncodedImageFormat,System.IO.Stream)">
+            <summary>
+            创建缩略图，并且格式化
+            </summary>
+            <param name="abPath">图片绝对路径</param>
+            <param name="cut">指定的剪裁方式</param>
+            <param name="resize">指定的剪裁大小</param>
+            <param name="format">格式</param>
+            <param name="stream">水印流</param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Skia.SkiaHelper.MakeThumb(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            创建缩略图，并且格式化
+            </summary>
+            <param name="abPath">图片绝对路径</param>
+            <param name="cut">指定的剪裁方式</param>
+            <param name="resize">指定的剪裁大小</param>
+            <param name="extName">文件扩展名</param>
+            <param name="logoPath">水印地址，不为空时添加水印</param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Skia.SkiaHelper.MakeThumb(System.String,System.String,System.String,System.String,System.IO.Stream)">
+            <summary>
+            创建缩略图，并且格式化
+            </summary>
+            <param name="abPath">图片绝对路径</param>
+            <param name="cut">指定的剪裁方式</param>
+            <param name="resize">指定的剪裁大小</param>
+            <param name="extName">文件扩展名</param>
+            <param name="stream">水印</param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Skia.SkiaHelper.MakeThumb(System.String,System.Int32,System.Int32,cts.web.core.Skia.CroppingMode)">
+            <summary>
+            创建缩略图，未格式化
+            </summary>
+            <param name="abPath"></param>
+            <param name="width"></param>
+            <param name="height"></param>
+            <param name="mode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Skia.SkiaHelper.MakeThumb(System.String,System.String,System.String)">
+            <summary>
+            创建缩略图，未格式化
+            </summary>
+            <param name="abPath"></param>
+            <param name="cut"></param>
+            <param name="resize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Skia.SkiaHelper.GetImageFormat(System.String)">
+            <summary>
+            获取格式
+            </summary>
+            <param name="extName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Skia.SkiaHelper.GetResolve(System.String,System.String)">
+            <summary>
+            获取剪裁方式
+            </summary>
+            <param name="cut">指定剪裁 m_fill：裁剪，m_h：指定高，m_w：指定宽</param>
+            <param name="resize">剪裁大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Skia.SkiaHelper.MeasureText(System.String,System.String,System.Single,SkiaSharp.SKFontStyle)">
+            <summary>
+            测量文字 获取矩形
+            </summary>
+            <param name="text"></param>
+            <param name="fontName"></param>
+            <param name="fontSize"></param>
+            <param name="fontStyle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Skia.SkiaHelper.MeasureText(System.String,SkiaSharp.SKPaint)">
+            <summary>
+             测量文字 获取矩形
+            </summary>
+            <param name="text"></param>
+            <param name="paint"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Skia.SkiaHelper.DrawMark(SkiaSharp.SKCanvas,System.Int32,System.Int32,System.String)">
+            <summary>
+            添加水印
+            </summary>
+            <param name="height"></param>
+            <param name="width"></param>
+            <param name="canvas"></param>
+            <param name="logoPath"></param>
+        </member>
+        <member name="M:cts.web.core.Skia.SkiaHelper.DrawMark(SkiaSharp.SKCanvas,System.Int32,System.Int32,System.IO.Stream)">
+            <summary>
+            添加水印
+            </summary>
+            <param name="canvas"></param>
+            <param name="width"></param>
+            <param name="height"></param>
+            <param name="stream"></param>
+        </member>
+        <member name="T:cts.web.core.IdWorker">
+            <summary>
+            雪花算法，局限在于只能使用69年，机器总数不超过1024台
+            理论上来讲 12位 Sequence 一秒生产 4096 *1000个ID
+            想要延长年限就 减少 SequenceBits 和机器总数 ，当SequenceBits=8时 年限增加到 1115年 一秒生产 255*1000 个ID
+            所以以此8来计算
+            </summary>
+        </member>
+        <member name="F:cts.web.core.IdWorker.Twepoch">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:cts.web.core.IdWorker.WorkerId">
+            <summary>
+            机器id
+            </summary>
+        </member>
+        <member name="P:cts.web.core.IdWorker.DatacenterId">
+            <summary>
+            数据中心id
+            </summary>
+        </member>
+        <member name="P:cts.web.core.IdWorker.Sequence">
+            <summary>
+            增长计数
+            </summary>
+        </member>
+        <member name="F:cts.web.core.IdWorker._worker">
+            <summary>
+            默认的work
+            </summary>
+        </member>
+        <member name="M:cts.web.core.IdWorker.#ctor(System.Int64,System.Int64,System.Int64)">
+            <summary>
+            创建WorkerId对象
+            </summary>
+            <param name="workerId">机器编号</param>
+            <param name="datacenterId">数据中心编号</param>
+            <param name="sequence"></param>
+        </member>
+        <member name="P:cts.web.core.IdWorker.Default">
+            <summary>
+            获取默认的IWorker对象，以workerId=0，datacenterId=0 构建
+            只适合单机使用
+            </summary>
+        </member>
+        <member name="M:cts.web.core.IdWorker.NextId">
+            <summary>
+            获取新的Id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.IdWorker.TilNextMillis(System.Int64)">
+            <summary>
+            下一毫秒
+            </summary>
+            <param name="lastTimestamp"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.IdWorker.TimeGen">
+            <summary>
+            获取毫秒数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:cts.web.core.WebHelper">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:cts.web.core.WebHelper._httpContextAccessor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:cts.web.core.WebHelper.#ctor(Microsoft.AspNetCore.Http.IHttpContextAccessor,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            
+            </summary>
+            <param name="httpContextAccessor"></param>
+            <param name="hostingEnvironment"></param>
+        </member>
+        <member name="M:cts.web.core.WebHelper.GetIPAddress">
+            <summary>
+            获取客户端ip
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.WebHelper.GetUrl">
+            <summary>
+            获取当前请求的Url
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.WebHelper.GetUrlReferrer">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.WebHelper.GetLocalIpAddress">
+            <summary>
+            获取本机ip地址
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.WebHelper.MapPath(System.String)">
+            <summary>
+            获取绝对路径
+            </summary>
+            <param name="virtualPath"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AspNetCore.Cache.CacheExtensions">
+            <summary>
+            缓存扩展类型
+            </summary>
+        </member>
+        <member name="M:AspNetCore.Cache.CacheExtensions.Get``1(AspNetCore.Cache.ICacheManager,System.String,System.Func{``0})">
+            <summary>
+            如果缓存存在就从缓存获取，不存在执行Func并缓存后返回 默认 60 分钟
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="cacheManager"></param>
+            <param name="key"></param>
+            <param name="acquire">func委托方法</param>
+            <returns></returns>
+        </member>
+        <member name="M:AspNetCore.Cache.CacheExtensions.Get``1(AspNetCore.Cache.ICacheManager,System.String,System.Int32,System.Func{``0})">
+            <summary>
+            如果缓存存在就从缓存获取，不存在执行Func并缓存后返回
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="cacheManager"></param>
+            <param name="key"></param>
+            <param name="cacheTime">缓存分钟</param>
+            <param name="acquire">func委托方法</param>
+            <returns></returns>
+        </member>
+        <member name="M:AspNetCore.Cache.CacheExtensions.RemoveByPattern(AspNetCore.Cache.ICacheManager,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            正则移除缓存
+            </summary>
+            <param name="cacheManager"></param>
+            <param name="pattern"></param>
+            <param name="keys"></param>
+        </member>
+        <member name="T:AspNetCore.Cache.ICacheManager">
+            <summary>
+            缓存管理接口
+            </summary>
+        </member>
+        <member name="M:AspNetCore.Cache.ICacheManager.Get``1(System.String)">
+            <summary>
+            通过制定的Key获取缓存的数据，不存在则返回默认值
+            </summary>
+            <typeparam name="T">类型</typeparam>
+            <param name="key">key</param>
+            <returns>缓存的数据</returns>
+        </member>
+        <member name="M:AspNetCore.Cache.ICacheManager.Set(System.String,System.Object,System.Int32)">
+            <summary>
+            添加缓存
+            </summary>
+            <param name="key">key</param>
+            <param name="data">数据</param>
+            <param name="cacheTime">缓存时间，分钟数</param>
+        </member>
+        <member name="M:AspNetCore.Cache.ICacheManager.IsSet(System.String)">
+            <summary>
+            验证缓存是否存在
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AspNetCore.Cache.ICacheManager.Remove(System.String)">
+            <summary>
+            移除缓存
+            </summary>
+            <param name="key"></param>
+        </member>
+        <member name="M:AspNetCore.Cache.ICacheManager.RemoveByPattern(System.String)">
+            <summary>
+            正则移除缓存
+            </summary>
+            <param name="pattern"></param>
+        </member>
+        <member name="M:AspNetCore.Cache.ICacheManager.Clear">
+            <summary>
+            清理缓存
+            </summary>
+        </member>
+        <member name="T:AspNetCore.Cache.MemoryCacheManager">
+            <summary>
+            内存缓存实现
+            </summary>
+        </member>
+        <member name="F:AspNetCore.Cache.MemoryCacheManager._memoryCache">
+            <summary>
+            缓存对象
+            </summary>
+        </member>
+        <member name="F:AspNetCore.Cache.MemoryCacheManager._allKeys">
+            <summary>
+            健集合
+            </summary>
+        </member>
+        <member name="F:AspNetCore.Cache.MemoryCacheManager._cancellationTokenSource">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AspNetCore.Cache.MemoryCacheManager.#cctor">
+            <summary>
+            静态构造方法
+            </summary>
+        </member>
+        <member name="M:AspNetCore.Cache.MemoryCacheManager.#ctor(Microsoft.Extensions.Caching.Memory.IMemoryCache)">
+            <summary>
+            
+            </summary>
+            <param name="memoryCache"></param>
+        </member>
+        <member name="M:AspNetCore.Cache.MemoryCacheManager.AddKey(System.String)">
+            <summary>
+            添加key到集合对象里面
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AspNetCore.Cache.MemoryCacheManager.RemoveKey(System.String)">
+            <summary>
+            移除key
+            </summary>
+            <param name="key"></param>
+        </member>
+        <member name="M:AspNetCore.Cache.MemoryCacheManager.TryRemoveKey(System.String)">
+            <summary>
+            尝试移除key
+            </summary>
+            <param name="key"></param>
+        </member>
+        <member name="M:AspNetCore.Cache.MemoryCacheManager.ClearKeys">
+            <summary>
+            移除所有的标记值为false 的 key
+            </summary>
+        </member>
+        <member name="M:AspNetCore.Cache.MemoryCacheManager.Clear">
+            <summary>
+            移除所有的缓存
+            </summary>
+        </member>
+        <member name="M:AspNetCore.Cache.MemoryCacheManager.GetMemoryCacheEntryOptions(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="cacheTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AspNetCore.Cache.MemoryCacheManager.PostEviction(System.Object,System.Object,Microsoft.Extensions.Caching.Memory.EvictionReason,System.Object)">
+            <summary>
+            当移除缓存时调用，从key集合中移除标记为false 的key，和移除当前的key
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <param name="reason"></param>
+            <param name="state"></param>
+        </member>
+        <member name="M:AspNetCore.Cache.MemoryCacheManager.Get``1(System.String)">
+            <summary>
+            获取数据
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AspNetCore.Cache.MemoryCacheManager.IsSet(System.String)">
+            <summary>
+            判断缓存是否存在
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AspNetCore.Cache.MemoryCacheManager.Remove(System.String)">
+            <summary>
+            移除缓存
+            </summary>
+            <param name="key"></param>
+        </member>
+        <member name="M:AspNetCore.Cache.MemoryCacheManager.RemoveByPattern(System.String)">
+            <summary>
+            正则移除缓存
+            </summary>
+            <param name="pattern"></param>
+        </member>
+        <member name="M:AspNetCore.Cache.MemoryCacheManager.Set(System.String,System.Object,System.Int32)">
+            <summary>
+            设置缓存并将key添加至key集合
+            </summary>
+            <param name="key"></param>
+            <param name="data"></param>
+            <param name="cacheTime"></param>
+        </member>
+        <member name="T:AspNetCore.Cache.ServiceCollectionExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AspNetCore.Cache.ServiceCollectionExtensions.AddMemoryCache(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            启用redis或内存缓存
+            </summary>
+            <param name="services"></param>
+            <param name="configuration">Startup 中 的 IConfiguration 对象</param>
+        </member>
+        <member name="T:System.CombGuid">
+            <summary>
+            COMB Guid生成
+            </summary>
+        </member>
+        <member name="M:System.CombGuid.NewGuid(System.Boolean)">
+            <summary>
+            获取可排序的guid
+            取时间的1/10毫秒进行排序，也就是计算在1毫秒内可以存在10个相同尾序的ID，对于一般性系统来说可以接受
+            </summary>
+            <param name="atStart">时间戳排在字符串前面，对于mysql来说有用</param>
+            <returns></returns>
+        </member>
+        <member name="T:System.ConvertExtension">
+            <summary>
+            转换扩展
+            </summary>
+        </member>
+        <member name="M:System.ConvertExtension.To62(System.Int64,System.Int32)">
+            <summary>
+            将数字id转换成62进制字符串短id
+            </summary>
+            <param name="value"></param>
+            <param name="length"></param>
+            <returns></returns>
+        </member>
+        <member name="T:System.DateTimeExtension">
+            <summary>
+            时间扩展
+            </summary>
+        </member>
+        <member name="M:System.DateTimeExtension.ToUnix(System.DateTime)">
+            <summary>
+            时间转为10位时间戳
+            </summary>
+            <param name="time"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.DateTimeExtension.ToTime(System.Int64)">
+            <summary>
+            10位时间戳转为时间
+            </summary>
+            <param name="timeStamp"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.DateTimeExtension.ToTime(System.String)">
+            <summary>
+            13位时间戳转成时间
+            </summary>
+            <param name="timeStamp"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.DateTimeExtension.ToMilliseconds(System.DateTime)">
+            <summary>
+            获取时间戳，毫秒
+            </summary>
+            <param name="time"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.DateTimeExtension.ToBase64(System.DateTime)">
+            <summary>
+            时间戳毫秒转base64
+            </summary>
+            <param name="time"></param>
+            <returns></returns>
+        </member>
+        <member name="T:System.StringExtension">
+            <summary>
+            字符串扩展
+            </summary>
+        </member>
+        <member name="M:System.StringExtension.TrimSpace(System.String)">
+            <summary>
+            去除字符串 空格、制表符、换页符等等
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.StringExtension.ToSBC(System.String)">
+            <summary>
+            半角转全角
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.StringExtension.ToDBC(System.String)">
+            <summary>
+            全角转半角
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.StringExtension.IsEmail(System.String)">
+            <summary>
+            验证是否是邮箱
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.StringExtension.IsPhoneNumber(System.String)">
+            <summary>
+            是否是手机号码
+            </summary>
+            <param name="source"></param>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Http.FormFileExtension">
+            <summary>
+            上传文件扩展
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Http.FormFileExtension.IsImage(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            文件是否是图片
+            </summary>
+            <param name="formFile"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Http.FormFileExtension.IsBigSize(Microsoft.AspNetCore.Http.IFormFile,System.Int32)">
+            <summary>
+            文件大小超出范围
+            </summary>
+            <param name="formFile"></param>
+            <param name="length">字节大小 例 100kb，100*1024 = 102400 </param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Http.FormFileExtension.GetSHA1(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            获取文件的哈希SHA1值
+            </summary>
+            <param name="formFile"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Http.FormFileExtension.GetMD5(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            获取文件的MD5值
+            </summary>
+            <param name="formFile"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Http.FormFileExtension.CreateImagePathFromStream(Microsoft.AspNetCore.Http.IFormFile,cts.web.core.MediaItem.IMediaItemStorage,System.String,System.Boolean,System.Int32)">
+            <summary>
+            创建保存图片文件
+            </summary>
+            <param name="formFile"></param>
+            <param name="imageStorage"></param>
+            <param name="virtualPath">虚拟相对路径 xxx/xxx</param>
+            <param name="compress">是否压缩图片</param>
+            <param name="flag">压缩质量 1-100(数字越小压缩率越高)。只有启用压缩是才起作用</param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Http.FormFileExtension.CreateImagePathFromStream(Microsoft.AspNetCore.Http.IFormFile,cts.web.core.MediaItem.IMediaItemStorage,System.String,System.Boolean,System.Boolean,System.Int32)">
+            <summary>
+            创建保存图片文件
+            </summary>
+            <param name="formFile"></param>
+            <param name="imageStorage"></param>
+            <param name="virtualPath">虚拟相对路径 xxx/xxx</param>
+            <param name="suffix">是否带后缀</param>
+            <param name="compress">是否压缩图片</param>
+            <param name="flag">压缩质量 1-100(数字越小压缩率越高)。只有启用压缩是才起作用</param>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Http.ImageInfo">
+            <summary>
+            上传文件后返回的文件结果 
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Http.ImageInfo.Length">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Http.ImageInfo.FileName">
+            <summary>
+            原文件名
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Http.ImageInfo.NewFileName">
+            <summary>
+            新文件名
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Http.ImageInfo.IOPath">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Http.ImageInfo.ExtName">
+            <summary>
+            扩展名
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Http.ImageInfo.Width">
+            <summary>
+            宽
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Http.ImageInfo.Height">
+            <summary>
+            高
+            </summary>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Http.HttpRequestExtensions">
+            <summary>
+            HttpRequest扩展
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Http.HttpRequestExtensions.IsAjaxRequest(Microsoft.AspNetCore.Http.HttpRequest)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Http.HttpRequestExtensions.GetAbsoluteUri(Microsoft.AspNetCore.Http.HttpRequest)">
+            <summary>
+            获取当前请求的绝对路径，含有参数
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Http.HttpRequestExtensions.GetHostUri(Microsoft.AspNetCore.Http.HttpRequest)">
+            <summary>
+            获取Host，完整域名地址
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Mvc.ModelStateDictionaryExtension">
+            <summary>
+            ModelState 扩展
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Mvc.ModelStateDictionaryExtension.GetErrMsg(Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary)">
+            <summary>
+            获取未验证通过的内容
+            </summary>
+            <param name="msDictionary"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions">
+            <summary>
+            IServiceCollection 容器的拓展类
+            </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddAssembly(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,Microsoft.Extensions.DependencyInjection.ServiceLifetime)">
+            <summary>
+            程序集依赖注入
+            如果类未包含接口类型则默认注入类，否则使用接口引用
+            </summary>
+            <param name="services"></param>
+            <param name="assemblyName"></param>
+            <param name="serviceLifetime"></param>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureStartupConfig``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            配置文件扩展
+            </summary>
+            <typeparam name="TConfig"></typeparam>
+            <param name="services"></param>
+            <param name="configuration"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.Extensions.DependencyInjection.JwtServiceCollectionExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.JwtServiceCollectionExtensions.AddJwt(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,System.Action{cts.web.core.Jwt.JWTTokenOptions})">
+            <summary>
+            启用Jwt验证
+            </summary>
+            <param name="services"></param>
+            <param name="hosting"></param>
+            <param name="action"></param>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.JwtServiceCollectionExtensions.AddJwt(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            启用Jwt验证
+            </summary>
+            <param name="services"></param>
+            <param name="hosting"></param>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.JwtServiceCollectionExtensions._AddJwt(Microsoft.Extensions.DependencyInjection.IServiceCollection,cts.web.core.Jwt.JWTTokenOptions)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+            <param name="_tokenOptions"></param>
+        </member>
+    </members>
+</doc>

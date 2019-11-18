@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\cts.web.core\cts.web.core.csproj" />
+    <ProjectReference Include="..\Lova.Core\Lova.Core.csproj" />
+    <ProjectReference Include="..\Lova.Entities\Lova.Entities.csproj" />
+    <ProjectReference Include="..\Lova.Framework\Lova.Framework.csproj" />
+    <ProjectReference Include="..\Lova.Mapping\Lova.Mapping.csproj" />
+    <ProjectReference Include="..\Lova.Services\Lova.Services.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\cts.web.core\cts.web.core.csproj" />
+    <ProjectReference Include="..\Lova.Core\Lova.Core.csproj" />
+    <ProjectReference Include="..\Lova.Entities\Lova.Entities.csproj" />
+  </ItemGroup>
+
+</Project>

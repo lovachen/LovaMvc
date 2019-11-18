@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="4.0.0" />
+    <PackageReference Include="Quartz" Version="3.0.7" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="4.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\cts.web.core\cts.web.core.csproj" />
+    <ProjectReference Include="..\Lova.Core\Lova.Core.csproj" />
+    <ProjectReference Include="..\Lova.Entities\Lova.Entities.csproj" />
+    <ProjectReference Include="..\Lova.Mapping\Lova.Mapping.csproj" />
+    <ProjectReference Include="..\Lova.Services\Lova.Services.csproj" />
+  </ItemGroup>
+
+</Project>
