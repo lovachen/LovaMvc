@@ -30,7 +30,6 @@ namespace Lova.Entities
         public virtual DbSet<sys_user_login> sys_user_login { get; set; }
         public virtual DbSet<sys_user_role> sys_user_role { get; set; }
          
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<bucket>(entity =>
@@ -42,8 +41,6 @@ namespace Lova.Entities
                 entity.Property(e => e.creator).HasCharSet(Pomelo.EntityFrameworkCore.MySql.Storage.CharSet.Utf8Mb4);
 
                 entity.Property(e => e.description).HasCharSet(Pomelo.EntityFrameworkCore.MySql.Storage.CharSet.Utf8);
-
-                entity.Property(e => e.is_compress).HasDefaultValueSql("'b''0'''");
 
                 entity.Property(e => e.name).HasCharSet(Pomelo.EntityFrameworkCore.MySql.Storage.CharSet.Utf8);
             });
@@ -132,8 +129,6 @@ namespace Lova.Entities
 
                 entity.Property(e => e.icon_class).HasCharSet(Pomelo.EntityFrameworkCore.MySql.Storage.CharSet.Utf8);
 
-                entity.Property(e => e.is_menu).HasDefaultValueSql("'b''0'''");
-
                 entity.Property(e => e.name).HasCharSet(Pomelo.EntityFrameworkCore.MySql.Storage.CharSet.Utf8Mb4);
 
                 entity.Property(e => e.route_name).HasCharSet(Pomelo.EntityFrameworkCore.MySql.Storage.CharSet.Utf8);
@@ -208,10 +203,6 @@ namespace Lova.Entities
                 entity.Property(e => e.account).HasCharSet(Pomelo.EntityFrameworkCore.MySql.Storage.CharSet.Utf8);
 
                 entity.Property(e => e.creator).HasCharSet(Pomelo.EntityFrameworkCore.MySql.Storage.CharSet.Utf8Mb4);
-
-                entity.Property(e => e.is_admin).HasDefaultValueSql("'b''0'''");
-
-                entity.Property(e => e.is_deleted).HasDefaultValueSql("'b''0'''");
 
                 entity.Property(e => e.last_ipaddr).HasCharSet(Pomelo.EntityFrameworkCore.MySql.Storage.CharSet.Utf8Mb4);
 

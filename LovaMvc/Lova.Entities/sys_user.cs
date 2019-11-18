@@ -19,10 +19,8 @@ namespace Lova.Entities
         [Key]
         [Column(TypeName = "varchar(36)")]
         public string id { get; set; }
-        [Column(TypeName = "bit(1)")]
-        public ulong is_admin { get; set; }
-        [Column(TypeName = "bit(1)")]
-        public ulong is_deleted { get; set; }
+        public bool is_admin { get; set; }
+        public bool is_deleted { get; set; }
         [Column(TypeName = "datetime")]
         public DateTime? last_activity_time { get; set; }
         [Column(TypeName = "varchar(45)")]

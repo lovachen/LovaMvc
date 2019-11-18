@@ -54,7 +54,7 @@ namespace Lova.Services
                     var item = sysCategories.FirstOrDefault(o => o.uid == del.uid);
                     if (item == null)
                     {
-                        _dbContext.Database.ExecuteSqlRaw($"DELETE FROM [Sys_Permission] WHERE [CategoryId]='{del.id}'");
+                        _dbContext.Database.ExecuteSqlRaw($"DELETE FROM [sys_permission] WHERE [category_id]='{del.id}'");
                         _dbContext.sys_category.Remove(del);
                     }
                 });
@@ -73,11 +73,11 @@ namespace Lova.Services
                         item.father_code = entity.father_code;
                         item.target = entity.target ?? "0";
                         item.sort = entity.sort;
-                        item.is_menu = entity.is_menu ?? 0;
+                        item.is_menu = entity.is_menu;
                         item.controller = entity.controller ?? "";
-                        item.Action = entity.Action ?? "";
-                        item.RouteName = entity.RouteName ?? "";
-                        item.IconClass = entity.IconClass ?? "";
+                        item.action = entity.action ?? "";
+                        item.route_name = entity.route_name ?? "";
+                        item.icon_class = entity.icon_class ?? "";
                     }
                 });
                 _dbContext.SaveChanges();

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Hosting;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace Lova.Services
@@ -29,24 +30,24 @@ namespace Lova.Services
         {
             var xmlSiteMap = new XmlSiteMap();
             xmlSiteMap.LoadFrom(Path.Combine(_environment.ContentRootPath, "sitemap.xml"));
-            List<Entities.Sys_Category> sysApis = new List<Entities.Sys_Category>();
+            List<Entities.sys_category> sysApis = new List<Entities.sys_category>();
             xmlSiteMap.SiteMapNodes.ForEach(item =>
             {
-                sysApis.Add(new Entities.Sys_Category()
+                sysApis.Add(new Entities.sys_category()
                 {
-                    Id = CombGuid.NewGuid(),
-                    Name = item.Name,
-                    RouteTemplate = item.RouteTemplate ?? "",
-                    Code = item.Code,
-                    FatherCode = item.FatherCode,
-                    UID = item.UID,
-                    Target = item.Target ?? "",
-                    IsMenu = item.IsMenu ?? "",
-                    Sort = item.Sort,
-                    Action = item.Action ?? "",
-                    Controller = item.Controller ?? "",
-                    IconClass = item.IconClass ?? "",
-                    RouteName = item.RouteName ?? ""
+                    id = CombGuid.NewGuidAsString(),
+                    name = item.Name,
+                    route_template = item.RouteTemplate ?? "",
+                    code = item.Code,
+                    father_code = item.FatherCode,
+                    uid = item.UID,
+                    target = item.Target ?? "",
+                    is_menu = item.IsMenu == "1" ? true : false,
+                    sort = item.Sort,
+                    action = item.Action ?? "",
+                    controller = item.Controller ?? "",
+                    icon_class = item.IconClass ?? "",
+                    route_name = item.RouteName ?? ""
                 });
             });
             _sysCategoryService.Init(sysApis);
