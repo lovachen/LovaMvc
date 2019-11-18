@@ -7,6 +7,8 @@ namespace Lova.Mapping
     {
         public MappingProfile()
         {
+            CreateMap<Entities.sys_category, Sys_CategoryMapping>();
+            CreateMap<Sys_CategoryMapping, Entities.sys_category>();
 
         }
     }
