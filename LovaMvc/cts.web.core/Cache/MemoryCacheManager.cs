@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 
-namespace AspNetCore.Cache
+namespace cts.web.core.Cache
 {
     /// <summary>
     /// 内存缓存实现

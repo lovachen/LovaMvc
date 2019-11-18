@@ -36,5 +36,22 @@ namespace System
             return new Guid(guidArray);
         }
 
+
+
+        /// <summary>
+        /// 适用于mysql的有序guid值 时间戳排在字符串前面
+        /// </summary>
+        /// <returns></returns>
+        public static string NewGuidAsString()
+        {
+            Guid id = NewGuid(true);
+            return id.ToString();
+        }
+
+
+
+
+
+
     }
 }

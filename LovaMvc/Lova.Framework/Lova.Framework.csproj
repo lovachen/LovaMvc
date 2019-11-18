@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
@@ -19,6 +19,10 @@
     <ProjectReference Include="..\Lova.Entities\Lova.Entities.csproj" />
     <ProjectReference Include="..\Lova.Mapping\Lova.Mapping.csproj" />
     <ProjectReference Include="..\Lova.Services\Lova.Services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Security\Admin\" />
   </ItemGroup>
 
 </Project>

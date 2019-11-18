@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace AspNetCore.Cache
+namespace cts.web.core.Cache
 {
     /// <summary>
     /// 缓存扩展类型

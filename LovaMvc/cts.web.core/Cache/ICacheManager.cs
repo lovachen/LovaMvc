@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace AspNetCore.Cache
+namespace cts.web.core.Cache
 {
     /// <summary>
     /// 缓存管理接口

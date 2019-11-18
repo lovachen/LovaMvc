@@ -2,7 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using System;
 
-namespace AspNetCore.Cache
+namespace cts.web.core.Cache
 {
     /// <summary>
     /// 

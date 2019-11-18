@@ -33,6 +33,208 @@
             <param name="msg"></param>
             <returns></returns>
         </member>
+        <member name="T:cts.web.core.Cache.CacheExtensions">
+            <summary>
+            缓存扩展类型
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Cache.CacheExtensions.Get``1(cts.web.core.Cache.ICacheManager,System.String,System.Func{``0})">
+            <summary>
+            如果缓存存在就从缓存获取，不存在执行Func并缓存后返回 默认 60 分钟
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="cacheManager"></param>
+            <param name="key"></param>
+            <param name="acquire">func委托方法</param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Cache.CacheExtensions.Get``1(cts.web.core.Cache.ICacheManager,System.String,System.Int32,System.Func{``0})">
+            <summary>
+            如果缓存存在就从缓存获取，不存在执行Func并缓存后返回
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="cacheManager"></param>
+            <param name="key"></param>
+            <param name="cacheTime">缓存分钟</param>
+            <param name="acquire">func委托方法</param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Cache.CacheExtensions.RemoveByPattern(cts.web.core.Cache.ICacheManager,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            正则移除缓存
+            </summary>
+            <param name="cacheManager"></param>
+            <param name="pattern"></param>
+            <param name="keys"></param>
+        </member>
+        <member name="T:cts.web.core.Cache.ICacheManager">
+            <summary>
+            缓存管理接口
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Cache.ICacheManager.Get``1(System.String)">
+            <summary>
+            通过制定的Key获取缓存的数据，不存在则返回默认值
+            </summary>
+            <typeparam name="T">类型</typeparam>
+            <param name="key">key</param>
+            <returns>缓存的数据</returns>
+        </member>
+        <member name="M:cts.web.core.Cache.ICacheManager.Set(System.String,System.Object,System.Int32)">
+            <summary>
+            添加缓存
+            </summary>
+            <param name="key">key</param>
+            <param name="data">数据</param>
+            <param name="cacheTime">缓存时间，分钟数</param>
+        </member>
+        <member name="M:cts.web.core.Cache.ICacheManager.IsSet(System.String)">
+            <summary>
+            验证缓存是否存在
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Cache.ICacheManager.Remove(System.String)">
+            <summary>
+            移除缓存
+            </summary>
+            <param name="key"></param>
+        </member>
+        <member name="M:cts.web.core.Cache.ICacheManager.RemoveByPattern(System.String)">
+            <summary>
+            正则移除缓存
+            </summary>
+            <param name="pattern"></param>
+        </member>
+        <member name="M:cts.web.core.Cache.ICacheManager.Clear">
+            <summary>
+            清理缓存
+            </summary>
+        </member>
+        <member name="T:cts.web.core.Cache.MemoryCacheManager">
+            <summary>
+            内存缓存实现
+            </summary>
+        </member>
+        <member name="F:cts.web.core.Cache.MemoryCacheManager._memoryCache">
+            <summary>
+            缓存对象
+            </summary>
+        </member>
+        <member name="F:cts.web.core.Cache.MemoryCacheManager._allKeys">
+            <summary>
+            健集合
+            </summary>
+        </member>
+        <member name="F:cts.web.core.Cache.MemoryCacheManager._cancellationTokenSource">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Cache.MemoryCacheManager.#cctor">
+            <summary>
+            静态构造方法
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Cache.MemoryCacheManager.#ctor(Microsoft.Extensions.Caching.Memory.IMemoryCache)">
+            <summary>
+            
+            </summary>
+            <param name="memoryCache"></param>
+        </member>
+        <member name="M:cts.web.core.Cache.MemoryCacheManager.AddKey(System.String)">
+            <summary>
+            添加key到集合对象里面
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Cache.MemoryCacheManager.RemoveKey(System.String)">
+            <summary>
+            移除key
+            </summary>
+            <param name="key"></param>
+        </member>
+        <member name="M:cts.web.core.Cache.MemoryCacheManager.TryRemoveKey(System.String)">
+            <summary>
+            尝试移除key
+            </summary>
+            <param name="key"></param>
+        </member>
+        <member name="M:cts.web.core.Cache.MemoryCacheManager.ClearKeys">
+            <summary>
+            移除所有的标记值为false 的 key
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Cache.MemoryCacheManager.Clear">
+            <summary>
+            移除所有的缓存
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Cache.MemoryCacheManager.GetMemoryCacheEntryOptions(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="cacheTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Cache.MemoryCacheManager.PostEviction(System.Object,System.Object,Microsoft.Extensions.Caching.Memory.EvictionReason,System.Object)">
+            <summary>
+            当移除缓存时调用，从key集合中移除标记为false 的key，和移除当前的key
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <param name="reason"></param>
+            <param name="state"></param>
+        </member>
+        <member name="M:cts.web.core.Cache.MemoryCacheManager.Get``1(System.String)">
+            <summary>
+            获取数据
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Cache.MemoryCacheManager.IsSet(System.String)">
+            <summary>
+            判断缓存是否存在
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Cache.MemoryCacheManager.Remove(System.String)">
+            <summary>
+            移除缓存
+            </summary>
+            <param name="key"></param>
+        </member>
+        <member name="M:cts.web.core.Cache.MemoryCacheManager.RemoveByPattern(System.String)">
+            <summary>
+            正则移除缓存
+            </summary>
+            <param name="pattern"></param>
+        </member>
+        <member name="M:cts.web.core.Cache.MemoryCacheManager.Set(System.String,System.Object,System.Int32)">
+            <summary>
+            设置缓存并将key添加至key集合
+            </summary>
+            <param name="key"></param>
+            <param name="data"></param>
+            <param name="cacheTime"></param>
+        </member>
+        <member name="T:cts.web.core.Cache.ServiceCollectionExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Cache.ServiceCollectionExtensions.AddMemoryCache(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            启用redis或内存缓存
+            </summary>
+            <param name="services"></param>
+            <param name="configuration">Startup 中 的 IConfiguration 对象</param>
+        </member>
         <member name="T:cts.web.core.Config.RabbitMQConfig">
             <summary>
             rabbitmq 配置
@@ -128,6 +330,88 @@
             参数
             </summary>
         </member>
+        <member name="T:cts.web.core.Datatable.DatatableModel`1">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Datatable.DatatableModel`1.#ctor(cts.web.core.IPagedList{`0})">
+            <summary>
+            datatable插件的结果对象
+            </summary>
+            <param name="pageList"></param>
+        </member>
+        <member name="M:cts.web.core.Datatable.DatatableModel`1.#ctor(System.Collections.Generic.IList{`0})">
+            <summary>
+            
+            </summary>
+            <param name="list"></param>
+        </member>
+        <member name="P:cts.web.core.Datatable.DatatableModel`1.draw">
+            <summary>
+            上面提到了，Datatables发送的draw是多少那么服务器就返回多少。 这里注意，作者出于安全的考虑，强烈要求把这个转换为整形，即数字后再返回，而不是纯粹的接受然后返回，这是 为了防止跨站脚本（XSS）攻击。
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Datatable.DatatableModel`1.recordsTotal">
+            <summary>
+            即没有过滤的记录数（数据库里总共记录数）
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Datatable.DatatableModel`1.recordsFiltered">
+            <summary>
+            过滤后的记录数（如果有接收到前台的过滤条件，则返回的是过滤后的记录数）
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Datatable.DatatableModel`1.data">
+            <summary>
+            数据
+            </summary>
+        </member>
+        <member name="T:cts.web.core.Datatable.DataTablesParameters">
+            <summary>
+            datatable表参数
+            </summary>
+        </member>
+        <member name="F:cts.web.core.Datatable.DataTablesParameters.Columns">
+            <summary>
+            列
+            </summary>
+        </member>
+        <member name="F:cts.web.core.Datatable.DataTablesParameters.Order">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="F:cts.web.core.Datatable.DataTablesParameters.Search">
+            <summary>
+            查询关键字
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Datatable.DataTablesParameters.Start">
+            <summary>
+            开始条数
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Datatable.DataTablesParameters.Length">
+            <summary>
+            长度
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Datatable.DataTablesParameters.PageIndex">
+            <summary>
+            请求的页码
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Datatable.DataTablesParameters.OrderName">
+            <summary>
+            排序的字段名称
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Datatable.DataTablesParameters.OrderDir">
+            <summary>
+            排序方式，asc：正序，desc：倒序
+            </summary>
+        </member>
         <member name="T:cts.web.core.Datatable.IPageListExtensions">
             <summary>
             
@@ -166,6 +450,14 @@
         <member name="M:cts.web.core.Datatable.IPageListExtensions.ToJsonResult``1(cts.web.core.IPagedList{``0})">
             <summary>
             app json格式数据列表
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="pageList"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Datatable.IPageListExtensions.ToAjax``1(cts.web.core.IPagedList{``0})">
+            <summary>
+            转成 jquery.datatable数据对象
             </summary>
             <typeparam name="T"></typeparam>
             <param name="pageList"></param>
@@ -2321,208 +2613,6 @@
             <param name="virtualPath"></param>
             <returns></returns>
         </member>
-        <member name="T:AspNetCore.Cache.CacheExtensions">
-            <summary>
-            缓存扩展类型
-            </summary>
-        </member>
-        <member name="M:AspNetCore.Cache.CacheExtensions.Get``1(AspNetCore.Cache.ICacheManager,System.String,System.Func{``0})">
-            <summary>
-            如果缓存存在就从缓存获取，不存在执行Func并缓存后返回 默认 60 分钟
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="cacheManager"></param>
-            <param name="key"></param>
-            <param name="acquire">func委托方法</param>
-            <returns></returns>
-        </member>
-        <member name="M:AspNetCore.Cache.CacheExtensions.Get``1(AspNetCore.Cache.ICacheManager,System.String,System.Int32,System.Func{``0})">
-            <summary>
-            如果缓存存在就从缓存获取，不存在执行Func并缓存后返回
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="cacheManager"></param>
-            <param name="key"></param>
-            <param name="cacheTime">缓存分钟</param>
-            <param name="acquire">func委托方法</param>
-            <returns></returns>
-        </member>
-        <member name="M:AspNetCore.Cache.CacheExtensions.RemoveByPattern(AspNetCore.Cache.ICacheManager,System.String,System.Collections.Generic.IEnumerable{System.String})">
-            <summary>
-            正则移除缓存
-            </summary>
-            <param name="cacheManager"></param>
-            <param name="pattern"></param>
-            <param name="keys"></param>
-        </member>
-        <member name="T:AspNetCore.Cache.ICacheManager">
-            <summary>
-            缓存管理接口
-            </summary>
-        </member>
-        <member name="M:AspNetCore.Cache.ICacheManager.Get``1(System.String)">
-            <summary>
-            通过制定的Key获取缓存的数据，不存在则返回默认值
-            </summary>
-            <typeparam name="T">类型</typeparam>
-            <param name="key">key</param>
-            <returns>缓存的数据</returns>
-        </member>
-        <member name="M:AspNetCore.Cache.ICacheManager.Set(System.String,System.Object,System.Int32)">
-            <summary>
-            添加缓存
-            </summary>
-            <param name="key">key</param>
-            <param name="data">数据</param>
-            <param name="cacheTime">缓存时间，分钟数</param>
-        </member>
-        <member name="M:AspNetCore.Cache.ICacheManager.IsSet(System.String)">
-            <summary>
-            验证缓存是否存在
-            </summary>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="M:AspNetCore.Cache.ICacheManager.Remove(System.String)">
-            <summary>
-            移除缓存
-            </summary>
-            <param name="key"></param>
-        </member>
-        <member name="M:AspNetCore.Cache.ICacheManager.RemoveByPattern(System.String)">
-            <summary>
-            正则移除缓存
-            </summary>
-            <param name="pattern"></param>
-        </member>
-        <member name="M:AspNetCore.Cache.ICacheManager.Clear">
-            <summary>
-            清理缓存
-            </summary>
-        </member>
-        <member name="T:AspNetCore.Cache.MemoryCacheManager">
-            <summary>
-            内存缓存实现
-            </summary>
-        </member>
-        <member name="F:AspNetCore.Cache.MemoryCacheManager._memoryCache">
-            <summary>
-            缓存对象
-            </summary>
-        </member>
-        <member name="F:AspNetCore.Cache.MemoryCacheManager._allKeys">
-            <summary>
-            健集合
-            </summary>
-        </member>
-        <member name="F:AspNetCore.Cache.MemoryCacheManager._cancellationTokenSource">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:AspNetCore.Cache.MemoryCacheManager.#cctor">
-            <summary>
-            静态构造方法
-            </summary>
-        </member>
-        <member name="M:AspNetCore.Cache.MemoryCacheManager.#ctor(Microsoft.Extensions.Caching.Memory.IMemoryCache)">
-            <summary>
-            
-            </summary>
-            <param name="memoryCache"></param>
-        </member>
-        <member name="M:AspNetCore.Cache.MemoryCacheManager.AddKey(System.String)">
-            <summary>
-            添加key到集合对象里面
-            </summary>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="M:AspNetCore.Cache.MemoryCacheManager.RemoveKey(System.String)">
-            <summary>
-            移除key
-            </summary>
-            <param name="key"></param>
-        </member>
-        <member name="M:AspNetCore.Cache.MemoryCacheManager.TryRemoveKey(System.String)">
-            <summary>
-            尝试移除key
-            </summary>
-            <param name="key"></param>
-        </member>
-        <member name="M:AspNetCore.Cache.MemoryCacheManager.ClearKeys">
-            <summary>
-            移除所有的标记值为false 的 key
-            </summary>
-        </member>
-        <member name="M:AspNetCore.Cache.MemoryCacheManager.Clear">
-            <summary>
-            移除所有的缓存
-            </summary>
-        </member>
-        <member name="M:AspNetCore.Cache.MemoryCacheManager.GetMemoryCacheEntryOptions(System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="cacheTime"></param>
-            <returns></returns>
-        </member>
-        <member name="M:AspNetCore.Cache.MemoryCacheManager.PostEviction(System.Object,System.Object,Microsoft.Extensions.Caching.Memory.EvictionReason,System.Object)">
-            <summary>
-            当移除缓存时调用，从key集合中移除标记为false 的key，和移除当前的key
-            </summary>
-            <param name="key"></param>
-            <param name="value"></param>
-            <param name="reason"></param>
-            <param name="state"></param>
-        </member>
-        <member name="M:AspNetCore.Cache.MemoryCacheManager.Get``1(System.String)">
-            <summary>
-            获取数据
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="M:AspNetCore.Cache.MemoryCacheManager.IsSet(System.String)">
-            <summary>
-            判断缓存是否存在
-            </summary>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="M:AspNetCore.Cache.MemoryCacheManager.Remove(System.String)">
-            <summary>
-            移除缓存
-            </summary>
-            <param name="key"></param>
-        </member>
-        <member name="M:AspNetCore.Cache.MemoryCacheManager.RemoveByPattern(System.String)">
-            <summary>
-            正则移除缓存
-            </summary>
-            <param name="pattern"></param>
-        </member>
-        <member name="M:AspNetCore.Cache.MemoryCacheManager.Set(System.String,System.Object,System.Int32)">
-            <summary>
-            设置缓存并将key添加至key集合
-            </summary>
-            <param name="key"></param>
-            <param name="data"></param>
-            <param name="cacheTime"></param>
-        </member>
-        <member name="T:AspNetCore.Cache.ServiceCollectionExtensions">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:AspNetCore.Cache.ServiceCollectionExtensions.AddMemoryCache(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
-            <summary>
-            启用redis或内存缓存
-            </summary>
-            <param name="services"></param>
-            <param name="configuration">Startup 中 的 IConfiguration 对象</param>
-        </member>
         <member name="T:System.CombGuid">
             <summary>
             COMB Guid生成
@@ -2534,6 +2624,12 @@
             取时间的1/10毫秒进行排序，也就是计算在1毫秒内可以存在10个相同尾序的ID，对于一般性系统来说可以接受
             </summary>
             <param name="atStart">时间戳排在字符串前面，对于mysql来说有用</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.CombGuid.NewGuidAsString">
+            <summary>
+            适用于mysql的有序guid值 时间戳排在字符串前面
+            </summary>
             <returns></returns>
         </member>
         <member name="T:System.ConvertExtension">
@@ -2627,6 +2723,18 @@
             是否是手机号码
             </summary>
             <param name="source"></param>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Http.QueryStringExtension">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Http.QueryStringExtension.ToTableParms(Microsoft.AspNetCore.Http.QueryString)">
+            <summary>
+            GET请求转换jquery.datatable的参数
+            </summary>
+            <param name="queryString"></param>
+            <returns></returns>
         </member>
         <member name="T:Microsoft.AspNetCore.Http.FormFileExtension">
             <summary>

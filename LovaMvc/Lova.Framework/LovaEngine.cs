@@ -10,14 +10,12 @@ using System.Linq;
 using cts.web.core.Model;
 using Microsoft.AspNetCore.Http;
 using cts.web.core.Mail;
-using AspNetCore.Cache;
 using AutoMapper;
 using Lova.Mapping;
 using Lova.Entities;
 using System.Text.Encodings.Web;
 using System.Text.Unicode;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using Lova.Framework.Security;
 using Microsoft.AspNetCore.Builder;
 using cts.web.core.Librs;
 using Lova.Services;
@@ -25,6 +23,7 @@ using Quartz;
 using Quartz.Spi;
 using Quartz.Impl;
 using System.Text.Json;
+using cts.web.core.Cache;
 
 namespace Lova.Framework
 {
@@ -75,9 +74,9 @@ namespace Lova.Framework
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSingleton<IMailProvide, MailProvide>();
             services.AddSingleton<IMediaItemStorage, MediaItemStorage>();
-            services.AddScoped<SiteWorkContext>();
-            services.AddScoped<SysUserAuthentication>();
-            services.AddScoped<WorkContext>();
+            //services.AddScoped<SiteWorkContext>();
+            //services.AddScoped<SysUserAuthentication>();
+            //services.AddScoped<WorkContext>();
 
             //使用内存缓存
             services.AddMemoryCache(Configuration);
