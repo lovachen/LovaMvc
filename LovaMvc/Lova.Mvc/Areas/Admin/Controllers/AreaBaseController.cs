@@ -1,4 +1,5 @@
 ﻿using Lova.Framework.Controllers;
+using Lova.Framework.Filters;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace Lova.Mvc.Areas.Admin.Controllers
     /// </summary>
     [Area("Admin")]
     [Route("admin/[controller]")]
+    [ModelStateFilter]
     public abstract class AreaBaseController: WebBaseController
     {
 

@@ -8,6 +8,9 @@ using System.Text;
 
 namespace Lova.Framework.Filters
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class ModelStateFilterAttribute: TypeFilterAttribute
     {
         private bool _ignoreFilter;
