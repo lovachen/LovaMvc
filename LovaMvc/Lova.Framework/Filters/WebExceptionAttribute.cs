@@ -80,7 +80,7 @@ namespace Lova.Framework.Filters
                     case 0:
                         if (context.HttpContext.Request.IsAjaxRequest())
                         {
-                            context.Result = new JsonResult(new AjaxResult() { Status = 1001, Message = "系统错误，请稍后重试" });
+                            context.Result = new JsonResult(new AjaxResult() { Success = false, Message = "系统错误，请稍后重试" });
                         }
                         else
                         {

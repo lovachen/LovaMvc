@@ -17,19 +17,9 @@ namespace Lova.Framework.Controllers
         /// <summary>
         /// ajax请求返回结果
         /// </summary> 
-        protected AjaxResult AjaxData = new AjaxResult() { Status = -1, Message = "未知信息" };
+        protected AjaxResult AjaxData = new AjaxResult() { Success = false, Message = "未知信息" };
 
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        protected IActionResult NotValid()
-        {
-            AjaxData.Status = 1005;
-            AjaxData.Message = ModelState.GetErrMsg();
-            return new JsonResult(AjaxData);
-        }
+         
 
         /// <summary>
         /// 返回结果
@@ -38,7 +28,7 @@ namespace Lova.Framework.Controllers
         /// <returns></returns>
         protected IActionResult Json((bool Status, string Message) res)
         {
-            AjaxData.Status = res.Status ? 0 : 2001;
+            AjaxData.Success = res.Status;
             AjaxData.Message = res.Message;
             return Json(AjaxData);
         }
@@ -50,7 +40,7 @@ namespace Lova.Framework.Controllers
         /// <returns></returns>
         protected IActionResult JsonModel(object data)
         {
-            AjaxData.Status = 0;
+            AjaxData.Success = true;
             AjaxData.Message = "获取成功";
             AjaxData.Data = data;
             return Json(AjaxData);

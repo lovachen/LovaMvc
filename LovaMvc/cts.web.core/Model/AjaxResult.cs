@@ -21,7 +21,7 @@ namespace cts.web.core.Model
         /// <summary>
         /// 状态码 0 代表请求正常
         /// </summary>
-        public int Status { get; set; }
+        public bool Success { get; set; }
 
         /// <summary>
         /// 

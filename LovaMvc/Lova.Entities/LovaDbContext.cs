@@ -27,9 +27,10 @@ namespace Lova.Entities
         public virtual DbSet<sys_role> sys_role { get; set; }
         public virtual DbSet<sys_setting> sys_setting { get; set; }
         public virtual DbSet<sys_user> sys_user { get; set; }
+        public virtual DbSet<sys_user_jwt> sys_user_jwt { get; set; }
         public virtual DbSet<sys_user_login> sys_user_login { get; set; }
         public virtual DbSet<sys_user_role> sys_user_role { get; set; }
-         
+ 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<bucket>(entity =>
@@ -211,6 +212,13 @@ namespace Lova.Entities
                 entity.Property(e => e.password).HasCharSet(Pomelo.EntityFrameworkCore.MySql.Storage.CharSet.Utf8);
 
                 entity.Property(e => e.salt).HasCharSet(Pomelo.EntityFrameworkCore.MySql.Storage.CharSet.Utf8);
+            });
+
+            modelBuilder.Entity<sys_user_jwt>(entity =>
+            {
+                entity.Property(e => e.id).HasCharSet(Pomelo.EntityFrameworkCore.MySql.Storage.CharSet.Utf8Mb4);
+
+                entity.Property(e => e.user_id).HasCharSet(Pomelo.EntityFrameworkCore.MySql.Storage.CharSet.Utf8Mb4);
             });
 
             modelBuilder.Entity<sys_user_login>(entity =>

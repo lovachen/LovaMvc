@@ -2064,7 +2064,7 @@
             
             </summary>
         </member>
-        <member name="P:cts.web.core.Model.AjaxResult.Status">
+        <member name="P:cts.web.core.Model.AjaxResult.Success">
             <summary>
             状态码 0 代表请求正常
             </summary>

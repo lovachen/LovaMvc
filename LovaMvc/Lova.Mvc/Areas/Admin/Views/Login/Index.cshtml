@@ -47,7 +47,7 @@
                                             请输入您的登录信息
                                         </h4>
                                         <div class="space-6"></div>
-                                        <form asp-route="authorize" id="formLogin" onsubmit="return false;">
+                                        <form asp-route="adminLogin" id="formLogin" onsubmit="return false;">
                                             @Html.AntiForgeryToken()
                                             <fieldset>
                                                 <label class="block clearfix">
@@ -77,8 +77,8 @@
                                         </div>
                                         <div class="space-6"></div>
                                         @*<div class="social-login center">
-                                            <p>使用您的德佑OA账号访问 <b class="text-primary"></b></p>
-                                        </div>*@
+                                                <p>使用您的德佑OA账号访问 <b class="text-primary"></b></p>
+                                            </div>*@
                                     </div><!-- /.widget-main -->
 
                                 </div><!-- /.widget-body -->
@@ -90,34 +90,56 @@
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.main-content -->
-    </div><!-- /.main-container -->
-
+    </div><!-- /.main-container --> 
+    <script src="~/ace/js/bootstrap.min.js"></script>
+    <script src="~/js/jquery.md5.js"></script>
+    <script src="~/js/jquery.form.js"></script>
+    <script src="~/layer/layer.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
     <script>
         $(function () {
-            $('#formLogin').submit(function (e) {
-                var intid = $('#intid').val();
-                var oapwd = $("#txt_password").val();
-                if (!intid) {
-                    layer.msg('请输入OA系统编号', { icon: 7 });
-                    return false;
+            $('form').submit(function (e) {
+                if ($(this).valid()) {
+                    var btn = $(this).find('[type="submit"]').addClass('disabled').attr('disabled', 'disabled');
+                    var account = $(this).find('#Account').val();
+                    var password = $(this).find('#Password').val();
+                    var _vertoken = $(this).find('[name="__RequestVerificationToken"]').val();
+                    var _url = this.action;
+                    $.ajax({
+                        url: '@Url.RouteUrl("getSalt")',
+                        data: { "Account": account },
+                        success: (res) => { 
+                            if (res.Success) {
+                                 password =$.md5(password + res.Data.Salt);
+                                $.ajax({
+                                    url: _url,
+                                    type: 'post',
+                                    dataType: 'json',
+                                    data: { "Account": account, "Password": password, "__RequestVerificationToken": _vertoken },
+                                    success: function (res) {
+                                        if (res.Success) {
+                                            window.location.href = '@Url.RouteUrl("mainIndex")';
+                                        } else {
+                                            layer.msg(res.Message, { icon: 2 });
+                                        }
+                                    },
+                                    complete: (res) => { 
+                                        btn.removeAttr('disabled').removeClass('disabled');
+                                    }
+                                });
+                            } else {
+                                layer.msg(res.Message, { icon: 2 });
+                            }
+                        },
+                        error: (res) => {
+                            btn.removeAttr('disabled').removeClass('disabled');
+                        }
+                    });
+
                 }
-                if (!oapwd) {
-                    layer.msg('请输入OA登录密码', { icon: 7 });
-                    return false;
-                }
-                var url = this.action;
-                $('#password').val($.md5(oapwd));
-                $(this).ajaxSubmit(function (data) {
-                    if (data.Status) {
-                        window.location.href = data.RedirectUrl;
-                    } else {
-                        layer.msg(data.Message, {
-                            icon: 2
-                        });
-                    }
-                });
             });
-        })
+        });
     </script>
 </body>
 
