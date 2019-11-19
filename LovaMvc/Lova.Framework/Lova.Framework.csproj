@@ -21,8 +21,4 @@
     <ProjectReference Include="..\Lova.Services\Lova.Services.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Security\Admin\" />
-  </ItemGroup>
-
 </Project>
