@@ -20,4 +20,8 @@
     <ProjectReference Include="..\Lova.Services\Lova.Services.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\ace\" />
+  </ItemGroup>
+
 </Project>
