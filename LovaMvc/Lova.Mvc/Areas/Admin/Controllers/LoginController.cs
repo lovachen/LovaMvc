@@ -1,4 +1,5 @@
 ﻿using cts.web.core.Librs;
+using Lova.Framework.Security;
 using Lova.Mvc.Areas.Admin.Models;
 using Lova.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -12,9 +13,11 @@ namespace Lova.Mvc.Areas.Admin.Controllers
     public class LoginController : AreaBaseController
     {
         private SysUserService _sysUserService;
-
-        public LoginController(SysUserService sysUserService)
+        private SysUserAuthentication _sysUserAuthentication;
+        public LoginController(SysUserService sysUserService,
+            SysUserAuthentication sysUserAuthentication)
         {
+            _sysUserAuthentication = sysUserAuthentication;
             _sysUserService = sysUserService;
         }
 
@@ -36,8 +39,7 @@ namespace Lova.Mvc.Areas.Admin.Controllers
             AjaxData.Success = res.Status;
             if (res.Status)
             {
-                //_sysUserAuthentication.SignIn(res.Jwt.Jti, res.User, res.Jwt.Expiration);
-                
+                _sysUserAuthentication.SignIn(res.Jwt.id, res.User, res.Jwt.expiration);
             }
             return Json(AjaxData);
         }

@@ -13,7 +13,7 @@ namespace Lova.Framework.Model
         /// <summary>
         /// 
         /// </summary>
-        public Guid Id { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// 
