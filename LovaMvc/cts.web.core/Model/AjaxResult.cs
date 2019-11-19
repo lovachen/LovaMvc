@@ -15,14 +15,13 @@ namespace cts.web.core.Model
         /// </summary>
         public AjaxResult()
         {
-            Message = "";
-            Code = -1;
+            Message = ""; 
         }
 
         /// <summary>
         /// 状态码 0 代表请求正常
         /// </summary>
-        public int Code { get; set; }
+        public int Status { get; set; }
 
         /// <summary>
         /// 
@@ -32,6 +31,6 @@ namespace cts.web.core.Model
         /// <summary>
         /// 结果
         /// </summary>
-        public object Result { get; set; }
+        public object Data { get; set; }
     }
 }
