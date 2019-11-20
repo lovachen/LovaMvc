@@ -14,24 +14,21 @@ namespace Lova.Mvc.Areas.Admin.Controllers
     {
         private IWebHostEnvironment _webHostEnvironment;
         private SysCategoryService _sysCategoryService;
-
-        public CategoryController(SysCategoryService sysCategoryService)
-        {
-            _sysCategoryService = sysCategoryService;
-        }
-        public CategoryController(IWebHostEnvironment webHostEnvironment)
+         
+        public CategoryController(IWebHostEnvironment webHostEnvironment,
+            SysCategoryService sysCategoryService)
         {
             _webHostEnvironment = webHostEnvironment;
+            _sysCategoryService = sysCategoryService;
         }
 
         /// <summary>
         /// 功能菜单列表
         /// </summary>
         /// <returns></returns>
-        [Route("", Name = "activityLogIndex")]
+        [Route("", Name = "categoryIndex")]
         public IActionResult CategoryIndex()
-        {
-            Url.Action("", "");
+        { 
             return View(GetCategories());
         }
 
