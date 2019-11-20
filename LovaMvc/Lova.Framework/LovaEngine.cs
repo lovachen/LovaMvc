@@ -109,7 +109,7 @@ namespace Lova.Framework
             }).AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, opts =>
                 {
                     opts.Cookie.HttpOnly = true;
-                    opts.LoginPath = "/admin";
+                    opts.LoginPath = "/admin/login";
                 });
 
             //路由url小写
