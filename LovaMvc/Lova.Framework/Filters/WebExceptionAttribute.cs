@@ -56,18 +56,21 @@ namespace Lova.Framework.Filters
                     _logger.LogError(context.Exception, ex.Message ?? "");
                     //发送邮件提醒
                     var settings = _settingService.GetMasterSettings();
-                    if (!String.IsNullOrEmpty(settings.ErrorToMailAddress))
+                    if (settings.EmailErrorPush == "1")
                     {
-                        string[] mails = mails = new string[] { settings.ErrorToMailAddress };
-                        if (settings.ErrorToMailAddress.Contains(";"))
+                        if (!String.IsNullOrEmpty(settings.ErrorToMailAddress))
                         {
-                            mails = settings.ErrorToMailAddress.Split(";");
-                        }
-                        var config = new MailConfig() { Account = settings.EmailAccount, Host = settings.EmailHost, Password = settings.EmailPassword };
-                        if (int.TryParse(settings.EmailPort, out int _port))
-                        {
-                            config.Port = _port;
-                            _mailProvide.Smtp(config, mails, $"{settings.SiteName}系统错误提醒", ex.Message + Environment.NewLine + ex.StackTrace);
+                            string[] mails = mails = new string[] { settings.ErrorToMailAddress };
+                            if (settings.ErrorToMailAddress.Contains(";"))
+                            {
+                                mails = settings.ErrorToMailAddress.Split(";");
+                            }
+                            var config = new MailConfig() { Account = settings.EmailAccount, Host = settings.EmailHost, Password = settings.EmailPassword };
+                            if (int.TryParse(settings.EmailPort, out int _port))
+                            {
+                                config.Port = _port;
+                                _mailProvide.Smtp(config, mails, $"{settings.SiteName}系统错误提醒", ex.Message + Environment.NewLine + ex.StackTrace);
+                            }
                         }
                     }
                 }

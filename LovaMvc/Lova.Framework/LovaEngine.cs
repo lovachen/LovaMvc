@@ -24,6 +24,7 @@ using Quartz.Spi;
 using Quartz.Impl;
 using System.Text.Json;
 using cts.web.core.Cache;
+using Lova.Framework.Security;
 
 namespace Lova.Framework
 {
@@ -75,8 +76,8 @@ namespace Lova.Framework
             services.AddSingleton<IMailProvide, MailProvide>();
             services.AddSingleton<IMediaItemStorage, MediaItemStorage>();
             //services.AddScoped<SiteWorkContext>();
-            //services.AddScoped<SysUserAuthentication>();
-            //services.AddScoped<WorkContext>();
+            services.AddScoped<SysUserAuthentication>();
+            services.AddScoped<WorkContext>();
 
             //使用内存缓存
             services.AddMemoryCache(Configuration);
