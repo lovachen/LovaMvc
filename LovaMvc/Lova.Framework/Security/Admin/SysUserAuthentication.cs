@@ -130,18 +130,10 @@ namespace Lova.Framework.Security
         /// </summary>
         /// <param name="platform"></param>
         /// <returns></returns>
-        public Guid GetUserId(int platform = 0)
-        {
-            Guid _id = Guid.Empty;
+        public string GetUserId(int platform = 0)
+        { 
             var claim = GetClaims(platform, ClaimTypes.Sid);
-            if (claim != null)
-            {
-                if (!String.IsNullOrEmpty(claim.Value))
-                {
-                    Guid.TryParse(claim.Value, out _id);
-                }
-            }
-            return _id;
+            return claim?.Value;
         }
 
         /// <summary>
