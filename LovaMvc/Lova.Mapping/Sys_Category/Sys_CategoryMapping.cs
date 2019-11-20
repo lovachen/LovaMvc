@@ -22,7 +22,7 @@ namespace Lova.Mapping
         [Column(TypeName = "varchar(36)")]
         public string id { get; set; }
         [Column(TypeName = "bit(1)")]
-        public ulong is_menu { get; set; }
+        public bool is_menu { get; set; }
         [Required]
         [Column(TypeName = "varchar(45)")]
         public string name { get; set; }

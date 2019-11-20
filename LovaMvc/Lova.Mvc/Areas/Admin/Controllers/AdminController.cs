@@ -11,6 +11,6 @@ namespace Lova.Mvc.Areas.Admin.Controllers
     [SysUserAuth]
     public abstract class AdminController : AreaBaseController
     {
-
+        
     }
 }

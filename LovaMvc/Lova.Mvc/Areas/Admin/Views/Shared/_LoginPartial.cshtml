@@ -1,0 +1,59 @@
+﻿@{
+    var user = WorkContext.GetUserData(0);
+}
+@if (user.IsAdmin)
+{
+    <nav role="navigation" class="navbar-menu pull-left collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+            <li>
+                <a asp-route="categoryIndex" id="categoryIndex">
+                    <i class="ace-icon fa fa-cogs"></i>
+                    功能菜单
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <script>
+        $('#categoryIndex').click(function (e) {
+            e.preventDefault();
+            var url = this.href;
+            layer.open({
+                type: 2,
+                title: '功能菜单',
+                maxmin: true, //开启最大化最小化按钮
+                area: ['80%', '80%'],
+                content: url
+            });
+        }); 
+    </script>
+    <div class="navbar-buttons navbar-header pull-right " role="navigation">
+        <ul class="nav ace-nav">
+
+            <li class="light-blue">
+                <a data-toggle="dropdown" href="javascript:" class="dropdown-toggle">
+                    <img class="nav-user-photo" src="/ace/avatars/user.jpg" onerror="this.src = '/ace/avatars/user.jpg'" alt="" />
+                    <span class="user-info">
+                        <small>您好，</small> @user.Name
+                    </span>
+                    <i class="ace-icon fa fa-caret-down"></i>
+                </a>
+                <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                    <li>
+                        <a asp-route="profileIndex">
+                            <i class="ace-icon fa fa-user"></i>
+                            个人
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a asp-route="adminSignOut">
+                            <i class="ace-icon fa fa-power-off"></i>
+                            退出
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+}
+
