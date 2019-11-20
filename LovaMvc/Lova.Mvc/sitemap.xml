@@ -46,7 +46,10 @@
       <siteMapNode Name="启动任务" UID="SYSMGR.QUARZT.START" Action="StartQuarzt" Controller="Quarzt" RouteName="startQuarzt" Target="0"></siteMapNode>
       <siteMapNode Name="暂停任务" UID="SYSMGR.QUARZT.STOP" Action="StopQuarzt" Controller="Quarzt" RouteName="stopQuarzt" Target="0"></siteMapNode>
     </siteMapNode>
- 
+    
+    <siteMapNode Name="菜单管理" UID="SYSMGR.CATEGORY" Action="CategoryIndex" Controller="Category" RouteName="categoryIndex" Target="0">
+      <siteMapNode Name="启动任务" UID="SYSMGR.QUARZT.START" Action="InitCategory" Controller="Category" RouteName="initCategory" Target="0"></siteMapNode> 
+    </siteMapNode>
 
   </siteMapNode>
 
