@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Diagnostics;
 
 namespace Lova.Framework.Filters
 {
@@ -84,6 +85,8 @@ namespace Lova.Framework.Filters
                         }
                         else
                         {
+                            var act = Activity.Current;
+
                             context.Result = new ViewResult() { ViewName ="Error" };
                         }
                         break;

@@ -55,7 +55,7 @@ namespace Lova.Mvc
             app.UseAuthorization();
 
             //NLog 数据库连接
-            LogManager.Configuration.FindTargetByName<DatabaseTarget>("db").ConnectionString
+            LogManager.Configuration.FindTargetByName<DatabaseTarget>("mysqldb").ConnectionString
                 = Configuration.GetConnectionString("DefaultConnection");
 
             app.UseEndpoints(endpoints =>

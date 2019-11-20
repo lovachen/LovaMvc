@@ -14,7 +14,7 @@ namespace Lova.Services
 {
     public class SettingService : BaseService
     {
-        private const string MODEL_KEY = "ab.services.settings";
+        private const string MODEL_KEY = "lova.services.settings";
 
         private ICacheManager _cacheManager;
         private LovaDbContext _dbContext;
