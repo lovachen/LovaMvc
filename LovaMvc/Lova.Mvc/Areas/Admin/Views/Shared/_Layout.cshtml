@@ -36,7 +36,7 @@
                 <a href="@Url.RouteUrl("mainIndex")" class="navbar-brand">
                     <small>
                         <i class=""></i>
-                        通用管理系统
+                        @SiteContext.Settings.SiteName
                     </small>
                 </a>
             </div>
@@ -55,7 +55,7 @@
             <div class="footer-content">
                 <span class="bigger-120">
                     <span class="blue bolder">Ace</span>
-                    通用管理系统 © 2017-@DateTime.Now.Year
+                    @SiteContext.Settings.SiteName © 2019-@DateTime.Now.Year
                 </span>
             </div>
             <!-- /section:basics/footer -->
