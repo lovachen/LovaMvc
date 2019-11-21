@@ -82,6 +82,7 @@ namespace Lova.Services
                 });
                 _dbContext.SaveChanges();
                 tarns.Commit();
+                _cacheManager.Remove(MODEL_ALL);
             }
         }
     }

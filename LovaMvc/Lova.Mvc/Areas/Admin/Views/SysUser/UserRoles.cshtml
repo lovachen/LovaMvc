@@ -1,0 +1,69 @@
+﻿@model Sys_UserMapping
+@{
+    var roles = ViewBag.Roles as List<Sys_RoleMapping>;
+}
+
+<div class="col-sm-12">
+    <div class="space-10"></div>
+    <div class="callout " style="margin-bottom: 0!important;">
+        <h4><i class="fa fa-info"></i> 您正在配置用户【@Model.name (@Model.account)】的角色</h4>
+    </div>
+    <div class="space-10"></div>
+    <form asp-route="userRoles" method="post" id="formUserRole" class="form-horizontal" onsubmit="return false;">
+        @Html.Hidden("id", Model.id)
+        <div class="box box-success">
+            <div class="box-header with-border">
+                <h3 class="box-title">选择角色</h3>
+            </div>
+            <div class="box-body">
+
+                @if (roles != null)
+                {
+                    foreach (var role in roles)
+                    {
+                        bool any = Model.SysRoles != null && Model.SysRoles.Any(o => o.id == role.id);
+
+                        <div class="col-sm-3">
+
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="RoleIds" @(any ? "checked=checked" : "") value="@role.id">@role.name
+                            </label>
+
+                        </div>
+                    }
+                }
+
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-5 col-sm-2">
+                <button type="submit" class="btn btn-block btn-success">
+                    <i class="fa fa-save"></i> 保存
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+<script>
+    $(function () {
+        $('#formUserRole').submit(function (e) {
+            e.preventDefault();
+            var index = layer.load(2);
+            $(this).ajaxSubmit(function (res) {
+                layer.close(index);
+                layer.msg(res.Message, { icon: res.Code === 0 ? 1 : 2 });
+            });
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+

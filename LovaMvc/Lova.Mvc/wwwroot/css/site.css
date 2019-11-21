@@ -4,3 +4,10 @@
 td {
     vertical-align: middle !important;
 }
+.dataTables_wrapper .row .col-sm-12 {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.dataTables_wrapper .dataTables_scroll + .row {
+    border-top: none !important;
+}

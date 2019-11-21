@@ -1,0 +1,50 @@
+﻿@model Sys_ActivityLogMapping
+@using System.Text.Json
+
+@{
+    var OldObject = ViewBag.OldObject as JsonDocument;
+    var NewObject = ViewBag.NewObject as JsonDocument;
+}
+<div class="space-10"></div>
+<div class="col-sm-12">
+
+    <dl class="dl-horizontal">
+        <dt>表名</dt>
+        <dd>@Model.entity_name</dd>
+        <dt>操作时间</dt>
+        <dd>@Model.creation_time_foramt</dd>
+        <dt>类型</dt>
+        <dd><span class="label label-success">@Model.method</span></dd>
+        <dt>操作人</dt>
+        <dd>@Model.user_name</dd>
+        <dt>结果对比</dt>
+        <dd>
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>字段名</th>
+                        <th>旧值</th>
+                        <th>新值</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (OldObject != null || NewObject != null)
+                    {
+                        var obj = OldObject ?? NewObject;
+                        foreach (var item in obj.RootElement.EnumerateObject())
+                        {
+                            <tr class="@(OldObject!=null && NewObject!=null && item.Value.ToString() != NewObject.RootElement.GetProperty(item.Name).GetString() ? "text-danger":"")">
+                                <td>@item.Name</td>
+                                <td>@(OldObject != null ? OldObject.RootElement.GetProperty(item.Name).GetString() : "")</td>
+                                <td>@(NewObject != null ? NewObject.RootElement.GetProperty(item.Name).GetString() : "")</td>
+                            </tr>
+                        }
+
+                    }
+                </tbody>
+            </table>
+        </dd>
+    </dl>
+
+
+</div>

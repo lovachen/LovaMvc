@@ -13,6 +13,9 @@ namespace Lova.Mapping
             CreateMap<Entities.sys_user_jwt, Sys_UserJwtMapping>();
             CreateMap<Sys_UserJwtMapping, Entities.sys_user_jwt>();
 
+
+            CreateMap<Entities.sys_user, Sys_UserMapping>();
+            CreateMap<Sys_UserMapping, Entities.sys_user>();
         }
     }
 }

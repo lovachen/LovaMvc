@@ -1,0 +1,24 @@
+﻿@model List<Sys_RoleMapping>
+
+<select id="roleid" name="roleid" class="form-control">
+    <option value="">不限</option>
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <option value="@item.id">@item.name</option>
+        }
+    }
+</select>
+
+
+
+
+
+
+
+
+
+
+
+

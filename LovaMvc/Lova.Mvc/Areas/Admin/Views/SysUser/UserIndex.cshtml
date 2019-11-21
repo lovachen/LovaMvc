@@ -1,0 +1,208 @@
+﻿
+@{
+    ViewData["Title"] = "系统用户";
+    var canEdit = WorkContext.AuthorityCheck("userEdit");
+    var canSetRole = WorkContext.AuthorityCheck("userRoles");
+    var canDel = WorkContext.AuthorityCheck("userDelete");
+}
+@*<div class="breadcrumbs">
+ 
+    <ol class="breadcrumb">
+        <li><a asp-route="mainIndex"><i class="ace-icon fa fa-home home-icon"></i>主界面</a></li>
+        <li class="active">@ViewData["Title"]</li>
+    </ol>
+</div>*@
+ 
+<!-- Main content -->
+<div class="page-content">
+    <div class="row">
+        <div class="col-sm-12">
+            @if (canEdit)
+            {
+                <button type="button" data-url="@Url.RouteUrl("userEdit")" class="btn btn-sm btn-link btnAdd"><i class="fa fa-plus"></i> 新增</button>
+            }
+        </div>
+    </div>
+    <div class="space-2"></div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <form class="form-inline" onsubmit="return false" id="formSearch">
+                <div class="form-group">
+                    <label for="q">关键字</label>
+                    <input type="text" class="form-control" id="q" name="q" placeholder="账号、姓名、手机号">
+                </div>
+                <div class="form-group">
+                    <label for="rid">角色</label>
+
+                    @await Component.InvokeAsync("Roles")
+                </div>
+                <button type="submit" class="btn bg-purple"><i class="fa fa-search"></i> 查询</button>
+            </form>
+        </div>
+    </div>
+    <div class=""> 
+            <table id="example1" class="table table-striped table-bordered table-hover dataTable no-footer">
+                <thead>
+                    <tr>
+                        <th width="10%">姓名</th>
+                        <th width="10%">账号</th>
+                        <th width="20%">角色</th>  
+                        <th width="15%">活动时间</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+            </table>
+        </div> 
+    <!-- /.box -->
+
+</div>
+<!-- page script -->
+<script>
+
+
+    $(function () { 
+        var table = $('#example1').DataTable({
+            language: { url: '/dataTables/chinese.json' },
+            bAutoWidth: false,
+            serverSide: true,
+            processing: true,
+            searching: false,
+            scrollX: false,
+            ajax: {
+                url: '@Url.RouteUrl("userData")',
+                data: function (d) {
+                    d.q = $('#q').val();
+                    d.roleid = $('#roleid').val();
+                }
+            },
+            order: [0, 'asc'],
+            columns: [
+                { data: 'name',"width": '15%', }, 
+                { data:'account'},
+                {
+                    data: null,
+                    "orderable": false,
+                    'render': function (data, type, row) {
+                        if (row.SysRoles != null && Array.isArray(row.SysRoles) && row.SysRoles.length>0) {
+                            return row.SysRoles.map(item => {
+                                return '<span class="label label-lg label-primary">' + item.Name +'</span>';
+                            }).join(' ');
+                        }
+                        return '';
+                    }
+                },
+                 
+                {
+                    data: 'last_activity_time_foramt',
+                    "orderable": false, 
+                },
+            ],
+            columnDefs: [
+                { "width": '15%', "targets": [0] },
+            {
+                "targets": 4,//操作按钮目标列
+                "data": null,
+                "render": function (data, type, row) {
+                    var id = row.Id;
+                    var html = "<button data-url='@Url.RouteUrl("userDetails")?id=" + id + "' class='btn btn-link btn-xs btnDetails'><i class='fa fa-search-plus'></i> 查看</button>";
+                    if (@Json.Serialize(canSetRole)) {
+                        html += "<button data-url='@Url.RouteUrl("userRoles")?id=" + id + "' class='btn btn-link btn-xs btnSetRoles'><i class='fa fa-gear'></i> 配置角色</button>";
+                    }
+                    if (@Json.Serialize(canDel)) {
+                        html += "<button data-url='@Url.RouteUrl("userDelete")?id=" + id + "' class='btn btn-danger btn-xs btnDelete'><i class='fa fa-times'></i> 删除</button>";
+                    }
+                    return html;
+                }
+            }],
+            "rowCallback": function (row, data) {
+                $(row).find('.btnDetails').click(function (e) {
+                    var _url = $(this).data('url');
+                    var load = layer.load(2);
+                    $.get(_url, function (html) {
+                        layer.close(load);
+                        layer.open({
+                            type: 1,
+                            maxmin: true,
+                            area: ['80%', '80%'],
+                            title: "预览用户详情",
+                            content: html
+                        });
+                    });
+                });
+                $(row).find('.btnEdit').click(function (e) {
+                    e.preventDefault();
+                    var _url = $(this).data('url');
+                    events.edit(_url);
+                });
+                $(row).find('.btnSetRoles').click(function (e) {
+                    e.preventDefault();
+                    var _url = $(this).data('url');
+                    var load = layer.load(2);
+                    $.get(_url, function (html) {
+                        layer.close(load);
+                        layer.open({
+                            type: 1,
+                            area: ['70%', '70%'],
+                            title: "配置用户角色",
+                            content: html,
+                            cancel: function () {
+                                table.draw(false);
+                            }
+                        });
+                    });
+                });
+                $(row).find('.btnDelete').click(function (e) {
+                    e.preventDefault();
+                    var _url = $(this).data('url');
+                    events.del(_url, row);
+                });
+
+            }
+        });
+        $('#formSearch').submit(function (e) {
+            e.preventDefault();
+            table.draw();
+        });
+
+        $('.btnAdd').click(function (e) {
+            e.preventDefault();
+            var _url = $(this).data('url');
+            events.edit(_url);
+        });
+
+        var events = {
+            edit: function (_url) {
+                var load = layer.load(2);
+                $.get(_url, function (html) {
+                    layer.close(load);
+                    layer.open({
+                        type: 1,
+                        area: ['70%', '80%'],
+                        title: "配置分部",
+                        content: html,
+                        cancel: function () {
+                            table.draw(false);
+                        }
+                    });
+                });
+            },
+            del: function (_url, row) {
+                layer.confirm('删除用户将无法恢复，您确定要删除？', function () {
+                    var index = layer.load(2);
+                    $.get(_url, function (res) {
+                        layer.close(index);
+                        if (res.Code === 0) {
+                            layer.alert(res.Message, { icon: 1 }, function () {
+                                row.remove();
+                                layer.closeAll();
+                            });
+                        } else {
+                            layer.msg(res.Message, { icon: 2 });
+                        }
+                    });
+                });
+            }
+        }
+
+    })
+</script>

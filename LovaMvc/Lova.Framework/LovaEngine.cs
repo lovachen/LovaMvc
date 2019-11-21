@@ -75,7 +75,7 @@ namespace Lova.Framework
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSingleton<IMailProvide, MailProvide>();
             services.AddSingleton<IMediaItemStorage, MediaItemStorage>();
-            //services.AddScoped<SiteWorkContext>();
+            services.AddScoped<SiteWorkContext>();
             services.AddScoped<SysUserAuthentication>();
             services.AddScoped<WorkContext>();
 

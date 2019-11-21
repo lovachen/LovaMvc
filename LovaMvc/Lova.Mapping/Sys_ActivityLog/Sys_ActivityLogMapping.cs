@@ -12,7 +12,7 @@ namespace Lova.Mapping
         [Column(TypeName = "varchar(145)")]
         public string comment { get; set; }
         [Column(TypeName = "datetime")]
-        public DateTime? creation_time { get; set; }
+        public DateTime creation_time { get; set; }
         [Column(TypeName = "varchar(36)")]
         public string creator { get; set; }
         [Column(TypeName = "varchar(145)")]
@@ -38,7 +38,8 @@ namespace Lova.Mapping
         public string user_name { get; set; }
 
         public string user_account { get; set; }
-
+         
+        public string creation_time_foramt => creation_time.ToString("F");
 
 
         #endregion

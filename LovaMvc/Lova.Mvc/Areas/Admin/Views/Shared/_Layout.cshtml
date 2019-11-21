@@ -9,17 +9,14 @@
     <title>@ViewData["Title"]</title>
     <link href="~/ace/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/ace/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="~/ace/css/ace.min.css" rel="stylesheet" />
-    <link href="~/ace/css/jquery.gritter.css" rel="stylesheet" />
+    <link href="~/ace/css/ace.min.css" rel="stylesheet" /> 
     <link href="~/ace/css/ace-fonts.css" rel="stylesheet" />
     <link href="~/ace/css/ace.min.css" rel="stylesheet" />
     <link href="~/ace/css/ace-skins.min.css" rel="stylesheet" />
     <link href="~/ace/css/ace-rtl.min.css" rel="stylesheet" />
-    <link href="~/ace/css/ace-part2.min.css" rel="stylesheet" />
-    <link href="~/ace/css/jquery-ui.custom.min.css" rel="stylesheet" />
-    <link href="~/ace/css/bootstrap-editable.css" rel="stylesheet" />
-    <link href="~/ace/css/datepicker.css" rel="stylesheet" />
-    <link href="~/css/site.css" rel="stylesheet" />
+    <link href="~/ace/css/ace-part2.min.css" rel="stylesheet" /> 
+    <link href="~/ace/css/bootstrap-editable.css" rel="stylesheet" /> 
+    <link href="~/css/site.css" rel="stylesheet" asp-append-version="true" />
     <script src="~/ace/js/ace-extra.min.js"></script>
     <script src="~/ace/js/jquery.min.js"></script>
 </head>
@@ -46,6 +43,7 @@
     <div class="main-container" id="main-container">
         <partial name="_NavbarPartial" />
         <div class="main-content">
+            <partial name="_Breadcrumbs" />
             @RenderBody()
         </div>
     </div>
@@ -71,6 +69,8 @@
     <script src="~/ace/js/x-editable/ace-editable.min.js"></script>
     <script src="~/layer/layer.js"></script>
     <script src="~/js/jquery.form.js"></script>
+    <script src="~/ace/js/jquery.dataTables.min.js"></script> 
+    <script src="~/ace/js/jquery.dataTables.bootstrap.js"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

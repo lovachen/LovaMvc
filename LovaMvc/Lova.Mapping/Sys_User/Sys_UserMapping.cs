@@ -36,5 +36,39 @@ namespace Lova.Mapping
         [Required]
         [Column(TypeName = "varchar(256)")]
         public string salt { get; set; }
+
+
+
+
+
+
+
+
+        #region 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string creation_time_foramt => creation_time.ToString("F");
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string last_activity_time_foramt => last_activity_time?.ToString("F");
+
+        /// <summary>
+        /// 角色
+        /// </summary>
+        public List<Sys_RoleMapping> SysRoles { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public List<Sys_UserRoleMapping> UserRoles { get; set; }
+
+        #endregion
+
+
+
     }
 }

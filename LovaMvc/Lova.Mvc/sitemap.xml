@@ -7,7 +7,7 @@
 
 <!--系统管理-->
   <siteMapNode Name="系统管理" UID="SYSMGR" IsMenu="1" Target="0" IconClass="fa fa-laptop">
-    <siteMapNode Name="用户列表" UID="SYSMGR.USERS" IsMenu="1" Action="UserIndex" Controller="SysUser" RouteName="userIndex" Target="0">
+    <siteMapNode Name="用户列表" UID="SYSMGR.USERS" IsMenu="1" Action="UserIndex" Controller="SysUser" RouteName="userIndex" IconClass="menu-icon fa fa-caret-right" Target="0">
       <siteMapNode Name="预览用户详情" UID="SYSMGR.USERDETAILS" Action="UserDetails" Controller="SysUser" RouteName="userDetails" Target="0"></siteMapNode>
       <siteMapNode Name="新增" UID="SYSMGR.USER.EDIT" Action="UserEdit" Controller="SysUser" RouteName="userEdit" Target="0"></siteMapNode>
       <siteMapNode Name="配置用户分部" UID="SYSMGR.USER.USERATTRS" Action="UserAttrs" Controller="SysUser" RouteName="userAttrs" Target="0"></siteMapNode>
@@ -16,7 +16,7 @@
 
     </siteMapNode>
 
-    <siteMapNode Name="角色管理" UID="SYSMGR.ROLES" IsMenu="1" Action="RoleIndex" Controller="SysRole" RouteName="roleIndex" Target="0" >
+    <siteMapNode Name="角色管理" UID="SYSMGR.ROLES" IsMenu="1" Action="RoleIndex" Controller="SysRole" RouteName="roleIndex" IconClass="menu-icon fa fa-caret-right" Target="0" >
       <siteMapNode Name="预览角色详情" UID="SYSMGR.ROLES.ROLEUSERS" Action="RoleUsers" Controller="SysRole" RouteName="roleUsers" Target="0">
         <siteMapNode Name="删除关联用户" UID="SYSMGR.ROLES.ROLEUSERS.DEL" Action="DeleteRoleUsers" Controller="SysRole" RouteName="deleteRoleUsers" Target="0"></siteMapNode>
       </siteMapNode>
@@ -25,29 +25,29 @@
       <siteMapNode Name="删除角色" UID="SYSMGR.ROLES.DELETE" Action="Delete" Controller="SysRole" RouteName="roleDelete" Target="0"></siteMapNode>
     </siteMapNode>
 
-    <siteMapNode Name="操作日志" UID="SYSMGR.ACTIVITYLOG" IsMenu="1" Action="ActivityLogIndex" Controller="ActivityLog" RouteName="activityLogIndex" Target="0" >
+    <siteMapNode Name="操作日志" UID="SYSMGR.ACTIVITYLOG" IsMenu="1" Action="ActivityLogIndex" Controller="ActivityLog" RouteName="activityLogIndex" IconClass="menu-icon fa fa-caret-right" Target="0" >
       <siteMapNode Name="预览日志详情" UID="SYSMGR.ACTIVITYLOG.DTL" Action="ActivityLogDetails" Controller="ActivityLog" RouteName="activityLogDetails" Target="0"></siteMapNode>
 
     </siteMapNode>
 
-    <siteMapNode Name="操作日志业务说明" UID="SYSMGR.ACTIVITYLOGCOMMENT" IsMenu="1" Action="LogCommentIndex" Controller="SysUser" RouteName="logCommentIndex" Target="0">
+    <siteMapNode Name="操作日志业务说明" UID="SYSMGR.ACTIVITYLOGCOMMENT" IsMenu="1" Action="LogCommentIndex" Controller="SysUser" RouteName="logCommentIndex" IconClass="menu-icon fa fa-caret-right" Target="0">
       <siteMapNode Name="初始化操作日志业务说明" UID="SYSMGR.ACTIVITYLOGCOMMENT.INIT" Action="LogCommentInit" Controller="SysUser" RouteName="logCommentInit" Target="0"></siteMapNode>
       <siteMapNode Name="编辑操作日志业务说明" UID="SYSMGR.ACTIVITYLOGCOMMENT.EDIT" Action="LogCommentEdit" Controller="SysUser" RouteName="logCommentEdit" Target="0"></siteMapNode>
     </siteMapNode>
 
-    <siteMapNode Name="系统参数设置" UID="SYSMGR.SETTING" IsMenu="1" Action="SettingIndex" Controller="Setting" RouteName="settingIndex" Target="0">
+    <siteMapNode Name="系统参数设置" UID="SYSMGR.SETTING" IsMenu="1" Action="SettingIndex" Controller="Setting" RouteName="settingIndex" IconClass="menu-icon fa fa-caret-right" Target="0">
       <siteMapNode Name="修改系统参数" UID="SYSMGR.SETTING.EDIT" Action="SettingEdit" Controller="Setting" RouteName="settingEdit" Target="0"></siteMapNode>
     </siteMapNode>
-    <siteMapNode Name="错误日志" UID="SYSMGR.NLOG" IsMenu="1" Action="NLogIndex" Controller="NLog" RouteName="nLogIndex" Target="0">
+    <siteMapNode Name="错误日志" UID="SYSMGR.NLOG" IsMenu="1" Action="NLogIndex" Controller="NLog" RouteName="nLogIndex" IconClass="menu-icon fa fa-caret-right" Target="0">
       <siteMapNode Name="查看详情" UID="SYSMGR.NLOG.DTL" Action="NLogDetails" Controller="NLog" RouteName="nLogDetails" Target="0"></siteMapNode>
     </siteMapNode>
  
-    <siteMapNode Name="任务调度" UID="SYSMGR.QUARZT" IsMenu="1" Action="QuarztIndex" Controller="Quarzt" RouteName="quarztIndex" Target="0">
+    <siteMapNode Name="任务调度" UID="SYSMGR.QUARZT" IsMenu="1" Action="QuarztIndex" Controller="Quarzt" RouteName="quarztIndex" IconClass="menu-icon fa fa-caret-right" Target="0">
       <siteMapNode Name="启动任务" UID="SYSMGR.QUARZT.START" Action="StartQuarzt" Controller="Quarzt" RouteName="startQuarzt" Target="0"></siteMapNode>
       <siteMapNode Name="暂停任务" UID="SYSMGR.QUARZT.STOP" Action="StopQuarzt" Controller="Quarzt" RouteName="stopQuarzt" Target="0"></siteMapNode>
     </siteMapNode>
     
-    <siteMapNode Name="菜单管理" UID="SYSMGR.CATEGORY" Action="CategoryIndex" Controller="Category" RouteName="categoryIndex" Target="0">
+    <siteMapNode Name="菜单管理" UID="SYSMGR.CATEGORY" Action="CategoryIndex" Controller="Category" RouteName="categoryIndex" IconClass="menu-icon fa fa-caret-right" Target="0">
       <siteMapNode Name="启动任务" UID="SYSMGR.QUARZT.START" Action="InitCategory" Controller="Category" RouteName="initCategory" Target="0"></siteMapNode> 
     </siteMapNode>
 
