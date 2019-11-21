@@ -30,9 +30,9 @@
 
     </siteMapNode>
 
-    <siteMapNode Name="操作日志业务说明" UID="SYSMGR.ACTIVITYLOGCOMMENT" IsMenu="1" Action="LogCommentIndex" Controller="SysUser" RouteName="logCommentIndex" IconClass="menu-icon fa fa-caret-right" Target="0">
-      <siteMapNode Name="初始化操作日志业务说明" UID="SYSMGR.ACTIVITYLOGCOMMENT.INIT" Action="LogCommentInit" Controller="SysUser" RouteName="logCommentInit" Target="0"></siteMapNode>
-      <siteMapNode Name="编辑操作日志业务说明" UID="SYSMGR.ACTIVITYLOGCOMMENT.EDIT" Action="LogCommentEdit" Controller="SysUser" RouteName="logCommentEdit" Target="0"></siteMapNode>
+    <siteMapNode Name="操作日志业务说明" UID="SYSMGR.ACTIVITYLOGCOMMENT" IsMenu="1" Action="LogCommentIndex" Controller="ActivityLogComment" RouteName="logCommentIndex" IconClass="menu-icon fa fa-caret-right" Target="0">
+      <siteMapNode Name="初始化操作日志业务说明" UID="SYSMGR.ACTIVITYLOGCOMMENT.INIT" Action="LogCommentInit" Controller="ActivityLogComment" RouteName="logCommentInit" Target="0"></siteMapNode>
+      <siteMapNode Name="编辑操作日志业务说明" UID="SYSMGR.ACTIVITYLOGCOMMENT.EDIT" Action="LogCommentEdit" Controller="ActivityLogComment" RouteName="logCommentEdit" Target="0"></siteMapNode>
     </siteMapNode>
 
     <siteMapNode Name="系统参数设置" UID="SYSMGR.SETTING" IsMenu="1" Action="SettingIndex" Controller="Setting" RouteName="settingIndex" IconClass="menu-icon fa fa-caret-right" Target="0">

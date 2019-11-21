@@ -32,11 +32,10 @@
                     <input type="text" class="form-control" id="q" name="q" placeholder="账号、姓名、手机号">
                 </div>
                 <div class="form-group">
-                    <label for="rid">角色</label>
-
+                    <label for="rid">角色</label> 
                     @await Component.InvokeAsync("Roles")
                 </div>
-                <button type="submit" class="btn bg-purple"><i class="fa fa-search"></i> 查询</button>
+                <button type="submit" class="btn btn-purple btn-sm"><i class="fa fa-search"></i> 查询</button>
             </form>
         </div>
     </div>
@@ -103,7 +102,7 @@
                 "targets": 4,//操作按钮目标列
                 "data": null,
                 "render": function (data, type, row) {
-                    var id = row.Id;
+                    var id = row.id;
                     var html = "<button data-url='@Url.RouteUrl("userDetails")?id=" + id + "' class='btn btn-link btn-xs btnDetails'><i class='fa fa-search-plus'></i> 查看</button>";
                     if (@Json.Serialize(canSetRole)) {
                         html += "<button data-url='@Url.RouteUrl("userRoles")?id=" + id + "' class='btn btn-link btn-xs btnSetRoles'><i class='fa fa-gear'></i> 配置角色</button>";

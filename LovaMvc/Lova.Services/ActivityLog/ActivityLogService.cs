@@ -94,31 +94,31 @@ namespace Lova.Services
             {
                 switch (parameters.OrderName)
                 {
-                    case "Method":
+                    case "method":
                         if (parameters.OrderDir.Equals("desc", StringComparison.InvariantCultureIgnoreCase))
                             query = query.OrderByDescending(o => o.method);
                         else
                             query = query.OrderBy(o => o.method);
                         break;
-                    case "EntityName":
+                    case "entity_name":
                         if (parameters.OrderDir.Equals("desc", StringComparison.InvariantCultureIgnoreCase))
                             query = query.OrderByDescending(o => o.entity_name);
                         else
                             query = query.OrderBy(o => o.entity_name);
                         break;
-                    case "CreationTimeForamt":
+                    case "creation_time_foramt":
                         if (parameters.OrderDir.Equals("desc", StringComparison.InvariantCultureIgnoreCase))
                             query = query.OrderByDescending(o => o.creation_time);
                         else
                             query = query.OrderBy(o => o.creation_time);
                         break;
-                    case "UserAccount":
+                    case "user_account":
                         if (parameters.OrderDir.Equals("desc", StringComparison.InvariantCultureIgnoreCase))
                             query = query.OrderByDescending(o => o.user_account);
                         else
                             query = query.OrderBy(o => o.user_account);
                         break;
-                    case "UserName":
+                    case "user_name":
                         if (parameters.OrderDir.Equals("desc", StringComparison.InvariantCultureIgnoreCase))
                             query = query.OrderByDescending(o => o.user_name);
                         else

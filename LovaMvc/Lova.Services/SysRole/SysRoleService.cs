@@ -16,9 +16,9 @@ namespace Lova.Services
     public class SysRoleService:BaseService
     {
         private readonly static object lockObj = new object();
-        private const string MODEL_ALL = "ab.sys.roles.all";
-        private const string PERMISSION_ALL = "ab.sys.role.permission.all";
-        private const string USER_ROLES_ALL = "ab.sys.role.userroles.all";
+        private const string MODEL_ALL = "lova.sys.roles.all";
+        private const string PERMISSION_ALL = "lova.sys.role.permission.all";
+        private const string USER_ROLES_ALL = "lova.sys.role.userroles.all";
 
         private LovaDbContext _dbContext;
         private ICacheManager _cacheManager;
@@ -221,7 +221,7 @@ namespace Lova.Services
         /// <param name="roleId"></param>
         /// <param name="modifier"></param>
         /// <returns></returns>
-        public (bool Status, string Message) DeleteRole(Guid roleId, string modifier)
+        public (bool Status, string Message) DeleteRole(string roleId, string modifier)
         {
             lock (lockObj)
             {
@@ -231,8 +231,8 @@ namespace Lova.Services
                     if (item == null) return Fail("角色不存在");
                     string oldLog = JsonSerializer.Serialize(item);
 
-                    _dbContext.Database.ExecuteSqlRaw($"DELETE FROM [sys_permission] WHERE [RoleId]='{item.id}'");
-                    _dbContext.Database.ExecuteSqlRaw($"DELETE FROM [sys_user_role] WHERE [RoleId]='{item.id}'");
+                    _dbContext.Database.ExecuteSqlRaw($"DELETE FROM sys_permission WHERE role_id='{item.id}'");
+                    _dbContext.Database.ExecuteSqlRaw($"DELETE FROM sys_user_role WHERE role_id='{item.id}'");
 
                     _dbContext.sys_role.Remove(item);
                     _dbContext.SaveChanges();
@@ -282,7 +282,7 @@ namespace Lova.Services
                 }
                 using (var trans = _dbContext.Database.BeginTransaction())
                 {
-                    _dbContext.Database.ExecuteSqlRaw($"DELETE FROM [sys_permission] WHERE [RoleId]='{roleId}'");
+                    _dbContext.Database.ExecuteSqlRaw($"DELETE FROM sys_permission WHERE role_id='{roleId}'");
                     categoryIds.ForEach(id =>
                     {
                         _dbContext.sys_permission.Add(new sys_permission()

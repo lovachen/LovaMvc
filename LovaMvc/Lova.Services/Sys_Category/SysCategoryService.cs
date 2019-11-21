@@ -54,7 +54,7 @@ namespace Lova.Services
                     var item = sysCategories.FirstOrDefault(o => o.uid == del.uid);
                     if (item == null)
                     {
-                        _dbContext.Database.ExecuteSqlRaw($"DELETE FROM [sys_permission] WHERE [category_id]='{del.id}'");
+                        _dbContext.Database.ExecuteSqlRaw($"DELETE FROM sys_permission WHERE category_id='{del.id}'");
                         _dbContext.sys_category.Remove(del);
                     }
                 });

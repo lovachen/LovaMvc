@@ -24,5 +24,19 @@ namespace Lova.Mapping
         [Required]
         [Column(TypeName = "varchar(45)")]
         public string name { get; set; }
+
+        #region
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public List<Sys_UserMapping> SysUsers { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public List<Sys_PermissionMapping> SysPermissions { get; set; }
+
+        #endregion
     }
 }

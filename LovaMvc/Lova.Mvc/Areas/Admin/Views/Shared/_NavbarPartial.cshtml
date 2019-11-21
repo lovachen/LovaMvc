@@ -7,7 +7,7 @@
         {
             href = Url.RouteUrl(item.route_name);
         }
-        if (!String.IsNullOrEmpty(item.controller) && !String.IsNullOrEmpty(item.action))
+        else if (!String.IsNullOrEmpty(item.controller) && !String.IsNullOrEmpty(item.action))
         {
             href = Url.Action(item.action, item.controller);
         }

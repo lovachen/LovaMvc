@@ -49,7 +49,7 @@ namespace Lova.Services
         /// <param name="jtwid"></param>
         public void SignOut(string jtwid)
         {
-            _dbContext.Database.ExecuteSqlRaw($"DELETE FROM [sys_user_jwt] WHERE [id]={jtwid}");
+            _dbContext.Database.ExecuteSqlRaw($"DELETE FROM sys_user_jwt WHERE id={jtwid}");
             RemoveCahce(jtwid);
         }
 

@@ -11,23 +11,25 @@
 <div class="col-md-3">
 
     <!-- Profile Image -->
-    <div class="box box-primary">
-        <div class="box-body box-profile">
-            <img class="profile-user-img img-responsive img-circle" src="~/LTE/img/user4-128x128.jpg" alt="User profile picture">
-
-            <h3 class="profile-username text-center">@Model.name</h3>
-
-            <p class="text-muted text-center">
+    <div class="user-profile ">
+        <div class="">
+            <div class="center"> 
+                <div class="profile-picture">
+                    <img class="profile-user-img img-responsive img-circle" src="~/ace/avatars/user.jpg" alt="User profile picture">
+                </div> 
+            </div>
+            <h3 class="text-center">@Model.name</h3>
+            <p class="text-center">
                 @Model.account
             </p>
 
-            <ul class="list-group list-group-unbordered">
+            <ul class="list-group-unbordered">
                 <li class="list-group-item">
                     <b>状态</b> <a class="pull-right">
                         <span class="label label-success">正常</span>
                     </a>
                 </li>
-                 
+
                 <li class="list-group-item">
                     <b>IP</b> <a class="pull-right">@Model.last_ipaddr</a>
                 </li>
@@ -97,8 +99,7 @@
                 <table id="table_jwttoken" class="table table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th>Jti</th>
-                            <th>RefreshToken</th>
+                            <th>Jtwid</th> 
                             <th>平台</th>
                             <th>过期时间</th>
                         </tr>
@@ -127,9 +128,9 @@
             }
         },
         "columns": [
-            { "data": "StatusDecs" },
-            { "data": "IpAddress" },
-            { "data": "LoginTimeForamt" }
+            { "data": "comment" },
+            { "data": "ip_addr" },
+            { "data": "login_time_foramt" }
         ],
         "columnDefs": [{ "width": '25%', "targets": [0] },
             { "width": '25%', "targets": [1] },
@@ -205,16 +206,14 @@
         elm: $('#table_jwttoken'),
         url: '@Url.RouteUrl("userJwtToken")',
         columns: [
-            { data: "Jti" },
-            { data: "RefreshToken" },
-            { data: "PlatformName" },
-            { data: "ExpirationForamt" }
+            { data: "id" }, 
+            { data: "platform" },
+            { data: "expiration" }
         ],
         columnDefs: [
-            { "width": '25%', "targets": [0] },
+            { "width": '35%', "targets": [0] },
             { "width": '25%', "targets": [1] },
-            { "width": '15%', "targets": [2] },
-            { "width": '35%', "targets": [3] }
+            { "width": '25%', "targets": [2] }, 
         ]
     });
 
