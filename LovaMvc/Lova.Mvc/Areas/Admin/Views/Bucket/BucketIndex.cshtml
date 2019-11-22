@@ -66,8 +66,10 @@
     $(function () {
         $('.btnAddCut').click(function (e) {
             e.preventDefault();
+            var _url = this.href;
+            layer.load(2);
             var txt = '添加[' + $(this).data('name') + ']缩略图尺寸';
-            $.get(this.href, function (html) {
+            $.get(_url, function (html) {
                 layer.open({
                     type: 1,
                     title: txt,
