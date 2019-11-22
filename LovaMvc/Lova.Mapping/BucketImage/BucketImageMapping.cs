@@ -2,16 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text;
 
-namespace Lova.Entities
+namespace Lova.Mapping
 {
-    public partial class bucket_image
+    [Serializable]
+    public class BucketImageMapping
     {
-        [Required]
-        [Column(TypeName = "varchar(36)")]
-        public string bucket_id { get; set; }
-        [Column(TypeName = "datetime")]
-        public DateTime creation_time { get; set; }
         [Required]
         [Column(TypeName = "varchar(20)")]
         public string ext_name { get; set; }
@@ -26,5 +23,17 @@ namespace Lova.Entities
         [Required]
         [Column(TypeName = "varchar(1450)")]
         public string visiturl { get; set; }
+        [Required]
+        [Column(TypeName = "varchar(36)")]
+        public string bucket_id { get; set; }
+        [Column(TypeName = "datetime")]
+        public DateTime creation_time { get; set; }
+
+        #region
+
+
+        public string Creation_time_format => creation_time.ToString("F");
+
+        #endregion
     }
 }

@@ -49,7 +49,7 @@ namespace Lova.Mapping
         /// <summary>
         /// 
         /// </summary>
-        public string creation_time_foramt => creation_time.ToString("F");
+        public string Creation_time_format => creation_time.ToString("F");
 
         /// <summary>
         /// 

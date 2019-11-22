@@ -51,7 +51,7 @@ namespace Lova.Framework
                 .AddJsonOptions(opts => opts.JsonSerializerOptions.PropertyNamingPolicy = null)
                 .AddRazorRuntimeCompilation(); //页面动态编译，发布时应该移除
              
-            services.AddDbContextPool<LovaDbContext>(options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<LovaDbContext>(options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
 
             //程序集依赖注入
             services.AddAssembly("Lova.Services");

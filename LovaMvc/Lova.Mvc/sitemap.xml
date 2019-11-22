@@ -1,9 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <siteMap>
 
+  <siteMapNode Name="OSS管理" UID="OSSMGR" IsMenu="1" Target="0" IconClass="fa fa-folder-open-o">
+    <siteMapNode Name="Bucket" UID="OSSMGR.BUCKET" IsMenu="1" Action="BucketIndex" Controller="Bucket" RouteName="bucketIndex" IconClass="menu-icon fa fa-caret-right" Target="0" >
+      <siteMapNode Name="新增、修改" UID="OSSMGR.BUCKET.EDIT" Action="EditBucket" Controller="Bucket" RouteName="editBucket" Target="0"></siteMapNode>
 
-
-
+    </siteMapNode>
+    
+  </siteMapNode>
 
 <!--系统管理-->
   <siteMapNode Name="系统管理" UID="SYSMGR" IsMenu="1" Target="0" IconClass="fa fa-laptop">

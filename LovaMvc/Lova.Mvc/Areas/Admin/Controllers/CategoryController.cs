@@ -56,6 +56,7 @@ namespace Lova.Mvc.Areas.Admin.Controllers
             {
                 list.Add(new Entities.sys_category()
                 {
+                    id = CombGuid.NewGuidAsString(),
                     name = item.Name,
                     route_template = item.RouteTemplate ?? "",
                     code = item.Code,

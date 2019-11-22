@@ -1,0 +1,80 @@
+﻿@model BucketMapping
+@{
+    ViewBag.Title = "编辑Bucket"; 
+}
+<div class="col-sm-12">
+    <div class="space-20"></div>
+    <form asp-route="editBucket" method="post" class="form-horizontal" id="formEditBucket">
+        <input type="hidden" asp-for="id" />
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <label class="col-sm-3 control-label no-padding-right"><span class="text-danger">*</span>Bucket名称</label>
+            <div class="col-sm-6">
+                <input type="text" asp-for="name" class="form-control" placeholder="请输入Bucket名称" />
+                <span asp-validation-for="name"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label no-padding-right">上传时剪切</label>
+            <div class="col-sm-5">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" asp-for="is_compress" />是
+                    </label>
+                </div> 
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-5">
+                <button class="btn btn-success btn-block" type="submit">
+                    <i class="fa fa-save"></i>
+                    确定
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+    $(function () {
+        $.validator.unobtrusive.parse($('#formEditBucket'));
+        $('#formEditBucket').submit(function (e) {
+            e.preventDefault();
+            if ($(this).valid()) {
+                layer.load(2);
+                $(this).ajaxSubmit(function (data) {
+                    layer.closeAll();
+                    if (data.Success) {
+                        layer.msg(data.Message, { icon: 1 }, function () {
+                            location.reload();
+                        });
+                    } else {
+                        layer.msg(data.Message, { icon: 2 });
+                    }
+                });
+            }
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

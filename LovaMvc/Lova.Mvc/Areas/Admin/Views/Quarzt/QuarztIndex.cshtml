@@ -91,7 +91,7 @@
                 var index = layer.load(2);
                 $.get(_url, function (res) {
                     layer.close(index);
-                    if (res.Code === 0) {
+                    if (res.Success) {
                         layer.alert(res.Message, { icon: 1 }, function () {
                             window.location.reload();
                         });

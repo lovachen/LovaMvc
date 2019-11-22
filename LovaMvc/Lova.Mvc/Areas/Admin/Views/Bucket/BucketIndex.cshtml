@@ -1,0 +1,152 @@
+﻿
+@model IEnumerable<BucketMapping>
+@{
+    ViewBag.Title = "Bucket列表";
+    var canEdit = WorkContext.AuthorityCheck("editBucket");
+}
+<div class="page-content"> 
+    <div class="row">
+        <div class="col-sm-12">
+            @if (canEdit)
+            {
+                <a href="@Url.RouteUrl("editBucket")" class="btn btn-sm btn-link btnEditBucket "><i class="glyphicon glyphicon-plus"></i>添加Bucket</a>
+            }
+        </div>
+    </div>
+    <div class="space-2"></div> 
+    @if (Model != null)
+    { 
+
+        <div class="row">
+            <div class="col-sm-12">
+                <table id="user_datatable" class="table table-striped table-bordered table-hover dataTable no-footer">
+                    <thead>
+                        <tr>
+                            <th width="200px">名称</th>
+                            <th width="80">上传剪裁</th>
+                            <th width="350">缩略图尺寸</th>
+                            <th width="200">创建时间</th>
+                            <th >操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var bucket in Model)
+                        {
+                        <tr> 
+                            <td>@bucket.name</td>
+                            <td>@(bucket.is_compress ? "是" : "否")</td>
+                            <td>
+                                @if (bucket.BucketCuts != null)
+                                {
+                                    foreach (var cut in bucket.BucketCuts)
+                                    {
+                                        <span style="border:1px solid #d1d1d1;border-radius:3px;padding:1px 3px">@cut.value <i data-href="@Url.RouteUrl("deleteBucketCute",new { id = cut.id })" class="glyphicon glyphicon-remove text-danger btnDelCut" style="margin-left:5px;cursor:pointer;"></i></span>
+                                    }
+                                }
+                                <a href="@Url.RouteUrl("editBucketCut",new { bucketId = bucket.id })" data-name="@bucket.name" class="btn btn-xs btn-link btnAddCut">添加尺寸</a>
+                            </td>
+                            <td>@bucket.creation_time.ToString("F")</td>
+                            <td>
+                                @if (canEdit)
+                                {
+                                    <a href="@Url.RouteUrl("editBucket", new { id = bucket.id })" class="btn btn-xs btn-link btnEditBucket">修改</a>
+                                }
+                            </td>
+                        </tr> 
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
+</div>
+<!-- Modal -->
+
+<script>
+    $(function () {
+        $('.btnAddCut').click(function (e) {
+            e.preventDefault();
+            var txt = '添加[' + $(this).data('name') + ']缩略图尺寸';
+            $.get(this.href, function (html) {
+                layer.open({
+                    type: 1,
+                    title: txt,
+                    area: ['600px', '40px'],
+                    content: html
+                });
+            });
+        });
+        $('.btnDelCut').click(function () {
+            var _this = $(this);
+            layer.confirm('您确定要删除此尺寸数据？', function () {
+                var index = layer.load(2);
+                $.get(_this.data('href'), function (data) {
+                    layer.close(index);
+                    if (data.Success) {
+                        layer.msg(data.Message, { icon: 1 }, function () {
+                            _this.parent('span').remove();
+                        });
+                    } else {
+                        layer.msg(data.Message, { icon: 2 });
+                    }
+                });
+            });
+        });
+        $('.btnEditBucket').click(function (e) {
+            e.preventDefault();
+            var _url = this.href;
+            layer.load(2);
+            $.get(_url, function (html) {
+                layer.closeAll();
+                layer.open({
+                    type: 1,
+                    title: '编辑Bucket',
+                    area: ['500px', '300px'],
+                    content: html
+                });
+            });
+
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

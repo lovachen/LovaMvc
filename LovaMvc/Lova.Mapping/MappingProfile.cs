@@ -40,6 +40,14 @@ namespace Lova.Mapping
             CreateMap<Entities.sys_activitylog_comment, Sys_ActivityLogCommentMapping>();
             CreateMap<Sys_ActivityLogCommentMapping, Entities.sys_activitylog_comment>();
 
+            CreateMap<Entities.bucket, BucketMapping>();
+            CreateMap<BucketMapping, Entities.bucket>();
+
+            CreateMap<Entities.bucket_image, BucketImageMapping>();
+            CreateMap<BucketImageMapping, Entities.bucket_image>();
+
+            CreateMap<Entities.bucket_cut, BucketCutMapping>();
+            CreateMap<BucketCutMapping, Entities.bucket_cut>();
         }
     }
 }

@@ -241,7 +241,7 @@ namespace Lova.Services
                         else
                             query = query.OrderBy(o => o.name);
                         break;
-                    case "creation_time":
+                    case "Creation_time_format":
                         if (parmas.OrderDir.Equals("desc", StringComparison.InvariantCultureIgnoreCase))
                             query = query.OrderByDescending(o => o.creation_time);
                         else
