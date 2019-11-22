@@ -50,9 +50,8 @@ namespace Lova.Framework
             services.AddControllersWithViews()
                 .AddJsonOptions(opts => opts.JsonSerializerOptions.PropertyNamingPolicy = null)
                 .AddRazorRuntimeCompilation(); //页面动态编译，发布时应该移除
-
-            //services.AddDbContextPool<ABDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")),100);
-            services.AddDbContext<LovaDbContext>(options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
+             
+            services.AddDbContextPool<LovaDbContext>(options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
 
             //程序集依赖注入
             services.AddAssembly("Lova.Services");
@@ -81,10 +80,7 @@ namespace Lova.Framework
 
             //使用内存缓存
             services.AddMemoryCache(Configuration);
-            //
-            //var cfg = new MapperConfiguration(cfg=>cfg.AddProfile<MappingProfile>());
-            // cfg.AssertConfigurationIsValid();
-            //services.AddAutoMapper(RuntimeHelper.GetAssemblyByName("Lova.Entities"), RuntimeHelper.GetAssemblyByName("Lova.Mapping"));
+            // 
             services.AddAutoMapper(typeof(MappingProfile));
 
             //启用JWT
@@ -116,11 +112,11 @@ namespace Lova.Framework
             services.AddRouting(options => options.LowercaseUrls = true);
 
             //定时任务调度
-            //services.AddTransient<CustomJob>();
-            //services.AddTransient<JobCenter>();
-            //services.AddSingleton<ISchedulerFactory, StdSchedulerFactory>();
-            //services.AddSingleton<IJobFactory, IOCJobFactory>();
-            //services.AddScoped<QuartzStartup>();
+            services.AddTransient<CustomJob>();
+            services.AddTransient<JobCenter>();
+            services.AddSingleton<ISchedulerFactory, StdSchedulerFactory>();
+            services.AddSingleton<IJobFactory, IOCJobFactory>();
+            services.AddScoped<QuartzStartup>();
         }
     }
 }

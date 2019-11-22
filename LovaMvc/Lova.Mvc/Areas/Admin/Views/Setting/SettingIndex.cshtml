@@ -1,0 +1,136 @@
+﻿@model SiteSettings
+@{
+    ViewData["Title"] = "系统参数设置";
+    var canEdit = WorkContext.AuthorityCheck("settingEdit");
+}
+
+<div class="page-content">
+
+    <div class="nav-tabs-custom">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="true">基础设置</a></li>
+            <li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="false">邮箱参数</a></li>
+            <li class=""><a href="#tab_4" data-toggle="tab" aria-expanded="false">极光推送</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="tab_1">
+                <dl class="dl-horizontal">
+                    <dt>系统名称</dt>
+                    <dd>
+                        <a href="#" class="editable editable-click" data-url="@Url.RouteUrl("settingEdit")" data-title="请输入业务说明" data-type="text" data-pk="SiteName">@Model.SiteName</a>
+                        <small>(点击修改)</small>
+                    </dd>
+                    <dt>企业名称</dt>
+                    <dd>
+                        <a href="#" class="editable editable-click" data-url="@Url.RouteUrl("settingEdit")" data-title="" data-type="text" data-pk="CompanyName">@Model.CompanyName</a>
+                        <small>(点击修改)</small>
+                    </dd>
+                </dl>
+            </div>
+            <!-- /.tab-pane -->
+            <div class="tab-pane" id="tab_2">
+                <dl class="dl-horizontal">
+                    <dt>主机Host</dt>
+                    <dd>
+                        <a href="#" class="editable editable-click" data-url="@Url.RouteUrl("settingEdit")" data-title="发送邮件主机地址" data-type="text" data-pk="EmailHost">@Model.EmailHost</a>
+                        <small>(点击修改)</small>
+                    </dd>
+                    <dt>端口Port</dt>
+                    <dd>
+                        <a href="#" class="editable editable-click" data-url="@Url.RouteUrl("settingEdit")" data-title="端口号配置" data-type="text" data-pk="EmailPort">@Model.EmailPort</a>
+                        <small>(点击修改)</small>
+                    </dd>
+                    <dt>账号</dt>
+                    <dd>
+                        <a href="#" class="editable editable-click" data-url="@Url.RouteUrl("settingEdit")" data-title="发送邮件的账号" data-type="text" data-pk="EmailAccount">@Model.EmailAccount</a>
+                        <small>(点击修改)</small>
+                    </dd>
+                    <dt>密码</dt>
+                    <dd>
+                        <a href="#" class="editable editable-click" data-url="@Url.RouteUrl("settingEdit")" data-title="发送邮件的密码" data-type="text" data-pk="EmailPassword">@Model.EmailPassword</a>
+                        <small>(点击修改)</small>
+                    </dd>
+                    <dt>开启错误邮件</dt>
+                    <dd>
+                        <a href="#" class="editable editable-click" data-url="@Url.RouteUrl("settingEdit")" data-title="邮件发送错误信息提醒" data-type="text" data-pk="EmailErrorPush">@Model.EmailErrorPush</a>
+                        <small>(点击修改)</small>
+                    </dd>
+                    <dt>系统错误接收邮箱</dt>
+                    <dd>
+                        <a href="#" class="editable editable-click" data-url="@Url.RouteUrl("settingEdit")" data-title="发送邮件的密码" data-type="text" data-pk="ErrorToMailAddress">@Model.ErrorToMailAddress</a>
+                        <small>(点击修改)</small>
+                    </dd>
+                </dl>
+            </div>
+            <div class="tab-pane" id="tab_4">
+                <dl class="dl-horizontal">
+                    <dt>APK</dt>
+                    <dd>
+                        <a href="#" class="editable editable-click" data-url="@Url.RouteUrl("settingEdit")" data-title="请输入业务说明" data-type="text" data-pk="JPushApk">@Model.JPushApk</a>
+                        <small>(点击修改)</small>
+                    </dd>
+                    <dt>Secret</dt>
+                    <dd>
+                        <a href="#" class="editable editable-click" data-url="@Url.RouteUrl("settingEdit")" data-title="" data-type="text" data-pk="JPushSecret">@Model.JPushSecret</a>
+                        <small>(点击修改)</small>
+                    </dd>
+                </dl>
+            </div>
+             
+        </div> 
+    </div>
+
+
+</div>
+
+<script>
+    $(function () {
+        $.fn.editable.defaults.mode = 'inline';
+        if (@Json.Serialize(canEdit)) {
+            $('.editable').editable({
+                ajaxOptions: {
+                    type: 'get',
+                    dataType: 'json'
+                },
+                success: function (response) {
+                    if (response.Code !== 0) return response.Message;
+                }
+            });
+        }
+        $('#formMark,#form404').submit(function () {
+            if ($(this).valid()) {
+                var load = layer.load(2);
+                $(this).ajaxSubmit(function (res) {
+                    layer.close(load);
+                    layer.msg(res.Message, { icon: res.Code === 0 ? 1 : 2 });
+                });
+            }
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

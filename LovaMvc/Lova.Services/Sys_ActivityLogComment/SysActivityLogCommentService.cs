@@ -40,15 +40,18 @@ namespace Lova.Services
             using (var connection = _dbContext.Database.GetDbConnection())
             {
                 connection.Open();
-                var table = connection.GetSchema("Tables");
-                connection.Close(); 
+                var com = connection.CreateCommand();
+                com.CommandText = $"select table_name from information_schema.tables where table_schema='{connection.Database}';";
+                var dr = com.ExecuteReader();
                 List<string> tables = new List<string>();
-                foreach (DataRow row in table.Rows)
-                {
-                   var sc = row["TABLE_SCHEMA"].ToString();
 
-                    tables.Add(row["TABLE_NAME"].ToString());
+                while (dr.Read())
+                {
+                    tables.Add(dr["table_name"].ToString());
                 }
+                dr.Close();
+                connection.Close(); 
+                 
                 var ac_comments = _dbContext.sys_activitylog_comment.ToList();
                 ac_comments.ForEach(del =>
                 {

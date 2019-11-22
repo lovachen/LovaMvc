@@ -11,3 +11,6 @@ td {
 .dataTables_wrapper .dataTables_scroll + .row {
     border-top: none !important;
 }
+.table {
+    min-width: 1100px;
+}

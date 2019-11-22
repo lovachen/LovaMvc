@@ -37,5 +37,15 @@ namespace Lova.Mapping
         public string traceid { get; set; }
         [Column(TypeName = "varchar(450)")]
         public string user { get; set; }
+
+
+        #region
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string logged_format => logged?.ToString("F");
+
+        #endregion
     }
 }

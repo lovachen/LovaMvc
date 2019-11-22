@@ -59,7 +59,7 @@
                     dataType: 'json'
                 },
                 success: function (response) {
-                    if (response.Code !== 0) return response.Message;
+                     if (!response.Success) return response.Message;
                 }
             });
         }
@@ -70,7 +70,7 @@
                 var index = layer.load(2);
                 $.get(_url, function (res) {
                     layer.close(index);
-                    if (res.Code === 0) {
+                    if (res.success) {
                         layer.alert(res.Message, { icon: 1 }, function () {
                             window.location.reload();
                         });
@@ -87,7 +87,8 @@
                     dataType: 'json'
                 },
                 success: function (response) {
-                    if (response.Code !== 0) return response.Message;
+                     
+                    if (!response.Success) return response.Message;
                 }
             });
         });
