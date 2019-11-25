@@ -50,10 +50,10 @@ namespace cts.web.core.Librs
         /// </summary>
         /// <param name="bytes"></param>
         /// <returns></returns>
-        public static ulong GetCRC32(byte[] bytes)
+        public static uint GetCRC32(byte[] bytes)
         {
             uint iCount = (uint)bytes.Length;
-            ulong crc = 0xFFFFFFFF;
+            uint crc = 0xFFFFFFFF;
 
             for (uint i = 0; i < iCount; i++)
             {
