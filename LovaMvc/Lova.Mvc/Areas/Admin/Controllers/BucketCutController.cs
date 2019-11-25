@@ -1,4 +1,5 @@
-﻿using Lova.Mapping;
+﻿using AutoMapper;
+using Lova.Mapping;
 using Lova.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -11,9 +12,12 @@ namespace Lova.Mvc.Areas.Admin.Controllers
     public class BucketCutController : AdminPrmController
     {
         private BucketCutService _bucketCutService;
+        private IMapper _mapper;
 
-        public BucketCutController(BucketCutService bucketCutService)
+        public BucketCutController(BucketCutService bucketCutService,
+            IMapper mapper)
         {
+            _mapper = mapper;
             _bucketCutService = bucketCutService;
         }
 
@@ -36,17 +40,19 @@ namespace Lova.Mvc.Areas.Admin.Controllers
 
         [Route("edit")]
         [HttpPost]
-        public IActionResult EditBucketCut(Entities.bucket_cut model)
+        public IActionResult EditBucketCut(BucketCutMapping model)
         {
             if (!ModelState.IsValid)
             {
                 AjaxData.Message = ModelState.GetErrMsg();
                 return Json(AjaxData);
             }
-            model.id = CombGuid.NewGuidAsString();
-            model.creation_time = DateTime.Now;
-            model.creator = UserId;
-            _bucketCutService.InsertCut(model);
+            var entity = _mapper.Map<Entities.bucket_cut>(model);
+
+            entity.id = CombGuid.NewGuidAsString();
+            entity.creation_time = DateTime.Now;
+            entity.creator = UserId;
+            _bucketCutService.InsertCut(entity);
             AjaxData.Success = true;
             AjaxData.Message = "保存成功";
             return Json(AjaxData);
@@ -58,7 +64,7 @@ namespace Lova.Mvc.Areas.Admin.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [Route("delete", Name = "deleteBucketCute")]
-        public IActionResult Delete(Guid id)
+        public IActionResult Delete(string id)
         {
             _bucketCutService.DeleteCut(id);
             AjaxData.Success = true;

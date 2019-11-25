@@ -32,7 +32,7 @@ namespace Lova.Mapping
         #region
 
 
-        public string Creation_time_format => creation_time.ToString("F");
+        public string creation_time_format => creation_time.ToString("F");
 
         #endregion
     }

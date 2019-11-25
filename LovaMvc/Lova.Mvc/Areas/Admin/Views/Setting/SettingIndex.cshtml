@@ -10,6 +10,7 @@
         <ul class="nav nav-tabs">
             <li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="true">基础设置</a></li>
             <li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="false">邮箱参数</a></li>
+            <li class=""><a href="#tab_3" data-toggle="tab" aria-expanded="false">OSS存储</a></li>
             <li class=""><a href="#tab_4" data-toggle="tab" aria-expanded="false">极光推送</a></li>
         </ul>
         <div class="tab-content">
@@ -62,6 +63,21 @@
                     </dd>
                 </dl>
             </div>
+            <div class="tab-pane" id="tab_3">
+                <dl class="dl-horizontal">
+                    <dt>OSS上传Key</dt>
+                    <dd>
+                        <a href="#" class="editable editable-click" data-url="@Url.RouteUrl("settingEdit")" data-title="" data-type="text" data-pk="OSSAccessKeyId">@Model.OSSAccessKeyId</a>
+                        <small>(点击修改)</small>
+                    </dd>
+                    <dt>OSS上传密钥</dt>
+                    <dd>
+                        <a href="#" class="editable editable-click" data-url="@Url.RouteUrl("settingEdit")" data-title="" data-type="text" data-pk="OSSAccessKeySecret">@Model.OSSAccessKeySecret</a>
+                        <small>(点击修改)</small>
+                    </dd>
+                </dl>
+
+            </div>
             <div class="tab-pane" id="tab_4">
                 <dl class="dl-horizontal">
                     <dt>APK</dt>
@@ -93,7 +109,7 @@
                     dataType: 'json'
                 },
                 success: function (response) {
-                    if (response.Code !== 0) return response.Message;
+                    if (!response.Success) return response.Message;
                 }
             });
         }

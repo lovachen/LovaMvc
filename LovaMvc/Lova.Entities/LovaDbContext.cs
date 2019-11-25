@@ -30,7 +30,8 @@ namespace Lova.Entities
         public virtual DbSet<sys_user_jwt> sys_user_jwt { get; set; }
         public virtual DbSet<sys_user_login> sys_user_login { get; set; }
         public virtual DbSet<sys_user_role> sys_user_role { get; set; }
-         
+
+    
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<bucket>(entity =>

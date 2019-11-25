@@ -1,9 +1,9 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json;
 
 namespace cts.web.core.Librs
 {
@@ -19,7 +19,7 @@ namespace cts.web.core.Librs
         {
             if (obj == null)
                 throw new ArgumentNullException("obj 为空");
-            string jsonString = JsonConvert.SerializeObject(obj);
+            string jsonString = JsonSerializer.Serialize(obj);
             return Encoding.UTF8.GetBytes(jsonString);
         }
 
@@ -33,7 +33,7 @@ namespace cts.web.core.Librs
             if (array == null)
                 throw new ArgumentNullException("array 为空");
             string jsonString = Encoding.UTF8.GetString(array);
-            return JsonConvert.DeserializeObject<T>(jsonString);
+            return JsonSerializer.Deserialize<T>(jsonString);
         }
     }
 }

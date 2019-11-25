@@ -13,6 +13,17 @@ namespace cts.web.core.Librs
     public class EncryptorHelper
     {
         /// <summary>
+        /// MD5加密 数组
+        /// </summary>
+        /// <param name="sourceString"></param>
+        /// <returns></returns>
+        public static byte[]  GetMD5Byte(string sourceString)
+        {
+            MD5 md5 = MD5.Create();
+            return md5.ComputeHash(Encoding.UTF8.GetBytes(sourceString));
+        }
+
+        /// <summary>
         /// MD5加密
         /// </summary>
         /// <param name="sourceString"></param>

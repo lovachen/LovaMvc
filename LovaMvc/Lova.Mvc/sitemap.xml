@@ -4,9 +4,13 @@
   <siteMapNode Name="OSS管理" UID="OSSMGR" IsMenu="1" Target="0" IconClass="fa fa-folder-open-o">
     <siteMapNode Name="Bucket" UID="OSSMGR.BUCKET" IsMenu="1" Action="BucketIndex" Controller="Bucket" RouteName="bucketIndex" IconClass="menu-icon fa fa-caret-right" Target="0" >
       <siteMapNode Name="新增、修改" UID="OSSMGR.BUCKET.EDIT" Action="EditBucket" Controller="Bucket" RouteName="editBucket" Target="0"></siteMapNode>
+      <siteMapNode Name="新增剪裁尺寸" UID="OSSMGR.BUCKET.EDITCUT" Action="EditBucketCut" Controller="BucketCut" RouteName="editBucketCut" Target="0"></siteMapNode>
+      <siteMapNode Name="删除剪裁尺寸" UID="OSSMGR.BUCKET.DELETECUT" Action="Delete" Controller="BucketCut" RouteName="deleteBucketCute" Target="0"></siteMapNode>
 
     </siteMapNode>
-    
+    <siteMapNode Name="图库" UID="OSSMGR.BUCKET.IMAGE" IsMenu="1" Action="BucketImagesIndex" Controller="BucketImages" RouteName="bucketImagesIndex" IconClass="menu-icon fa fa-caret-right" Target="0" >
+       
+    </siteMapNode>
   </siteMapNode>
 
 <!--系统管理-->

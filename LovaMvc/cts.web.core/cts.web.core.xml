@@ -1011,6 +1011,18 @@
             <param name="areaID">行政区域编码</param>
             <returns></returns>
         </member>
+        <member name="T:cts.web.core.Librs.CRC32">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Librs.CRC32.GetCRC32(System.Byte[])">
+            <summary>
+            
+            </summary>
+            <param name="bytes"></param>
+            <returns></returns>
+        </member>
         <member name="T:cts.web.core.Librs.DataHelper">
             <summary>
             数据帮助类
@@ -1092,6 +1104,13 @@
             <summary>
             安全辅助类
             </summary>
+        </member>
+        <member name="M:cts.web.core.Librs.EncryptorHelper.GetMD5Byte(System.String)">
+            <summary>
+            MD5加密 数组
+            </summary>
+            <param name="sourceString"></param>
+            <returns></returns>
         </member>
         <member name="M:cts.web.core.Librs.EncryptorHelper.GetMD5(System.String)">
             <summary>
@@ -2645,6 +2664,14 @@
             <param name="length"></param>
             <returns></returns>
         </member>
+        <member name="M:System.ConvertExtension.To64(System.Int64,System.Int32)">
+            <summary>
+            将数字id转换成64进制字符串短id
+            </summary>
+            <param name="number"></param>
+            <param name="shift"></param>
+            <returns></returns>
+        </member>
         <member name="T:System.DateTimeExtension">
             <summary>
             时间扩展
@@ -2770,27 +2797,23 @@
             <param name="formFile"></param>
             <returns></returns>
         </member>
-        <member name="M:Microsoft.AspNetCore.Http.FormFileExtension.CreateImagePathFromStream(Microsoft.AspNetCore.Http.IFormFile,cts.web.core.MediaItem.IMediaItemStorage,System.String,System.Boolean,System.Int32)">
+        <member name="M:Microsoft.AspNetCore.Http.FormFileExtension.CreateImagePathFromStream(Microsoft.AspNetCore.Http.IFormFile,cts.web.core.MediaItem.IMediaItemStorage,System.String)">
             <summary>
-            创建保存图片文件
+            创建保存图片文件，默认带后缀
             </summary>
             <param name="formFile"></param>
             <param name="imageStorage"></param>
-            <param name="virtualPath">虚拟相对路径 xxx/xxx</param>
-            <param name="compress">是否压缩图片</param>
-            <param name="flag">压缩质量 1-100(数字越小压缩率越高)。只有启用压缩是才起作用</param>
+            <param name="virtualPath">虚拟相对路径 xxx/xxx</param> 
             <returns></returns>
         </member>
-        <member name="M:Microsoft.AspNetCore.Http.FormFileExtension.CreateImagePathFromStream(Microsoft.AspNetCore.Http.IFormFile,cts.web.core.MediaItem.IMediaItemStorage,System.String,System.Boolean,System.Boolean,System.Int32)">
+        <member name="M:Microsoft.AspNetCore.Http.FormFileExtension.CreateImagePathFromStream(Microsoft.AspNetCore.Http.IFormFile,cts.web.core.MediaItem.IMediaItemStorage,System.String,System.Boolean)">
             <summary>
             创建保存图片文件
             </summary>
             <param name="formFile"></param>
             <param name="imageStorage"></param>
-            <param name="virtualPath">虚拟相对路径 xxx/xxx</param>
+            <param name="virtualPath">虚拟相对路径 xxx/xxx</param> 
             <param name="suffix">是否带后缀</param>
-            <param name="compress">是否压缩图片</param>
-            <param name="flag">压缩质量 1-100(数字越小压缩率越高)。只有启用压缩是才起作用</param>
             <returns></returns>
         </member>
         <member name="T:Microsoft.AspNetCore.Http.ImageInfo">

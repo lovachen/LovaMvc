@@ -30,7 +30,7 @@ namespace Lova.Services
         /// 删除
         /// </summary>
         /// <param name="id"></param>
-        public void DeleteCut(Guid id)
+        public void DeleteCut(string id)
         {
             var item = _dbContext.bucket_cut.Find(id);
             if (item != null)

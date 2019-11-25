@@ -66,14 +66,15 @@
     $(function () {
         $('.btnAddCut').click(function (e) {
             e.preventDefault();
-            var _url = this.href;
-            layer.load(2);
+            var _url = this.href; 
+            var index = layer.load(2);
             var txt = '添加[' + $(this).data('name') + ']缩略图尺寸';
             $.get(_url, function (html) {
+                layer.close(index);
                 layer.open({
                     type: 1,
                     title: txt,
-                    area: ['600px', '40px'],
+                    area: ['600px', '400px'],
                     content: html
                 });
             });

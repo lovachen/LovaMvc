@@ -17,7 +17,6 @@ namespace Lova.Mapping
         public string bucket_id { get; set; }
         [Column(TypeName = "datetime")]
         public DateTime creation_time { get; set; }
-        [Required]
         [Column(TypeName = "varchar(36)")]
         public string creator { get; set; }
         [Key]

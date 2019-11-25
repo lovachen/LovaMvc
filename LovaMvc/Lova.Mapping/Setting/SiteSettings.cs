@@ -21,6 +21,8 @@ namespace Lova.Mapping
             JPushApk = "";
             JPushSecret = "";
             CompanyName = "";
+            OSSAccessKeyId = "";
+            OSSAccessKeySecret = "";
         }
 
         /// <summary>
@@ -72,5 +74,15 @@ namespace Lova.Mapping
         /// 极光推送Secret
         /// </summary>
         public string JPushSecret { get; set; }
+
+        /// <summary>
+        /// 文件上传的key
+        /// </summary>
+        public string OSSAccessKeyId { get; set; }
+
+        /// <summary>
+        /// 文件上传的密钥
+        /// </summary>
+        public string OSSAccessKeySecret { get; set; }
     }
 }

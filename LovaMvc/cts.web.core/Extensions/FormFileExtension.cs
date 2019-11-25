@@ -89,17 +89,15 @@ namespace Microsoft.AspNetCore.Http
         }
 
         /// <summary>
-        /// 创建保存图片文件
+        /// 创建保存图片文件，默认带后缀
         /// </summary>
         /// <param name="formFile"></param>
         /// <param name="imageStorage"></param>
-        /// <param name="virtualPath">虚拟相对路径 xxx/xxx</param>
-        /// <param name="compress">是否压缩图片</param>
-        /// <param name="flag">压缩质量 1-100(数字越小压缩率越高)。只有启用压缩是才起作用</param>
+        /// <param name="virtualPath">虚拟相对路径 xxx/xxx</param> 
         /// <returns></returns>
-        public static ImageInfo CreateImagePathFromStream(this IFormFile formFile, IMediaItemStorage imageStorage, string virtualPath, bool compress = false, int flag = 50)
+        public static ImageInfo CreateImagePathFromStream(this IFormFile formFile, IMediaItemStorage imageStorage, string virtualPath)
         {
-            return CreateImagePathFromStream(formFile, imageStorage, virtualPath, false, compress, flag);
+            return CreateImagePathFromStream(formFile, imageStorage, virtualPath, true);
         }
 
         /// <summary>
@@ -107,25 +105,22 @@ namespace Microsoft.AspNetCore.Http
         /// </summary>
         /// <param name="formFile"></param>
         /// <param name="imageStorage"></param>
-        /// <param name="virtualPath">虚拟相对路径 xxx/xxx</param>
+        /// <param name="virtualPath">虚拟相对路径 xxx/xxx</param> 
         /// <param name="suffix">是否带后缀</param>
-        /// <param name="compress">是否压缩图片</param>
-        /// <param name="flag">压缩质量 1-100(数字越小压缩率越高)。只有启用压缩是才起作用</param>
         /// <returns></returns>
-        public static ImageInfo CreateImagePathFromStream(this IFormFile formFile, IMediaItemStorage imageStorage, string virtualPath, bool suffix, bool compress, int flag)
+        public static ImageInfo CreateImagePathFromStream(this IFormFile formFile, IMediaItemStorage imageStorage, string virtualPath, bool suffix)
         {
             ImageInfo imageInfo = new ImageInfo();
             using (Stream stream = formFile.OpenReadStream())
             {
                 imageInfo.FileName = formFile.FileName;
-                using (MemoryStream memoryStream2 = new MemoryStream())
-                {
-                    MemoryStream memoryStream = null;
-                    stream.CopyTo(memoryStream2);
-                    string obj = suffix ? (Guid.NewGuid() + Path.GetExtension(formFile.FileName)) : Guid.NewGuid().ToString();
+                imageInfo.ExtName = Path.GetExtension(formFile.FileName);
+                using (MemoryStream memoryStream = new MemoryStream())
+                { 
+                    stream.CopyTo(memoryStream);
+
+                    string obj = suffix ? (CombGuid.NewGuidAsString() + Path.GetExtension(formFile.FileName)) : CombGuid.NewGuidAsString();
                     string fileName = imageInfo.NewFileName = obj;
-                    imageInfo.ExtName = Path.GetExtension(formFile.FileName);
-                    memoryStream = ((!compress) ? memoryStream2 : ImageHelper.Compress(memoryStream2, flag));
                     imageInfo.IOPath = imageStorage.Storage(memoryStream, virtualPath, fileName);
                     using (Image image = Image.FromStream(memoryStream))
                     {
