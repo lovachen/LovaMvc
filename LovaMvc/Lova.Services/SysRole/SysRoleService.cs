@@ -117,7 +117,7 @@ namespace Lova.Services
             {
                 using (var trans = _dbContext.Database.BeginTransaction())
                 {
-                    _dbContext.Database.ExecuteSqlRaw($"DELETE FROM [Sys_UserRole] WHERE id!='' AND [user_id]='{userId}'");
+                    _dbContext.Database.ExecuteSqlRaw($"DELETE FROM sys_user_role WHERE id!='' AND user_id='{userId}'");
                     if (roleIds != null && roleIds.Any())
                         roleIds.ForEach(roleId =>
                         {

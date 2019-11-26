@@ -11,11 +11,11 @@
     <div class="space-10"></div>
     <form asp-route="userRoles" method="post" id="formUserRole" class="form-horizontal" onsubmit="return false;">
         @Html.Hidden("id", Model.id)
-        <div class="box box-success">
-            <div class="box-header with-border">
-                <h3 class="box-title">选择角色</h3>
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h3 class="panel-title">选择角色</h3>
             </div>
-            <div class="box-body">
+            <div class="panel-body">
 
                 @if (roles != null)
                 {
@@ -51,7 +51,7 @@
             var index = layer.load(2);
             $(this).ajaxSubmit(function (res) {
                 layer.close(index);
-                layer.msg(res.Message, { icon: res.Code === 0 ? 1 : 2 });
+                layer.msg(res.Message, { icon: res.Success ? 1 : 2 });
             });
         });
     });

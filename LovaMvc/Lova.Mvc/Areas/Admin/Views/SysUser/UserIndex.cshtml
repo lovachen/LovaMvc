@@ -84,8 +84,8 @@
                     'render': function (data, type, row) {
                         if (row.SysRoles != null && Array.isArray(row.SysRoles) && row.SysRoles.length>0) {
                             return row.SysRoles.map(item => {
-                                return '<span class="label label-lg label-primary">' + item.Name +'</span>';
-                            }).join(' ');
+                                return '<b class="green">' + item.name +'</b>';
+                            }).join('，');
                         }
                         return '';
                     }

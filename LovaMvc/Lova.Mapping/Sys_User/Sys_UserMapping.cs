@@ -9,7 +9,7 @@ namespace Lova.Mapping
     [Serializable]
     public class Sys_UserMapping
     {
-        [Required]
+        [Required(ErrorMessage ="账号必填")]
         [Column(TypeName = "varchar(45)")]
         public string account { get; set; }
         [Column(TypeName = "datetime")]
@@ -27,13 +27,11 @@ namespace Lova.Mapping
         public DateTime? last_activity_time { get; set; }
         [Column(TypeName = "varchar(45)")]
         public string last_ipaddr { get; set; }
-        [Required]
+        [Required(ErrorMessage ="请输入真实姓名")]
         [Column(TypeName = "varchar(45)")]
         public string name { get; set; }
-        [Required]
         [Column(TypeName = "varchar(512)")]
         public string password { get; set; }
-        [Required]
         [Column(TypeName = "varchar(256)")]
         public string salt { get; set; }
 

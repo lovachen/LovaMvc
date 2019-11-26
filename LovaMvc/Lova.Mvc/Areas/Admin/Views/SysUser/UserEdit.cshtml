@@ -2,10 +2,10 @@
 @{
     Layout = null;
     var roles = ViewBag.Roles as List<Sys_RoleMapping>;
-
 }
+<div class="space-10"></div>
 <div class="col-sm-12">
-    <div class="box-body">
+    <div class="panel-body">
         <form class="form-horizontal" asp-route="userEdit" method="post" id="formEdit" onsubmit="return false;">
             <input type="hidden" name="Id" asp-for="id" />
             <div class="box-body">
@@ -14,6 +14,7 @@
                     <div class="col-sm-4">
                         <input type="text" class="form-control" asp-for="account" placeholder="">
                         <span asp-validation-for="account" class="text-danger"></span>
+                        <div class="help-block">默认密码与帐号一致</div>
                     </div>
                 </div>
                 <div class="form-group">
@@ -32,11 +33,11 @@
                     </div>
                 </div>*@
 
-                <div class="box box-success">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">选择角色</h3>
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">选择角色</h3>
                     </div>
-                    <div class="box-body">
+                    <div class="panel-body">
 
                         @if (roles != null)
                         {
