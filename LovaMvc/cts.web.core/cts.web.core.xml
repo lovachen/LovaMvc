@@ -1011,18 +1011,6 @@
             <param name="areaID">行政区域编码</param>
             <returns></returns>
         </member>
-        <member name="T:cts.web.core.Librs.CRC32">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:cts.web.core.Librs.CRC32.GetCRC32(System.Byte[])">
-            <summary>
-            
-            </summary>
-            <param name="bytes"></param>
-            <returns></returns>
-        </member>
         <member name="T:cts.web.core.Librs.DataHelper">
             <summary>
             数据帮助类

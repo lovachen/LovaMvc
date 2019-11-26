@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
+using Force.Crc32;
 
 namespace Lova.Mvc.Areas.Oss.Controllers
 {
@@ -116,18 +117,17 @@ namespace Lova.Mvc.Areas.Oss.Controllers
                 return Ok(ApiData);
             }
 
-            ImageInfoModel info = new ImageInfoModel();
-            info.Bucket = bucket.name.ToLower();
-            info.Dir = CombGuid.NewGuidAsString().ToLower().Replace("-", "");
-            info.Date = DateTime.Now.ToString("yyyy-MM-dd");
+            uint crc32 = Crc32Algorithm.Compute(EncryptorHelper.GetMD5Byte(Guid.NewGuid().ToString())); 
+            var dir = Math.Abs(crc32) % 256 ;//256个子目录
+            string f_dir = Math.Abs(crc32).ToString();
 
-            string path = System.IO.Path.Combine(MediaItemConfig.RootDir, info.Bucket, info.Date, info.Dir);
+
+            string path = System.IO.Path.Combine(MediaItemConfig.RootDir, bucket.name, dir.ToString(), f_dir);
             //保存文件并且获取文件的相对存储路径
             var image = file.CreateImagePathFromStream(_mediaItemStorage, path);
-            info.Name = image.NewFileName;
-            info.ExtName = image.ExtName?.ToLower();
-            string json = JsonSerializer.Serialize(info);
-            string visiturl = $"/oss/imagecn/{EncryptorHelper.EncodeBase64(json)}{info.ExtName}";
+
+
+            string visiturl = $"/oss/imagecn/{bucket.name}/{dir}/{f_dir}/{image.NewFileName}";
             _bucketImageService.AddImage(new Entities.bucket_image()
             {
                 id = CombGuid.NewGuidAsString(),

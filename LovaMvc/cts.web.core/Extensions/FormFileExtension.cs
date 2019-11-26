@@ -120,7 +120,7 @@ namespace Microsoft.AspNetCore.Http
                     stream.CopyTo(memoryStream);
 
                     string obj = suffix ? (CombGuid.NewGuidAsString() + Path.GetExtension(formFile.FileName)) : CombGuid.NewGuidAsString();
-                    string fileName = imageInfo.NewFileName = obj;
+                    string fileName = imageInfo.NewFileName = obj.ToLower();
                     imageInfo.IOPath = imageStorage.Storage(memoryStream, virtualPath, fileName);
                     using (Image image = Image.FromStream(memoryStream))
                     {

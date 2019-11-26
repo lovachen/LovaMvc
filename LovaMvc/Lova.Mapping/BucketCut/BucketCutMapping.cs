@@ -25,5 +25,14 @@ namespace Lova.Mapping
         [Required]
         [Column(TypeName = "varchar(145)")]
         public string value { get; set; }
+
+        #region
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string bucket_name { get; set; }
+
+        #endregion
     }
 }

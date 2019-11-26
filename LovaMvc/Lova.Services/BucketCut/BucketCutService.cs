@@ -47,12 +47,13 @@ namespace Lova.Services
         {
             return _cacheManager.Get<List<BucketCutMapping>>(MODEL_KEY, 3600, () =>
             {
-                return _dbContext.bucket_cut
+                return _dbContext.bucket_cut.Join(_dbContext.bucket, a => a.bucket_id, b => b.id, (a, b) => new { Cut = a, Bucket = b })
                 .Select(item => new BucketCutMapping()
                 {
-                    id = item.id,
-                    bucket_id = item.bucket_id,
-                    value = item.value
+                    id = item.Cut.id,
+                    bucket_id = item.Cut.bucket_id,
+                    value = item.Cut.value,
+                    bucket_name = item.Bucket.name
                 }).ToList();
             });
         }
@@ -93,7 +94,8 @@ namespace Lova.Services
         public bool ValueExists(string bucket, string value)
         {
             var list = AllBucketCuts();
-            return list != null && list.Any(o => o.value.Equals(value, StringComparison.InvariantCultureIgnoreCase));
+            return list != null && list.Any(o => o.bucket_name.Equals(bucket, StringComparison.InvariantCultureIgnoreCase)
+                && o.value.Equals(value, StringComparison.InvariantCultureIgnoreCase));
         }
     }
 }
