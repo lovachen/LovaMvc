@@ -1,5 +1,6 @@
 ﻿.field-validation-error {
     margin-top: 8px;
+    color: #a94442;
 }
 td {
     vertical-align: middle !important;

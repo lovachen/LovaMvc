@@ -1,0 +1,209 @@
+﻿@model ProfileModel
+@{
+    ViewBag.Title = "个人中心";
+}
+
+<div class="page-content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="clearfix">
+                <div class="pull-right">
+                    <span class="green middle bolder">切换: &nbsp;</span>
+                    <div class="btn-toolbar inline middle no-margin">
+                        <div data-toggle="buttons" class="btn-group no-margin">
+                            <label class="btn btn-sm btn-yellow active">
+                                <span class="bigger-110">1</span>
+                                <input type="radio" value="1">
+                            </label>
+                            <label class="btn btn-sm btn-yellow">
+                                <span class="bigger-110">2</span>
+                                <input type="radio" value="2">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hr dotted"></div>
+
+            <div class="">
+                <div id="user-profile-1" class="user-profile row">
+                    <div class="col-xs-12 col-sm-3 center">
+                        <div>
+                            <!-- #section:pages/profile.picture -->
+                            <span class="profile-picture">
+                                <img id="avatar" class="editable img-responsive editable-click editable-empty" alt="Alex's Avatar" onerror="this.src = '/ace/avatars/profile-pic.jpg'" src="/ace/avatars/profile-pic.jpg" />
+                            </span>
+                            <!-- /section:pages/profile.picture -->
+                            <div class="space-4"></div>
+                            <p>小于100k的jpg,png照片</p>
+                        </div>
+                        <!-- /section:pages/profile.contact -->
+                        <div class="hr hr12 dotted"></div>
+                        <!-- #section:custom/extra.grid -->
+                        @*<div class="clearfix">
+                                <div class="grid2">
+                                    <span class="bigger-175 blue">25</span>
+
+                                    <br>
+                                    Followers
+                                </div>
+
+                                <div class="grid2">
+                                    <span class="bigger-175 blue">12</span>
+
+                                    <br>
+                                    Following
+                                </div>
+                            </div>*@
+
+                        <!-- /section:custom/extra.grid --> 
+                    </div>
+
+                    <div class="col-xs-12 col-sm-9">
+
+
+                        <!-- #section:pages/profile.info -->
+                        <div class="profile-user-info profile-user-info-striped">
+                            <div class="profile-info-row">
+                                <div class="profile-info-name"> 账号 </div>
+                                <div class="profile-info-value">
+                                    <span class="editable editable-click" id="username">@Model.User.account</span>
+                                </div>
+                            </div>
+
+                            @*<div class="profile-info-row">
+                                    <div class="profile-info-name"> 姓名 </div>
+
+                                    <div class="profile-info-value">
+                                        <span class="editable editable-click" id="country">@Model.User.Name</span>
+                                    </div>
+                                </div>
+
+                                <div class="profile-info-row">
+                                    <div class="profile-info-name"> 手机号码 </div>
+
+                                    <div class="profile-info-value">
+                                        <span class="editable editable-click" id="age">@Model.User.MobilePhone</span>
+                                    </div>
+                                </div>
+
+                                <div class="profile-info-row">
+                                    <div class="profile-info-name"> 性别 </div>
+
+                                    <div class="profile-info-value">
+                                        <span class="editable editable-click" id="signup">@Model.User.Sex</span>
+                                    </div>
+                                </div>*@
+
+                            <div class="profile-info-row">
+                                <div class="profile-info-name"> 活动时间 </div>
+
+                                <div class="profile-info-value">
+                                    <span class="editable editable-click" id="login">@(Model.User.last_activity_time_foramt)</span>
+                                </div>
+                            </div>
+
+                            <div class="profile-info-row">
+                                <div class="profile-info-name"> IP地址 </div>
+
+                                <div class="profile-info-value">
+                                    <span class="editable editable-click" id="about">@Model.User.last_ipaddr</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- /section:pages/profile.info -->
+                        <div class="space-20"></div>
+
+                        <div class="widget-box transparent">
+                            <div class="widget-header widget-header-small">
+                                <h4 class="widget-title blue smaller">
+                                    <i class="ace-icon fa fa-rss orange"></i>
+                                    登录记录
+                                </h4>
+                            </div>
+
+                            <div class="widget-body">
+                                <div class="widget-main padding-8">
+                                    <!-- #section:pages/profile.feed -->
+                                    <div id="profile-feed-1" class="profile-feed" style="position: relative;">
+                                        <div class="scroll-track">
+                                            <div class="scroll-bar" style="height: 63px; top: 17px;"></div>
+                                        </div>
+                                        <div class="scroll-content">
+                                            @foreach (var item in Model.LoginLogList)
+                                            {
+                                                <div class="profile-activity clearfix">
+                                                    <div class="time">
+                                                        <i class="ace-icon fa fa-clock-o bigger-110"></i>
+                                                        @item.login_time_foramt &nbsp;<span class="text-success"> @item.comment</span>
+                                                    </div>
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="hide">
+                <div id="user-profile-2" class="user-profile row">
+                    <div class="col-sm-offset-1 col-sm-10">
+
+                        <div class="tabbable">
+                            <ul class="nav nav-tabs padding-16">
+                                <li class="active">
+                                    <a data-toggle="tab" href="#edit-basic">
+                                        <i class="green ace-icon fa fa-pencil-square-o bigger-125"></i>
+                                        修改资料
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a data-toggle="tab" href="#edit-password">
+                                        <i class="blue ace-icon fa fa-key bigger-125"></i>
+                                        修改密码
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content profile-edit-tab-content">
+                                <div id="edit-basic" class="tab-pane active">
+                                    <partial name="EditInfo" model="Model.User" />
+                                </div>
+
+                                <div id="edit-password" class="tab-pane">
+                                    <partial name="ChangPwd" model="Model.ChangePassword" />
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!-- /.span -->
+                </div><!-- /.user-profile -->
+            </div>
+
+            <!-- PAGE CONTENT ENDS -->
+        </div><!-- /.col -->
+    </div>
+
+</div>
+<script src="~/js/jquery.md5.js"></script>
+<script type="text/javascript">
+    var UPLOAD_URL = '@Url.RouteUrl("avatarUpload")'
+    $(function () {
+        $('[data-toggle="buttons"] .btn').on('click', function (e) {
+            var target = $(this).find('input[type=radio]');
+            var which = parseInt(target.val());
+            $('.user-profile').parent().addClass('hide');
+            $('#user-profile-' + which).parent().removeClass('hide');
+        });
+
+
+    });
+</script> 

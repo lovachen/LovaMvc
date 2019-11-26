@@ -1,0 +1,62 @@
+﻿@model ChangePasswordModel
+
+<form asp-route="changPassword" method="post" class="form-horizontal" id="formChangPwd" onsubmit="return false">
+
+    <input type="hidden" asp-for="OldPassword" />
+    <input type="hidden" asp-for="Salt" />
+
+    <div class="space-10"></div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label no-padding-right" for="form-field-pass1">新密码</label>
+        <div class="col-sm-9">
+            <input type="password" asp-for="Password" class="form-control" placeholder="新密码" />
+            <span asp-validation-for="Password"></span>
+
+        </div>
+    </div>
+    <div class="space-4"></div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label no-padding-right" for="form-field-pass2">确认密码</label>
+        <div class="col-sm-9">
+            <input type="password" asp-for="ConfirmPassword" class="form-control" placeholder="新密码" />
+            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-2">
+            <button class="btn btn-success btn-sm btn-block" type="submit">
+                <i class="fa fa-save"></i>
+                保存
+            </button>
+        </div>
+    </div>
+</form>
+
+
+
+<script>
+    $(function () {
+
+    $('#formChangPwd').submit(function () {
+        if ($(this).valid()) {
+            var oldpwd = $('#OldPassword').val();
+            var password = $.md5($('#Password').val() + $('#Salt').val());
+            $.ajax({
+                url: $(this).attr('action'),
+                type: 'post',
+                datatype: 'json',
+                data: { OldPassword: oldpwd, Password: password, ConfirmPassword: password, __RequestVerificationToken: $('[name="__RequestVerificationToken"]').val() },
+                success: function (data) {
+                    layer.msg(data.Message, { icon: data.Success ? 1 : 2 });
+                }
+            });
+        }
+    });
+    })
+
+</script>
+
+
+
+
+

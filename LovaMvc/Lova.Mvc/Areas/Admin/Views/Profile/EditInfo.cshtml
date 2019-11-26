@@ -1,0 +1,79 @@
+﻿@model Sys_UserMapping
+
+
+    <form asp-route="changeInfo" method="post" class="form-horizontal" id="formChangeInfo" onsubmit="return false">
+        @Html.AntiForgeryToken()
+        <input type="hidden" asp-for="account" />
+        <h4 class="header blue bolder smaller">基本资料</h4>
+        <div class="form-group">
+            <label class="col-sm-3 control-label no-padding-right" for="form-field-username"><span class="text-danger">*</span>姓名</label>
+            <div class="col-sm-4">
+                <input type="text" asp-for="name" class="form-control" placeholder="用户姓名" />
+                <span asp-validation-for="name"></span>
+            </div>
+        </div>
+        @*<div class="space-4"></div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label no-padding-right">性别</label>
+            <div class="col-sm-9">
+                <label class="inline">
+                    @Html.RadioButtonFor(m => m.User.Sex, "男", new { id = "sex1", Name = "Sex", @class = "ace" })
+                    <span class="lbl middle"> 男</span>
+                </label>
+                &nbsp; &nbsp; &nbsp;
+                <label class="inline">
+                    @Html.RadioButtonFor(m => m.User.Sex, "女", new { id = "sex2", Name = "Sex", @class = "ace" })
+                    <span class="lbl middle"> 女</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="space"></div>
+        <h4 class="header blue bolder smaller">联系方式</h4>
+        <div class="form-group">
+            <label class="col-sm-3 control-label no-padding-right" for="form-field-email">邮箱地址</label>
+            <div class="col-sm-9">
+                <span class="input-icon input-icon-right">
+                    @Html.TextBoxFor(m => m.User.Email, new { Id = "Email", Name = "Email" })
+                    <i class="ace-icon fa fa-envelope"></i>
+                </span>
+                @Html.ValidationMessage("Email")
+            </div>
+        </div>
+        <div class="space-4"></div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label no-padding-right" for="form-field-phone">手机号码</label>
+            <div class="col-sm-9">
+                <span class="input-icon input-icon-right">
+                    @Html.TextBoxFor(m => m.User.MobilePhone, new { Id = "MobilePhone", Name = "MobilePhone" })
+                    <i class="ace-icon fa fa-phone fa-flip-horizontal"></i>
+                </span>
+                @Html.ValidationMessage("MobilePhone")
+            </div>
+        </div>*@
+        <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-2">
+                <button class="btn btn-success btn-sm btn-block" type="submit">
+                    <i class="fa fa-save"></i>
+                    保存
+                </button> 
+            </div>
+        </div>
+    </form>
+
+
+
+<script>
+    $('#formChangeInfo').submit(function () {
+            if($(this).valid()){
+                $(this).ajaxSubmit(function (data) {
+                    layer.msg(data.Message, { icon: data.Success ? 1 : 2 });
+                });
+            }
+        });
+</script>
+
+
+
+
+
