@@ -81,7 +81,8 @@ namespace Lova.Mvc.Areas.Oss.Controllers
 
             if (!String.IsNullOrEmpty(query))
             {
-                if (!_bucketCutService.ValueExists(bucket, query))
+                query = query.ToLower();
+                if (!_bucketCutService.ValueExists(bucket, query.Replace(",l_logo","")))
                 {
                     return NotFile();
                 }

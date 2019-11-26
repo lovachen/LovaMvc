@@ -117,7 +117,7 @@ namespace Lova.Services
             {
                 using (var trans = _dbContext.Database.BeginTransaction())
                 {
-                    _dbContext.Database.ExecuteSqlRaw($"DELETE FROM [Sys_UserRole] WHERE [user_id]='{userId}'");
+                    _dbContext.Database.ExecuteSqlRaw($"DELETE FROM [Sys_UserRole] WHERE id!='' AND [user_id]='{userId}'");
                     if (roleIds != null && roleIds.Any())
                         roleIds.ForEach(roleId =>
                         {
@@ -231,8 +231,8 @@ namespace Lova.Services
                     if (item == null) return Fail("角色不存在");
                     string oldLog = JsonSerializer.Serialize(item);
 
-                    _dbContext.Database.ExecuteSqlRaw($"DELETE FROM sys_permission WHERE role_id='{item.id}'");
-                    _dbContext.Database.ExecuteSqlRaw($"DELETE FROM sys_user_role WHERE role_id='{item.id}'");
+                    _dbContext.Database.ExecuteSqlRaw($"DELETE FROM sys_permission WHERE id!='' AND role_id='{item.id}'");
+                    _dbContext.Database.ExecuteSqlRaw($"DELETE FROM sys_user_role WHERE id!='' AND role_id='{item.id}'");
 
                     _dbContext.sys_role.Remove(item);
                     _dbContext.SaveChanges();
@@ -282,7 +282,7 @@ namespace Lova.Services
                 }
                 using (var trans = _dbContext.Database.BeginTransaction())
                 {
-                    _dbContext.Database.ExecuteSqlRaw($"DELETE FROM sys_permission WHERE role_id='{roleId}'");
+                    _dbContext.Database.ExecuteSqlRaw($"DELETE FROM sys_permission WHERE id!='' AND role_id='{roleId}'");
                     categoryIds.ForEach(id =>
                     {
                         _dbContext.sys_permission.Add(new sys_permission()

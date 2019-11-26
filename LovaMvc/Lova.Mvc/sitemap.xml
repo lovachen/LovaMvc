@@ -45,6 +45,8 @@
 
     <siteMapNode Name="系统参数设置" UID="SYSMGR.SETTING" IsMenu="1" Action="SettingIndex" Controller="Setting" RouteName="settingIndex" IconClass="menu-icon fa fa-caret-right" Target="0">
       <siteMapNode Name="修改系统参数" UID="SYSMGR.SETTING.EDIT" Action="SettingEdit" Controller="Setting" RouteName="settingEdit" Target="0"></siteMapNode>
+      <siteMapNode Name="保存水印" UID="SYSMGR.SETTING.MARK" Action="SaveMark" Controller="Setting" RouteName="saveMark" Target="0"></siteMapNode>
+      <siteMapNode Name="保存底图" UID="SYSMGR.SETTING.BASEMAB" Action="SaveBaseMap" Controller="Setting" RouteName="saveBaseMap" Target="0"></siteMapNode>
     </siteMapNode>
     <siteMapNode Name="错误日志" UID="SYSMGR.NLOG" IsMenu="1" Action="NLogIndex" Controller="NLog" RouteName="nLogIndex" IconClass="menu-icon fa fa-caret-right" Target="0">
       <siteMapNode Name="查看详情" UID="SYSMGR.NLOG.DTL" Action="NLogDetails" Controller="NLog" RouteName="nLogDetails" Target="0"></siteMapNode>

@@ -75,6 +75,69 @@
                         <a href="#" class="editable editable-click" data-url="@Url.RouteUrl("settingEdit")" data-title="" data-type="text" data-pk="OSSAccessKeySecret">@Model.OSSAccessKeySecret</a>
                         <small>(点击修改)</small>
                     </dd>
+                    <dt>水印</dt>
+                    <dd>
+                        <div class="space-2"></div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        图片水印
+                                    </div>
+                                    <div class="panel-body">
+                                        <form asp-route="saveMark" id="formMark" method="post" class="form-horizontal" enctype="multipart/form-data" onsubmit="return false;">
+                                            <div class="form-group">
+                                                <div class="col-10" style="height:100px;">
+                                                    <img src="~/mark_logo.png" alt=""  />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-10">
+                                                    <input type="file" name="file" data-val="true" data-val-required="请选择图片文件" class="form-control" value="" />
+                                                    <div class="help-block">水印文件最好png透明背景，白色图案，最好不大于20kb</div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="">
+                                                    <button class="btn btn-sm btn-success"><i class="fa fa-save"></i>保存</button>
+                                                </div>
+                                            </div>
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        图片默认底图
+                                    </div>
+                                    <div class="panel-body">
+                                        <form asp-route="saveBaseMap" id="form404" method="post" class="form-horizontal" enctype="multipart/form-data" onsubmit="return false;">
+                                            <div class="form-group"> 
+                                                <div class="col-10" style="height:100px;">
+                                                    <img src="~/img_404_orrer.png" alt="" height="100" />
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group"> 
+                                                <div class="col-sm-10">
+                                                    <input type="file" name="file" data-val="true" data-val-required="请选择图片文件" class="form-control" value="" />
+                                                    <div class="help-block">底图尽可能小，灰色背景</div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="">
+                                                    <button class="btn btn-sm btn-info"><i class="fa fa-save"></i>保存</button>
+                                                </div>
+                                            </div>
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </dd>
                 </dl>
 
             </div>
@@ -118,7 +181,7 @@
                 var load = layer.load(2);
                 $(this).ajaxSubmit(function (res) {
                     layer.close(load);
-                    layer.msg(res.Message, { icon: res.Code === 0 ? 1 : 2 });
+                    layer.msg(res.Message, { icon: res.Success ? 1 : 2 });
                 });
             }
         });
