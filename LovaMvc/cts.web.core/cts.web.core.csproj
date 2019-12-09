@@ -1,10 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <PackageProjectUrl>https://github.com/lovachen/cts.web.core</PackageProjectUrl>
     <Description>asp.net core 项目的类库，提取出来方便使用，持续更新
-升级asp.net core 3.0</Description>
+升级asp.net core 3.1</Description>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <Version>2.0.1</Version>
     <Authors>cts</Authors>
@@ -22,7 +22,7 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="9.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.0.0" /> 
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.0" /> 
     <PackageReference Include="NLog.Web.AspNetCore" Version="4.9.0" />
     <PackageReference Include="NPinyin.Core" Version="3.0.0" />
     <PackageReference Include="PinYinConverterCore" Version="1.0.2" />
