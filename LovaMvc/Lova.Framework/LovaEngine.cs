@@ -48,6 +48,7 @@ namespace Lova.Framework
         public override void Initialize(IServiceCollection services)
         {
             services.AddControllersWithViews()
+                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
                 .AddJsonOptions(opts => opts.JsonSerializerOptions.PropertyNamingPolicy = null)
                 .AddRazorRuntimeCompilation(); //页面动态编译，发布时应该移除
              
